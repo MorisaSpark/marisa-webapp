@@ -3,7 +3,7 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getMe, updateUserPassword} from 'mattermost-redux/actions/users';
+import {getMe, updateUserPassword, sendSMSMe} from 'mattermost-redux/actions/users';
 import {getAuthorizedOAuthApps, deauthorizeOAuthApp} from 'mattermost-redux/actions/integrations';
 import * as UserUtils from 'mattermost-redux/utils/user_utils';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
@@ -51,6 +51,7 @@ function mapDispatchToProps(dispatch) {
             updateUserPassword,
             getAuthorizedOAuthApps,
             deauthorizeOAuthApp,
+            sendSMSMe,
         }, dispatch),
     };
 }

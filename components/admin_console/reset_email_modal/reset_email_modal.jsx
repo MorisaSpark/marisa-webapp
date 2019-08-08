@@ -39,8 +39,8 @@ export default class ResetEmailModal extends React.Component {
             if (!isEmail(email)) {
                 const errMsg = (
                     <FormattedMessage
-                        id='user.settings.general.validEmail'
-                        defaultMessage='Please enter a valid email address.'
+                        id='user.settings.general.validPhone'
+                        defaultMessage='Please enter a valid phone number.'
                     />
                 );
                 this.setState({error: errMsg});

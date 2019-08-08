@@ -1307,6 +1307,14 @@ export const Constants = {
     CHANNEL_ID_LENGTH: 26,
     TRANSPARENT_PIXEL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
     TRIPLE_BACK_TICKS: /```/g,
+    VERIFICATION_CODE_TYPE:{
+        IDENTITY_VALIDATION: 'identity_validation',
+        SIGN_IN: 'sign_in',
+        SIGN_EXCEPTION: 'sign_exception',
+        SIGN_UP: 'sign_up',
+        PASSWORD_CHANGE: 'password_change',
+        MESSAGE_CHANGE: 'message_change'
+    }
 };
 
 export const AcceptedProfileImageTypes = ['image/jpeg', 'image/png', 'image/bmp'];

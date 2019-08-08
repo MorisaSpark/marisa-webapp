@@ -210,10 +210,10 @@ class LoginController extends React.Component {
         loginId = loginId.trim().toLowerCase();
 
         if (!loginId) {
-            t('login.noEmail');
-            t('login.noEmailLdapUsername');
-            t('login.noEmailUsername');
-            t('login.noEmailUsernameLdapUsername');
+            t('login.noPhone');
+            t('login.noPhoneLdapUsername');
+            t('login.noPhoneUsername');
+            t('login.noPhoneUsernameLdapUsername');
             t('login.noLdapUsername');
             t('login.noUsername');
             t('login.noUsernameLdapUsername');
@@ -385,7 +385,7 @@ class LoginController extends React.Component {
 
         const loginPlaceholders = [];
         if (emailSigninEnabled) {
-            loginPlaceholders.push(Utils.localizeMessage('login.email', 'Email'));
+            loginPlaceholders.push(Utils.localizeMessage('login.phone', 'Phone'));
         }
 
         if (usernameSigninEnabled) {

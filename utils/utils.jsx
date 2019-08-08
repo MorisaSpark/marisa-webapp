@@ -1173,6 +1173,17 @@ export function isMobile() {
     return window.innerWidth <= Constants.MOBILE_SCREEN_WIDTH;
 }
 
+// 验证输入手机号格式
+export function isPhone(phone) {
+    return /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(phone);
+}
+
+// 验证输入验证码格式
+export function isVerificationCode(verificationCode) {
+    return /^\d{6}$/.test(verificationCode);
+}
+
+
 export function getUserById(userId) {
     const state = store.getState();
     return getUser(state, userId);

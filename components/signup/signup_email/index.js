@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {createUser} from 'mattermost-redux/actions/users';
+import {sendSMS, createUser} from 'mattermost-redux/actions/users';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {getTeamInviteInfo} from 'mattermost-redux/actions/teams';
 
@@ -40,6 +40,7 @@ function mapDispatchToProps(dispatch) {
             loginById,
             setGlobalItem,
             getTeamInviteInfo,
+            sendSMS,
         }, dispatch),
     };
 }

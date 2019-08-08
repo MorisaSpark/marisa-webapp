@@ -90,6 +90,7 @@ export default class SecurityTab extends React.PureComponent {
             newPassword: '',
             confirmPassword: '',
             passwordError: '',
+            verificationCode: '',
             serverError: '',
             tokenError: '',
             authService: this.props.user.auth_service,
@@ -171,6 +172,20 @@ export default class SecurityTab extends React.PureComponent {
 
     updateConfirmPassword = (e) => {
         this.setState({confirmPassword: e.target.value});
+    }
+    updateVerificationCode = (e) => {
+        this.setState({verificationCode: e.target.value});
+    }
+
+    submitSendSMS = () => {
+        const typeM = Constants.VERIFICATION_CODE_TYPE.PASSWORD_CHANGE;
+        this.props.actions.sendSMSMe(typeM).
+            then(({data, error: err}) => {
+                if (data["flag"]==="true") {
+                } else if (err) {
+
+                }
+            });
     }
 
     deauthorizeApp = async (e) => {
@@ -293,6 +308,39 @@ export default class SecurityTab extends React.PureComponent {
                                 value={this.state.confirmPassword}
                                 aria-label={Utils.localizeMessage('user.settings.security.retypePassword', 'Retype New Password')}
                             />
+                        </div>
+                    </div>
+                );
+                inputs.push(
+                    <div
+                        key='verificationCodeUpdateForm'
+                        className='form-group'
+                    >
+                        <label className='col-sm-5 control-label'>
+                            <FormattedMessage
+                                id='user.settings.general.verificationCode'
+                                defaultMessage='verification code'
+                            />
+                        </label>
+                        <div className='col-sm-4'>
+                            <input
+                                id='verificationCode'
+                                className='form-control'
+                                type='text'
+                                onChange={this.updateVerificationCode}
+                                value={this.state.verificationCode}
+                                aria-label={Utils.localizeMessage('user.settings.general.verificationCode', 'verification code')}
+                            />
+                        </div>
+                        <div className='col-sm-3'>
+                            <button
+                                id='getVerificationCode'
+                                type='button'
+                                data-dismiss='modal'
+                                onClick={this.submitSendSMS}
+                            >
+                                {Utils.localizeMessage('user.settings.general.verificationCode', 'verification code')}
+                            </button>
                         </div>
                     </div>
                 );

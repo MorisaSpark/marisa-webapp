@@ -4,6 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import * as Utils from 'utils/utils.jsx';
 
 import {isEmail} from 'mattermost-redux/utils/helpers';
 
@@ -31,12 +32,12 @@ export default class PasswordResetSendLink extends React.PureComponent {
 
         const input = this.emailInput.current && this.emailInput.current.input.current;
         const email = input && input.value.trim().toLowerCase();
-        if (!email || !isEmail(email)) {
+        if (!email || !Utils.isPhone(email)) {
             this.setState({
                 error: (
                     <FormattedMessage
                         id={'password_send.error'}
-                        defaultMessage={'Please enter a valid email address.'}
+                        defaultMessage={'Please enter a valid phone number.'}
                     />
                 ),
             });
@@ -115,16 +116,16 @@ export default class PasswordResetSendLink extends React.PureComponent {
                             <p>
                                 <FormattedMessage
                                     id='password_send.description'
-                                    defaultMessage='To reset your password, enter the email address you used to sign up'
+                                    defaultMessage='To reset your password, enter the phone number you used to sign up'
                                 />
                             </p>
                             <div className={formClass}>
                                 <LocalizedInput
                                     id='passwordResetEmailInput'
-                                    type='email'
+                                    type='tel'
                                     className='form-control'
                                     name='email'
-                                    placeholder={{id: t('password_send.email'), defaultMessage: 'Email'}}
+                                    placeholder={{id: t('password_send.phone'), defaultMessage: 'Phone'}}
                                     ref={this.emailInput}
                                     spellCheck='false'
                                     autoFocus={true}

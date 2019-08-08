@@ -36,6 +36,7 @@ export default class SignupEmail extends React.Component {
             loginById: PropTypes.func.isRequired,
             setGlobalItem: PropTypes.func.isRequired,
             getTeamInviteInfo: PropTypes.func.isRequired,
+            sendSMS: PropTypes.func.isRequired,
         }).isRequired,
     }
 
@@ -149,19 +150,45 @@ export default class SignupEmail extends React.Component {
                 emailError: (<FormattedMessage id='signup_user_completed.required'/>),
                 passwordError: '',
                 serverError: '',
+                codeError: '',
             });
             return false;
         }
 
-        if (!isEmail(providedEmail)) {
+        if (!Utils.isPhone(providedEmail)) {
             this.setState({
                 nameError: '',
-                emailError: (<FormattedMessage id='signup_user_completed.validEmail'/>),
+                emailError: (<FormattedMessage id='signup_user_completed.validPhone'/>),
                 passwordError: '',
                 serverError: '',
+                codeError: '',
             });
             return false;
         }
+
+        const code = this.refs.code.value.trim();
+        if (!code) {
+            this.setState({
+                nameError: '',
+                emailError: '',
+                passwordError: '',
+                serverError: '',
+                codeError: (<FormattedMessage id='user.verificationCode.check.codeNull'/>),
+            });
+            return false;
+        }
+
+        if (!Utils.isVerificationCode(code)) {
+            this.setState({
+                nameError: '',
+                emailError: '',
+                passwordError: '',
+                serverError: '',
+                codeError: (<FormattedMessage id='user.verificationCode.check.phoneInvalid'/>),
+            });
+            return false;
+        }
+
 
         const providedUsername = this.refs.name.value.trim().toLowerCase();
         if (!providedUsername) {
@@ -170,6 +197,7 @@ export default class SignupEmail extends React.Component {
                 emailError: '',
                 passwordError: '',
                 serverError: '',
+                codeError: '',
             });
             return false;
         }
@@ -181,6 +209,7 @@ export default class SignupEmail extends React.Component {
                 emailError: '',
                 passwordError: '',
                 serverError: '',
+                codeError: '',
             });
             return false;
         } else if (usernameError) {
@@ -197,6 +226,7 @@ export default class SignupEmail extends React.Component {
                 emailError: '',
                 passwordError: '',
                 serverError: '',
+                codeError:'',
             });
             return false;
         }
@@ -209,11 +239,45 @@ export default class SignupEmail extends React.Component {
                 emailError: '',
                 passwordError: error,
                 serverError: '',
+                codeError:"",
             });
             return false;
         }
 
         return true;
+    }
+
+    submitSendSMS = () => {
+        const phone = this.refs.email.value.trim();
+        const typeM = Constants.VERIFICATION_CODE_TYPE.SIGN_UP;
+        if (phone === ''||phone===undefined) {
+            this.setState({
+                nameError: '',
+                emailError: '',
+                passwordError: '',
+                serverError: '',
+                codeError: (<FormattedMessage id='user.verificationCode.check.phoneNull'/>),
+            });
+            return
+        }else if(!Utils.isPhone(phone)){
+            this.setState({
+                nameError: '',
+                emailError: '',
+                passwordError: '',
+                serverError: '',
+                codeError: (<FormattedMessage id='user.verificationCode.check.phoneInvalid'/>),
+            });
+            return
+        }
+
+        this.props.actions.sendSMS(phone, typeM).
+        then(({data, error: err}) => {
+            if (data["flag"]==="true") {
+
+            } else if (err) {
+
+            }
+        });
     }
 
     handleSubmit = (e) => {
@@ -231,13 +295,15 @@ export default class SignupEmail extends React.Component {
                 passwordError: '',
                 serverError: '',
                 isSubmitting: true,
+                codeError: '',
             });
 
             const user = {
                 email: this.refs.email.value.trim(),
                 username: this.refs.name.value.trim().toLowerCase(),
                 password: this.refs.password.value,
-                allow_marketing: true,
+                allow_marketing: true.toString(),
+                verificationCode: this.refs.code.value.trim(),
             };
 
             this.props.actions.createUser(user, this.state.token, this.state.inviteId).then((result) => {
@@ -256,14 +322,26 @@ export default class SignupEmail extends React.Component {
 
     renderEmailSignup = () => {
         let emailError = null;
+        let codeError = null;
         let emailHelpText = (
             <span
                 id='valid_email'
                 className='help-block'
             >
                 <FormattedMessage
-                    id='signup_user_completed.emailHelp'
-                    defaultMessage='Valid email required for sign-up'
+                    id='signup_user_completed.phoneHelp'
+                    defaultMessage='Valid phone required for sign-up'
+                />
+            </span>
+        );
+        let codeHelpText = (
+            <span
+                id='valid_code'
+                className='help-block'
+            >
+                <FormattedMessage
+                    id='signup_user_completed.validCodeHelp'
+                    defaultMessage='Valid code required for matching'
                 />
             </span>
         );
@@ -272,6 +350,12 @@ export default class SignupEmail extends React.Component {
             emailError = (<label className='control-label'>{this.state.emailError}</label>);
             emailHelpText = '';
             emailDivStyle += ' has-error';
+        }
+        let codeDivStyle = 'form-group';
+        if (this.state.codeError) {
+            codeError = (<label className='control-label'>{this.state.codeError}</label>);
+            codeHelpText = '';
+            codeDivStyle += ' has-error';
         }
 
         let nameError = null;
@@ -327,14 +411,14 @@ export default class SignupEmail extends React.Component {
                             <strong>
                                 <FormattedMessage
                                     id='signup_user_completed.whatis'
-                                    defaultMessage="What's your email address?"
+                                    defaultMessage="What's your phone number?"
                                 />
                             </strong>
                         </h5>
                         <div className={emailDivStyle}>
                             <input
                                 id='email'
-                                type='email'
+                                type='tel'
                                 ref='email'
                                 className='form-control'
                                 defaultValue={this.state.email}
@@ -349,6 +433,44 @@ export default class SignupEmail extends React.Component {
                         </div>
                     </div>
                     {yourEmailIs}
+                    <div>
+                        <h5>
+                            <strong>
+                                <FormattedMessage
+                                    id='signup_user_completed.validCode'
+                                    defaultMessage="Please enter the phone verification number"
+                                />
+                            </strong>
+                        </h5>
+                        <div className={codeDivStyle}>
+                            <input
+                                id='code'
+                                type='tel'
+                                ref='code'
+                                defaultValue={this.state.code}
+                                placeholder=''
+                                maxLength='88'
+                                autoFocus={true}
+                                spellCheck='false'
+                                autoCapitalize='off'
+                            />
+
+                            <button
+                                id='getVerificationCode'
+                                type='button'
+                                data-dismiss='modal'
+                                className='btn-primary btn'
+                                onClick={this.submitSendSMS}
+                            >
+                                <FormattedMessage
+                                    id='user.settings.general.getVerificationCode'
+                                    defaultMessage='get verification code'
+                                />
+                            </button>
+                            {codeError}
+                            {codeHelpText}
+                        </div>
+                    </div>
                     <div className='margin--extra'>
                         <h5 id='name_label'>
                             <strong>

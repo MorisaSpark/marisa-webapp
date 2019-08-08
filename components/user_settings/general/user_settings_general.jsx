@@ -28,12 +28,16 @@ const holders = defineMessages({
         defaultMessage: "Username must begin with a letter, and contain between {min} to {max} lowercase characters made up of numbers, letters, and the symbols '.', '-', and '_'.",
     },
     validEmail: {
-        id: t('user.settings.general.validEmail'),
-        defaultMessage: 'Please enter a valid email address.',
+        id: t('user.settings.general.validPhone'),
+        defaultMessage: 'Please enter a valid phone number.',
+    },
+    validVerificationCode: {
+        id: t('user.settings.general.validVerificationCode'),
+        defaultMessage: 'Please enter a valid verification code.',
     },
     emailMatch: {
-        id: t('user.settings.general.emailMatch'),
-        defaultMessage: 'The new emails you entered do not match.',
+        id: t('user.settings.general.phoneMatch'),
+        defaultMessage: 'The new phones you entered do not match.',
     },
     incorrectPassword: {
         id: t('user.settings.general.incorrectPassword'),
@@ -112,6 +116,7 @@ class UserSettingsGeneralTab extends React.Component {
             sendVerificationEmail: PropTypes.func.isRequired,
             setDefaultProfileImage: PropTypes.func.isRequired,
             uploadProfileImage: PropTypes.func.isRequired,
+            sendSMS: PropTypes.func.isRequired
         }).isRequired,
         sendEmailNotifications: PropTypes.bool,
         requireEmailVerification: PropTypes.bool,
@@ -235,6 +240,7 @@ class UserSettingsGeneralTab extends React.Component {
         const user = Object.assign({}, this.props.user);
         const email = this.state.email.trim().toLowerCase();
         const confirmEmail = this.state.confirmEmail.trim().toLowerCase();
+        const verificationCode = this.state.verificationCode.trim().toLowerCase();
         const currentPassword = this.state.currentPassword;
 
         const {formatMessage} = this.props.intl;
@@ -244,8 +250,13 @@ class UserSettingsGeneralTab extends React.Component {
             return;
         }
 
-        if (email === '' || !isEmail(email)) {
+        if (email === '' || !Utils.isPhone(email)) {
             this.setState({emailError: formatMessage(holders.validEmail), clientError: '', serverError: ''});
+            return;
+        }
+
+        if (verificationCode === '' || !Utils.isVerificationCode(verificationCode)) {
+            this.setState({emailError: formatMessage(holders.validVerificationCode), clientError: '', serverError: ''});
             return;
         }
 
@@ -261,6 +272,7 @@ class UserSettingsGeneralTab extends React.Component {
 
         user.email = email;
         user.password = currentPassword;
+        user.verificationCode = verificationCode;
         trackEvent('settings', 'user_settings_update', {field: 'email'});
         this.submitUser(user, true);
     }
@@ -350,6 +362,27 @@ class UserSettingsGeneralTab extends React.Component {
             });
     }
 
+    submitSendSMS = () => {
+        const phone = this.state.email;
+        const typeM = Constants.VERIFICATION_CODE_TYPE.MESSAGE_CHANGE;
+        if (phone === '') {
+            console.log("new phone number can't be null");
+            return
+        }else if(phone === this.state.originalEmail){
+            console.log("It's not a new phone")
+        }else if(!Utils.isPhone(phone)){
+            console.log("It's not a valid phone");
+        }
+
+        this.props.actions.sendSMS(phone, typeM).
+            then(({data, error: err}) => {
+                if (data["flag"]==="true") {
+                } else if (err) {
+
+                }
+            });
+    }
+
     submitPosition = () => {
         const user = Object.assign({}, this.props.user);
         const position = this.state.position.trim();
@@ -394,6 +427,10 @@ class UserSettingsGeneralTab extends React.Component {
         this.setState({confirmEmail: e.target.value});
     }
 
+    updateVerificationCode = (e) => {
+        this.setState({verificationCode: e.target.value});
+    }
+
     updateCurrentPassword = (e) => {
         this.setState({currentPassword: e.target.value});
     }
@@ -427,11 +464,13 @@ class UserSettingsGeneralTab extends React.Component {
             originalEmail: user.email,
             email: '',
             confirmEmail: '',
+            verificationCode: '',
             currentPassword: '',
             pictureFile: null,
             loadingPicture: false,
             sectionIsSaving: false,
             showSpinner: false,
+            saving: false,
         };
     }
 
@@ -446,8 +485,8 @@ class UserSettingsGeneralTab extends React.Component {
 
             let helpText = (
                 <FormattedMessage
-                    id='user.settings.general.emailHelp1'
-                    defaultMessage='Email is used for sign-in, notifications, and password reset. Email requires verification if changed.'
+                    id='user.settings.general.phoneHelp1'
+                    defaultMessage='Phone is used for sign-in, notifications, and password reset. Phone requires verification if changed.'
                 />
             );
 
@@ -463,8 +502,8 @@ class UserSettingsGeneralTab extends React.Component {
             } else if (!emailVerificationEnabled) {
                 helpText = (
                     <FormattedMessage
-                        id='user.settings.general.emailHelp3'
-                        defaultMessage='Email is used for sign-in, notifications, and password reset.'
+                        id='user.settings.general.phoneHelp3'
+                        defaultMessage='Phone is used for sign-in, notifications, and password reset.'
                     />
                 );
             }
@@ -477,8 +516,8 @@ class UserSettingsGeneralTab extends React.Component {
                         <div className='form-group'>
                             <label className='col-sm-5 control-label'>
                                 <FormattedMessage
-                                    id='user.settings.general.currentEmail'
-                                    defaultMessage='Current Email'
+                                    id='user.settings.general.currentPhone'
+                                    defaultMessage='Current Phone'
                                 />
                             </label>
                             <div className='col-sm-7'>
@@ -493,8 +532,8 @@ class UserSettingsGeneralTab extends React.Component {
                         <div className='form-group'>
                             <label className='col-sm-5 control-label'>
                                 <FormattedMessage
-                                    id='user.settings.general.newEmail'
-                                    defaultMessage='New Email'
+                                    id='user.settings.general.newPhone'
+                                    defaultMessage='New Phone'
                                 />
                             </label>
                             <div className='col-sm-7'>
@@ -502,10 +541,10 @@ class UserSettingsGeneralTab extends React.Component {
                                     autoFocus={true}
                                     id='primaryEmail'
                                     className='form-control'
-                                    type='email'
+                                    type='tel'
                                     onChange={this.updateEmail}
                                     value={this.state.email}
-                                    aria-label={formatMessage({id: 'user.settings.general.newEmail', defaultMessage: 'New Email'})}
+                                    aria-label={formatMessage({id: 'user.settings.general.newPhone', defaultMessage: 'New Phone'})}
                                 />
                             </div>
                         </div>
@@ -517,19 +556,53 @@ class UserSettingsGeneralTab extends React.Component {
                         <div className='form-group'>
                             <label className='col-sm-5 control-label'>
                                 <FormattedMessage
-                                    id='user.settings.general.confirmEmail'
-                                    defaultMessage='Confirm Email'
+                                    id='user.settings.general.confirmPhone'
+                                    defaultMessage='Confirm Phone'
                                 />
                             </label>
                             <div className='col-sm-7'>
                                 <input
                                     id='confirmEmail'
                                     className='form-control'
-                                    type='email'
+                                    type='tel'
                                     onChange={this.updateConfirmEmail}
                                     value={this.state.confirmEmail}
-                                    aria-label={formatMessage({id: 'user.settings.general.confirmEmail', defaultMessage: 'Confirm Email'})}
+                                    aria-label={formatMessage({id: 'user.settings.general.confirmPhone', defaultMessage: 'Confirm Phone'})}
                                 />
+                            </div>
+                        </div>
+                    </div>
+                );
+
+                inputs.push(
+                    <div key='verificationCodeSetting'>
+                        <div className='form-group'>
+                            <label className='col-sm-5 control-label'>
+                                <FormattedMessage
+                                    id='user.settings.general.verificationCode'
+                                    defaultMessage='Verification Code'
+                                />
+                            </label>
+                            <div className='col-sm-4'>
+                                <input
+                                    id='verificationCode'
+                                    className='form-control'
+                                    type='text'
+                                    onChange={this.updateVerificationCode}
+                                    value={this.state.verificationCode}
+                                    aria-label={formatMessage({id: 'user.settings.general.verificationCode', defaultMessage: 'Verification Code'})}
+                                />
+                            </div>
+                            <div className='col-sm-3'>
+                                <button
+                                    id='getVerificationCode'
+                                    type='button'
+                                    data-dismiss='modal'
+                                    aria-label={formatMessage(holders.close)}
+                                    onClick={this.submitSendSMS}
+                                >
+                                        {formatMessage({id: 'user.settings.general.getVerificationCode', defaultMessage: 'get verification code'})}
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -655,8 +728,8 @@ class UserSettingsGeneralTab extends React.Component {
                 <SettingItemMax
                     title={
                         <FormattedMessage
-                            id='user.settings.general.email'
-                            defaultMessage='Email'
+                            id='user.settings.general.phone'
+                            defaultMessage='Phone'
                         />
                     }
                     inputs={inputs}
@@ -727,8 +800,8 @@ class UserSettingsGeneralTab extends React.Component {
                 <SettingItemMin
                     title={
                         <FormattedMessage
-                            id='user.settings.general.email'
-                            defaultMessage='Email'
+                            id='user.settings.general.phone'
+                            defaultMessage='Phone'
                         />
                     }
                     describe={describe}
