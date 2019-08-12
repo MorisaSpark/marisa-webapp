@@ -9,6 +9,7 @@ import {getTeamByName, getMyTeamMember} from 'mattermost-redux/selectors/entitie
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {RequestStatus} from 'mattermost-redux/constants';
 
+import {sendSMS} from 'mattermost-redux/actions/users';
 import {addUserToTeamFromInvite} from 'actions/team_actions';
 
 import {login} from 'actions/views/login';
@@ -80,6 +81,7 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators({
             login,
             addUserToTeamFromInvite,
+            sendSMS,
         }, dispatch),
     };
 }

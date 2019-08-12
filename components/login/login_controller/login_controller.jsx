@@ -61,6 +61,7 @@ class LoginController extends React.Component {
         actions: PropTypes.shape({
             login: PropTypes.func.isRequired,
             addUserToTeamFromInvite: PropTypes.func.isRequired,
+            sendSMS: PropTypes.func.isRequired,
         }).isRequired,
     }
 
@@ -79,6 +80,9 @@ class LoginController extends React.Component {
             samlEnabled: this.props.isLicensed && this.props.enableSaml,
             loginId,
             password: '',
+            signException: '',
+            signExceptionFlag: false,
+            signExceptionLoading: false,
             showMfa: false,
             loading: false,
             sessionExpired: false,
@@ -255,13 +259,25 @@ class LoginController extends React.Component {
             return;
         }
 
-        this.submit(loginId, password, '');
+        let verificationCode = this.state.signException;
+        if (!verificationCode && this.state.signExceptionFlag === true) {
+            this.setState({
+                serverError: (
+                    <FormattedMessage
+                        id='login.verificationCodeError'
+                        defaultMessage='Wrong verification code input. '
+                    />
+                ),
+            });
+        }
+
+        this.submit(loginId, password, '', verificationCode);
     }
 
-    submit = (loginId, password, token) => {
+    submit = (loginId, password, token, verificationCode) => {
         this.setState({serverError: null, loading: true});
 
-        this.props.actions.login(loginId, password, token).then(async ({error}) => {
+        this.props.actions.login(loginId, password, token, verificationCode).then(async ({error}) => {
             if (error) {
                 if (error.server_error_id === 'api.user.login.not_verified.app_error') {
                     browserHistory.push('/should_verify_email?&email=' + encodeURIComponent(loginId));
@@ -290,6 +306,18 @@ class LoginController extends React.Component {
                     });
                 } else if (!this.state.showMfa && error.server_error_id === 'mfa.validate_token.authenticate.app_error') {
                     this.setState({showMfa: true});
+                } else if (!this.state.showMfa && error.server_error_id === 'api.user.login.guest_accounts.disabled.error') {
+                    this.setState({
+                        showMfa: false,
+                        loading: false,
+                        signExceptionFlag: true,
+                        serverError: (
+                            <FormattedMessage
+                                id='login.signExceptionForCode'
+                                defaultMessage="Remote login needs to check the phone with message. "
+                            />
+                        ),
+                    });
                 } else {
                     this.setState({showMfa: false, serverError: error.message, loading: false});
                 }
@@ -346,6 +374,12 @@ class LoginController extends React.Component {
     handlePasswordChange = (e) => {
         this.setState({
             password: e.target.value,
+        });
+    }
+
+    handleSignExceptionChange = (e) => {
+        this.setState({
+            signException: e.target.value,
         });
     }
 
@@ -423,6 +457,29 @@ class LoginController extends React.Component {
     onDismissSessionExpired = () => {
         LocalStorageStore.setWasLoggedIn(false);
         this.setState({sessionExpired: false});
+    }
+
+    submitSendSMS = () => {
+        const phone = this.state.loginId;
+        const typeM = Constants.VERIFICATION_CODE_TYPE.SIGN_EXCEPTION;
+        if (!Utils.isPhone(phone)) {
+            this.setState({
+                showMfa: false,
+                loading: false,
+                serverError: (
+                    <FormattedMessage
+                        id='login.invalidPassword'
+                        defaultMessage='Only support phone message for getting verification code. '
+                    />
+                ),
+            });
+        }
+        this.props.actions.sendSMS(phone, typeM).then(({data, error: err}) => {
+            if (data["flag"] === "true") {
+            } else if (err) {
+
+            }
+        });
     }
 
     createExtraText = () => {
@@ -575,6 +632,37 @@ class LoginController extends React.Component {
                                 placeholder={{id: t('login.password'), defaultMessage: 'Password'}}
                                 spellCheck='false'
                             />
+                        </div>
+                        <div className={'form-group' + errorClass}
+                             style={{display: this.state.signExceptionFlag ? 'block' : 'none'}}>
+                            <LocalizedInput
+                                id='signException'
+                                type='text'
+                                className='form-control'
+                                ref='signException'
+                                name='signException'
+                                value={this.state.signException}
+                                onChange={this.handleSignExceptionChange}
+                                placeholder={{id: t('login.signException'), defaultMessage: 'Verification Code'}}
+                                spellCheck='false'
+                            />
+                            <button
+                                id='getCodeButton'
+                                className='btn btn-primary'
+                                type='button'
+                                onClick={this.submitSendSMS}
+                            >
+                                <LoadingWrapper
+                                    id='verify_button_signing'
+                                    loading={this.state.signExceptionLoading}
+                                    text={Utils.localizeMessage('login.getVerificationCodeLoading', 'Getting Verification Code...')}
+                                >
+                                    <FormattedMessage
+                                        id='login.getVerificationCode'
+                                        defaultMessage='Get Verification Code'
+                                    />
+                                </LoadingWrapper>
+                            </button>
                         </div>
                         <div className='form-group'>
                             <button

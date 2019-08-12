@@ -12,11 +12,13 @@ import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
 
 import {t} from 'utils/i18n.jsx';
+import Constants from "../../utils/constants";
 
 export default class PasswordResetSendLink extends React.PureComponent {
     static propTypes = {
         actions: PropTypes.shape({
             sendPasswordResetEmail: PropTypes.func.isRequired,
+            sendSMS: PropTypes.func.isRequired,
         }).isRequired,
     };
 
@@ -26,7 +28,9 @@ export default class PasswordResetSendLink extends React.PureComponent {
     };
     resetForm = React.createRef();
     emailInput = React.createRef();
-
+    verificationCode = React.createRef();
+    newPasswordInput = React.createRef();
+    retypePasswordInput = React.createRef();
     handleSendLink = async (e) => {
         e.preventDefault();
 
@@ -43,11 +47,47 @@ export default class PasswordResetSendLink extends React.PureComponent {
             });
             return;
         }
+        const verificationCode = this.verificationCode.current.value.trim();
+        if (!verificationCode || !Utils.isVerificationCode(verificationCode)) {
+            this.setState({
+                error: (
+                    <FormattedMessage
+                        id={'password_send.verificationCodeError'}
+                        defaultMessage={'Please enter a valid verification code. '}
+                    />
+                ),
+            });
+            return;
+        }
+        const newPassword = this.newPasswordInput.current.value.trim();
+        const retypePassword = this.retypePasswordInput.current.value.trim();
+        if (!newPassword||!retypePassword) {
+            this.setState({
+                error: (
+                    <FormattedMessage
+                        id={'password_send.passwordError'}
+                        defaultMessage={'Please enter a valid verification password. '}
+                    />
+                ),
+            });
+            return;
+        }
+        if (newPassword!==retypePassword) {
+            this.setState({
+                error: (
+                    <FormattedMessage
+                        id={'password_send.passwordError'}
+                        defaultMessage={'Please enter a valid verification password. '}
+                    />
+                ),
+            });
+            return;
+        }
 
         // End of error checking clear error
         this.setState({error: null});
 
-        const {data, error} = await this.props.actions.sendPasswordResetEmail(email);
+        const {data, error} = await this.props.actions.sendPasswordResetEmail(email, newPassword, verificationCode);
         if (data) {
             this.setState({
                 error: null,
@@ -57,16 +97,16 @@ export default class PasswordResetSendLink extends React.PureComponent {
                         className='reset-form alert alert-success'
                     >
                         <FormattedMessage
-                            id='password_send.link'
-                            defaultMessage='If the account exists, a password reset email will be sent to:'
+                            id='password_send.resetSuccess'
+                            defaultMessage='The following password of phone has been changed successfully: '
                         />
                         <div>
                             <b>{email}</b>
                         </div>
                         <br/>
                         <FormattedMessage
-                            id='password_send.checkInbox'
-                            defaultMessage='Please check your inbox.'
+                            id='password_send.loginAgain'
+                            defaultMessage='Please try to login again. '
                         />
                     </div>
                 ),
@@ -82,8 +122,34 @@ export default class PasswordResetSendLink extends React.PureComponent {
         }
     }
 
+    submitSendSMS = () => {
+        const phone = this.emailInput.current.value.trim();
+        const typeM = Constants.VERIFICATION_CODE_TYPE.PASSWORD_CHANGE;
+        if(!Utils.isPhone(phone)){
+            this.setState({
+                error: (
+                    <FormattedMessage
+                        id={'password_send.error'}
+                        defaultMessage={'Please enter a valid phone number.'}
+                    />
+                ),
+            });
+            return;再次
+        }
+        this.props.actions.sendSMS(phone, typeM).
+        then(({data, error: err}) => {
+            if (data["flag"]==="true") {
+            } else if (err) {
+
+            }
+        });
+    }
+
     render() {
         let error = null;
+        let error1 = null;
+        let error2 = null;
+        let error3 = null;
         if (this.state.error) {
             error = (
                 <div className='form-group has-error'>
@@ -95,6 +161,18 @@ export default class PasswordResetSendLink extends React.PureComponent {
         let formClass = 'form-group';
         if (error) {
             formClass += ' has-error';
+        }
+        let formClass1 = 'form-group';
+        if (error1) {
+            formClass1 += ' has-error';
+        }
+        let formClass2 = 'form-group';
+        if (error2) {
+            formClass2 += ' has-error';
+        }
+        let formClass3 = 'form-group';
+        if (error3) {
+            formClass3 += ' has-error';
         }
 
         return (
@@ -129,6 +207,50 @@ export default class PasswordResetSendLink extends React.PureComponent {
                                     ref={this.emailInput}
                                     spellCheck='false'
                                     autoFocus={true}
+                                />
+                            </div>
+                            <div className={formClass1}>
+                                <LocalizedInput
+                                    id='verificationCodeInput'
+                                    type='text'
+                                    className='form-control'
+                                    name='verificationCode'
+                                    placeholder={{id: t('password_send.verificationCode'), defaultMessage: 'Verification code'}}
+                                    ref={this.verificationCode}
+                                    spellCheck='false'
+                                />
+                                <button
+                                    id='verificationCodeButton'
+                                    type='button'
+                                    className='btn btn-primary'
+                                    onClick={this.submitSendSMS}
+                                >
+                                    <FormattedMessage
+                                        id='password_send.getVerificationCode'
+                                        defaultMessage='Get verification code'
+                                    />
+                                </button>
+                            </div>
+                            <div className={formClass2}>
+                                <LocalizedInput
+                                    id='newPassword'
+                                    type='password'
+                                    className='form-control'
+                                    name='newPassword'
+                                    placeholder={{id: t('password_send.newPassword'), defaultMessage: 'new password'}}
+                                    ref={this.newPasswordInput}
+                                    spellCheck='false'
+                                />
+                            </div>
+                            <div className={formClass3}>
+                                <LocalizedInput
+                                    id='retypePassword'
+                                    type='password'
+                                    className='form-control'
+                                    name='retypePassword'
+                                    placeholder={{id: t('password_send.retypePassword'), defaultMessage: 'retype password'}}
+                                    ref={this.retypePasswordInput}
+                                    spellCheck='false'
                                 />
                             </div>
                             {error}
