@@ -1168,6 +1168,23 @@ export function isValidUsername(name) {
 
     return error;
 }
+export function isValidUsernameNew(name) {
+    let error = '';
+    if (!name) {
+        error = 'This field is required';
+    } else if (name.length < Constants.MIN_USERNAME_LENGTH || name.length > Constants.MAX_USERNAME_LENGTH) {
+        error = 'Must be between ' + Constants.MIN_USERNAME_LENGTH + ' and ' + Constants.MAX_USERNAME_LENGTH + ' characters';
+    } else {
+        for (let i = 0; i < Constants.RESERVED_USERNAMES.length; i++) {
+            if (name === Constants.RESERVED_USERNAMES[i]) {
+                error = 'Cannot use a reserved word as a username.';
+                break;
+            }
+        }
+    }
+
+    return error;
+}
 
 export function isMobile() {
     return window.innerWidth <= Constants.MOBILE_SCREEN_WIDTH;
@@ -1176,7 +1193,7 @@ export function isMobile() {
 // 验证输入手机号格式
 export function isPhone(phone) {
     return /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(phone);
-}
+}isPhone
 
 // 验证输入验证码格式
 export function isVerificationCode(verificationCode) {

@@ -96,7 +96,7 @@ export default class NotLoggedIn extends React.PureComponent {
                 <div className='row content'>
                     {this.props.children}
                 </div>
-                <div className='row footer'>
+                <div className='row footer' hidden>
                     <div
                         id='footer_section'
                         className='footer-pane col-xs-12'

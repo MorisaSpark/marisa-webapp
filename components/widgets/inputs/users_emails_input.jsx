@@ -7,7 +7,7 @@ import AsyncSelect from 'react-select/lib/AsyncCreatable';
 import {components} from 'react-select';
 import {intlShape} from 'react-intl';
 
-import {isEmail} from 'mattermost-redux/utils/helpers';
+import {isPhone} from 'mattermost-redux/utils/helpers';
 
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import MailIcon from 'components/svg/mail_icon';
@@ -76,12 +76,12 @@ export default class UsersEmailsInput extends React.Component {
         );
 
         let guestBadge = null;
-        if (!isEmail(user.value) && isGuest(user)) {
+        if (!isPhone(user.value) && isGuest(user)) {
             guestBadge = <GuestBadge/>;
         }
 
         if (options.context === 'menu') {
-            if (user.value && isEmail(user.value)) {
+            if (user.value && isPhone(user.value)) {
                 return this.getCreateLabel(user.value);
             }
             return (
@@ -93,7 +93,7 @@ export default class UsersEmailsInput extends React.Component {
             );
         }
 
-        if (user.value && isEmail(user.value)) {
+        if (user.value && isPhone(user.value)) {
             return (
                 <React.Fragment>
                     <MailIcon className='mail-icon'/>
@@ -180,7 +180,7 @@ export default class UsersEmailsInput extends React.Component {
                 styles={this.customStyles}
                 onChange={this.onChange}
                 loadOptions={this.props.usersLoader}
-                isValidNewOption={isEmail}
+                isValidNewOption={isPhone}
                 isMulti={true}
                 isClearable={false}
                 className='UsersEmailsInput'

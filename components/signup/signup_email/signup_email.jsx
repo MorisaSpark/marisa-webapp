@@ -45,7 +45,7 @@ export default class SignupEmail extends React.Component {
 
         const data = (new URLSearchParams(this.props.location.search)).get('d');
         const token = (new URLSearchParams(this.props.location.search)).get('t');
-        const inviteId = (new URLSearchParams(this.props.location.search)).get('id');
+        const inviteId = (new URLSearchParams(this.props.location.search)).get('id');   // 获取地址路径
 
         this.state = {};
         if (token && token.length > 0) {

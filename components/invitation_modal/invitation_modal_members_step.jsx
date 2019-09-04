@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
-import {isEmail} from 'mattermost-redux/utils/helpers';
+import {isPhone} from '../../utils/utils';
 
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import InviteIcon from 'components/svg/invite_icon';
@@ -17,6 +17,7 @@ import LinkIcon from 'components/svg/link_icon';
 import {getSiteURL} from 'utils/url.jsx';
 import debouncePromise from 'utils/debounce_promise.jsx';
 import {t} from 'utils/i18n.jsx';
+import * as Utils from 'utils/utils.jsx';
 
 import './invitation_modal_members_step.scss';
 
@@ -59,7 +60,7 @@ export default class InvitationModalMembersStep extends React.Component {
     }
 
     usersLoader = async (term) => {
-        if (isEmail(term)) {
+        if (Utils.isPhone(term)) {
             return [];
         }
         try {
@@ -80,7 +81,7 @@ export default class InvitationModalMembersStep extends React.Component {
         const users = [];
         const emails = [];
         for (const userOrEmail of this.state.usersAndEmails) {
-            if (isEmail(userOrEmail)) {
+            if (Utils.isPhone(userOrEmail)) {
                 emails.push(userOrEmail);
             } else {
                 users.push(userOrEmail);

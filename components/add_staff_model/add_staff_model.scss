@@ -1,0 +1,239 @@
+@import 'utils/variables';
+
+.close-x {
+    display: none;
+}
+
+.AddStaffModal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    font-size: 16px;
+    color: var(--center-channel-color-90);
+    .add-staff-main {
+        width: 498px;
+        .title {
+            height: 51px;
+            text-align: center;
+            line-height: 51px;
+            font-family: PingFangSC-Regular;
+            font-size: 16px;
+            color: #666666;
+        }
+        .tips {
+            background: #FFFBE6;
+            border: 1px solid #FFE99F;
+            border-radius: 4px;
+            height: 40px;
+            text-align: center;
+            margin-top: 23px;
+            line-height: 40px;
+            font-size: 14px;
+            span:nth-child(1) {
+                color: #333333;
+            }
+            span:nth-child(2) {
+                color: #5DACF7;
+                margin-left: 9px;
+            }
+        }
+        form {
+            .form-part-0 {
+                margin-top: 20px;
+                padding: 0 76px;
+                .left {
+                    width: 225px;
+                    display: inline-block;
+                    .username {
+                        width: 225px;
+                        display: inline-block;
+                    }
+                    .nickname {
+                        width: 225px;
+                        display: inline-block;
+                    }
+                    .usage-tips {
+                        margin-left: 50px;
+                        font-size: 12px;
+                        color: #CCCCCC;
+                        width: 172px;
+                        display: inline-block;
+                        float: left;
+                    }
+                    .sex-item {
+                        margin-top: 15px;
+                        opacity: 0.99;
+                        font-family: PingFangSC-Regular;
+                        font-size: 12px;
+                        color: #999999;
+                        margin-left: 14px;
+                        width: 213px;
+                        display: inline-block;
+                        .sex {
+                            margin-right: 13px;
+                        }
+                        .el-radio__label {
+                            margin: 0 10px;
+                            font-weight: 100;
+                            font-size: 14px;
+                            color: #333333;
+                        }
+                    }
+                }
+                .avatar-uploader {
+                    display: inline-block;
+                    background: rgba(0, 0, 0, 0.02);
+                    border: 1px dashed rgba(0, 0, 0, 0.15);
+                    width: 102px;
+                    height: 102px;
+                    border-radius: 50%;
+                    position: relative;
+                    float: right;
+                    .upload-logo {
+                        font-family: PingFangSC-Regular;
+                        position: absolute;
+                        font-size: 12px;
+                        color: #666666;
+                        line-height: 22px;
+                        width: 100%;
+                        height: 100%;
+                        .avatar-uploader-icon {
+                            margin-top: 20px;
+                            margin-bottom: 15px;
+                            font-size: 23px;
+                            margin-left: 39px;
+                        }
+                        div {
+                            text-align: center;
+                        }
+                    }
+
+                }
+            }
+            hr {
+                width: 498px;
+                background: #F5F6FA;
+            }
+            .form-part-1 {
+                padding: 0 80px;
+            }
+            .form-part-2 {
+                padding: 0 80px;
+                .el-form-item {
+                    .el-input {
+                        width: 201px;
+                    }
+                    .now-manager {
+                        margin-left: 11px;
+                        span:nth-child(1) {
+                            font-size: 12px;
+                            color: #999999;
+                        }
+                        span:nth-child(2) {
+                            font-size: 14px;
+                            color: #333333;
+                        }
+                    }
+                }
+                .input-tip {
+                    width: 204px;
+                    font-size: 12px;
+                    color: #CCCCCC;
+                    margin-left: 53px;
+                }
+                .el-checkbox {
+                    .el-checkbox__label {
+                        font-size: 12px;
+                        color: #333333;
+                        font-weight: 300;
+                    }
+                }
+            }
+            .form-part-3 {
+                padding: 0 80px;
+                text-align: center;
+                button:nth-child(1) {
+                    display: inline-block;
+                    line-height: 1;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    background: #fff;
+                    margin: 0;
+                    padding: 10px 15px;
+                    border: 1px solid #C3C6CE;
+                    border-radius: 2px;
+                    width: 111px;
+                    font-size: 14px;
+                    color: #333333;
+                    height: 34px;
+                    text-indent: 2px;
+                    letter-spacing: 2px;
+                }
+                button:nth-child(2) {
+                    display: inline-block;
+                    line-height: 1;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    margin: 0;
+                    padding: 10px 15px;
+                    border-color: #20a0ff;
+                    width: 111px;
+                    height: 34px;
+                    background: #1890FF;
+                    border-radius: 2px;
+                    margin-left: 40px;
+                    font-size: 14px;
+                    color: #FFFFFF;
+                    text-indent: 2px;
+                    letter-spacing: 2px;
+                }
+            }
+            .el-form-item {
+                height: 44px;
+                margin-bottom: 0;
+                font-weight: 100;
+                .el-form-item__label {
+                    opacity: 0.99;
+                    font-family: PingFangSC-Regular;
+                    font-size: 12px;
+                    color: #999999;
+                    width: 50px;
+                    padding-top: 15px;
+                    font-weight: 100;
+                }
+                .el-form-item__content {
+                    margin-left: 50px;
+                    height: 100%;
+                    input {
+                        font-weight: 400;
+                        border: 0;
+                        outline: none;
+                        border-bottom: 1px solid #D9D9D9;
+                        border-radius: unset;
+                        width: 100%;
+                        padding-left: 0px;
+                    }
+                }
+            }
+            input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+                font-size: 12px;
+                color: #CCCCCC;
+            }
+            input:-moz-placeholder, textarea:-moz-placeholder {
+                font-size: 12px;
+                color: #CCCCCC;
+            }
+            input::-moz-placeholder, textarea::-moz-placeholder {
+                font-size: 12px;
+                color: #CCCCCC;
+            }
+            input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+                font-size: 12px;
+                color: #CCCCCC;
+            }
+        }
+    }
+}
+

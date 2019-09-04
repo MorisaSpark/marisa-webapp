@@ -4,6 +4,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import phoneLogoWords from 'images/ithpower/login/phone_logo_words.png';
+import './site_name_and_description.scss'
 
 export default class SiteNameAndDescription extends React.PureComponent {
     static propTypes = {
@@ -23,18 +25,19 @@ export default class SiteNameAndDescription extends React.PureComponent {
         let description = null;
         if (customDescriptionText) {
             description = customDescriptionText;
-        } else {
-            description = (
-                <FormattedMessage
-                    id='web.root.signup_info'
-                    defaultMessage='All team communication in one place, searchable and accessible anywhere'
-                />
-            );
         }
+        // else {
+        //     description = (
+        //         <FormattedMessage
+        //             id='web.root.signup_info'
+        //             defaultMessage='All team communication in one place, searchable and accessible anywhere'
+        //         />
+        //     );
+        // }
 
         return (
             <React.Fragment>
-                <h1 id='site_name'>{siteName}</h1>
+                <h1 id='site_name'><img className='phoneLogoWords' src={phoneLogoWords} alt="tu"/></h1>
                 <h4
                     id='site_description'
                     className='color--light'

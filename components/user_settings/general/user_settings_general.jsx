@@ -181,7 +181,7 @@ class UserSettingsGeneralTab extends React.Component {
         const username = this.state.username.trim().toLowerCase();
 
         const {formatMessage} = this.props.intl;
-        const usernameError = Utils.isValidUsername(username);
+        const usernameError = Utils.isValidUsernameNew(username);
         if (usernameError === 'Cannot use a reserved word as a username.') {
             this.setState({clientError: formatMessage(holders.usernameReserved), serverError: ''});
             return;

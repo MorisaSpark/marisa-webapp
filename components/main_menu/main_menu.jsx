@@ -24,6 +24,7 @@ import TeamMembersModal from 'components/team_members_modal';
 import TeamSettingsModal from 'components/team_settings_modal';
 import AboutBuildModal from 'components/about_build_modal';
 import AddGroupsToTeamModal from 'components/add_groups_to_team_modal';
+import AddStaffModel from 'components/add_staff_model';
 
 import Menu from 'components/widgets/menu/menu.jsx';
 import MenuGroup from 'components/widgets/menu/menu_group.jsx';
@@ -196,6 +197,18 @@ export default class MainMenu extends React.PureComponent {
                             modalId={ModalIdentifiers.INVITATION}
                             dialogType={InvitationModal}
                             text={localizeMessage('navbar_dropdown.invitePeople', 'Invite People')}
+                            icon={this.props.mobile && <i className='fa fa-user-plus'/>}
+                        />
+                    </TeamPermissionGate>
+                    <TeamPermissionGate
+                        teamId={this.props.teamId}
+                        permissions={[Permissions.ADD_USER_TO_TEAM, Permissions.INVITE_GUEST]}
+                    >
+                        <MenuItemToggleModalRedux
+                            id='addStaffModel'
+                            modalId={ModalIdentifiers.ADD_STAFF}
+                            dialogType={AddStaffModel}
+                            text={localizeMessage('navbar_dropdown.addStaff', 'Add Staff')}
                             icon={this.props.mobile && <i className='fa fa-user-plus'/>}
                         />
                     </TeamPermissionGate>

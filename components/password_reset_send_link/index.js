@@ -3,14 +3,17 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {sendPasswordResetEmail, sendSMS} from 'mattermost-redux/actions/users';
-
+import {sendPasswordResetEmail, sendSMS, createUser, checkPhoneIsSignUp} from 'mattermost-redux/actions/users';
+import {login} from 'actions/views/login';
 import PasswordResetSendLink from './password_reset_send_link';
 
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators({
+        login,
         sendPasswordResetEmail,
         sendSMS,
+        createUser,
+        checkPhoneIsSignUp,
     }, dispatch),
 });
 

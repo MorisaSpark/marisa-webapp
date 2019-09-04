@@ -44,6 +44,7 @@ import loadGetAndroidApp from 'bundle-loader?lazy!components/get_android_app';
 import loadSelectTeam from 'bundle-loader?lazy!components/select_team';
 import loadAuthorize from 'bundle-loader?lazy!components/authorize';
 import loadCreateTeam from 'bundle-loader?lazy!components/create_team';
+import loadDealInvite from 'bundle-loader?lazy!components/deal_invite';
 import loadMfa from 'bundle-loader?lazy!components/mfa/mfa_controller';
 import store from 'stores/redux_store.jsx';
 import {getSiteURL} from 'utils/url.jsx';
@@ -67,6 +68,7 @@ const HelpController = makeAsyncComponent(loadHelpController);
 const GetIosApp = makeAsyncComponent(loadGetIosApp);
 const GetAndroidApp = makeAsyncComponent(loadGetAndroidApp);
 const SelectTeam = makeAsyncComponent(loadSelectTeam);
+const DealInvite = makeAsyncComponent(loadDealInvite);
 const Authorize = makeAsyncComponent(loadAuthorize);
 const Mfa = makeAsyncComponent(loadMfa);
 
@@ -275,6 +277,10 @@ export default class Root extends React.Component {
                         component={PasswordResetSendLink}
                     />
                     <HFTRoute
+                        path={'/sign_up'}
+                        component={PasswordResetSendLink}
+                    />
+                    <HFTRoute
                         path={'/reset_password_complete'}
                         component={PasswordResetForm}
                     />
@@ -321,6 +327,10 @@ export default class Root extends React.Component {
                     <LoggedInHFTRoute
                         path={'/select_team'}
                         component={SelectTeam}
+                    />
+                    <LoggedInHFTRoute
+                        path={'/deal_invite'}
+                        component={DealInvite}
                     />
                     <LoggedInHFTRoute
                         path={'/oauth/authorize'}

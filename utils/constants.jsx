@@ -39,7 +39,8 @@ import monokaiCSS from '!!file-loader?name=files/code_themes/[hash].[ext]!highli
 import solarizedDarkCSS from '!!file-loader?name=files/code_themes/[hash].[ext]!highlight.js/styles/solarized-dark.css';
 
 // eslint-disable-line import/order
-import solarizedLightCSS from '!!file-loader?name=files/code_themes/[hash].[ext]!highlight.js/styles/solarized-light.css'; // eslint-disable-line import/order
+import solarizedLightCSS
+    from '!!file-loader?name=files/code_themes/[hash].[ext]!highlight.js/styles/solarized-light.css'; // eslint-disable-line import/order
 
 export const SettingsTypes = {
     TYPE_TEXT: 'text',
@@ -184,6 +185,7 @@ export const PostRequestTypes = keyMirror({
 export const ModalIdentifiers = {
     ABOUT: 'about',
     TEAM_SETTINGS: 'team_settings',
+    ADD_STAFF: 'add_staff',
     CHANNEL_INFO: 'channel_info',
     DELETE_CHANNEL: 'delete_channel',
     CHANNEL_NOTIFICATIONS: 'channel_notifications',
@@ -1161,14 +1163,24 @@ export const Constants = {
         actionscript: {name: 'ActionScript', extensions: ['as'], aliases: ['as', 'as3']},
         applescript: {name: 'AppleScript', extensions: ['applescript', 'osascript', 'scpt']},
         bash: {name: 'Bash', extensions: ['sh'], aliases: ['sh']},
-        clojure: {name: 'Clojure', extensions: ['clj', 'boot', 'cl2', 'cljc', 'cljs', 'cljs.hl', 'cljscm', 'cljx', 'hic']},
-        coffeescript: {name: 'CoffeeScript', extensions: ['coffee', '_coffee', 'cake', 'cjsx', 'cson', 'iced'], aliases: ['coffee', 'coffee-script']},
+        clojure: {
+            name: 'Clojure',
+            extensions: ['clj', 'boot', 'cl2', 'cljc', 'cljs', 'cljs.hl', 'cljscm', 'cljx', 'hic']
+        },
+        coffeescript: {
+            name: 'CoffeeScript',
+            extensions: ['coffee', '_coffee', 'cake', 'cjsx', 'cson', 'iced'],
+            aliases: ['coffee', 'coffee-script']
+        },
         cpp: {name: 'C/C++', extensions: ['cpp', 'c', 'cc', 'h', 'c++', 'h++', 'hpp'], aliases: ['c++', 'c']},
         cs: {name: 'C#', extensions: ['cs', 'csharp'], aliases: ['c#', 'csharp']},
         css: {name: 'CSS', extensions: ['css']},
         d: {name: 'D', extensions: ['d', 'di'], aliases: ['dlang']},
         dart: {name: 'Dart', extensions: ['dart']},
-        delphi: {name: 'Delphi', extensions: ['delphi', 'dpr', 'dfm', 'pas', 'pascal', 'freepascal', 'lazarus', 'lpr', 'lfm']},
+        delphi: {
+            name: 'Delphi',
+            extensions: ['delphi', 'dpr', 'dfm', 'pas', 'pascal', 'freepascal', 'lazarus', 'lpr', 'lfm']
+        },
         diff: {name: 'Diff', extensions: ['diff', 'patch'], aliases: ['patch', 'udiff']},
         django: {name: 'Django', extensions: ['django', 'jinja']},
         dockerfile: {name: 'Dockerfile', extensions: ['dockerfile', 'docker'], aliases: ['docker']},
@@ -1179,7 +1191,11 @@ export const Constants = {
         gcode: {name: 'G-Code', extensions: ['gcode', 'nc']},
         go: {name: 'Go', extensions: ['go'], aliases: ['golang']},
         groovy: {name: 'Groovy', extensions: ['groovy']},
-        handlebars: {name: 'Handlebars', extensions: ['handlebars', 'hbs', 'html.hbs', 'html.handlebars'], aliases: ['hbs', 'mustache']},
+        handlebars: {
+            name: 'Handlebars',
+            extensions: ['handlebars', 'hbs', 'html.hbs', 'html.handlebars'],
+            aliases: ['hbs', 'mustache']
+        },
         haskell: {name: 'Haskell', extensions: ['hs'], aliases: ['hs']},
         haxe: {name: 'Haxe', extensions: ['hx']},
         java: {name: 'Java', extensions: ['java', 'jsp']},
@@ -1253,7 +1269,7 @@ export const Constants = {
     MAX_TEAMDESCRIPTION_LENGTH: 50,
     MIN_CHANNELNAME_LENGTH: 2,
     MAX_CHANNELNAME_LENGTH: 64,
-    MIN_USERNAME_LENGTH: 3,
+    MIN_USERNAME_LENGTH: 2,
     MAX_USERNAME_LENGTH: 22,
     MAX_NICKNAME_LENGTH: 22,
     MIN_PASSWORD_LENGTH: 5,
@@ -1307,13 +1323,23 @@ export const Constants = {
     CHANNEL_ID_LENGTH: 26,
     TRANSPARENT_PIXEL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
     TRIPLE_BACK_TICKS: /```/g,
-    VERIFICATION_CODE_TYPE:{
+    VERIFICATION_CODE_TYPE: {
         IDENTITY_VALIDATION: 'identity_validation',
         SIGN_IN: 'sign_in',
         SIGN_EXCEPTION: 'sign_exception',
         SIGN_UP: 'sign_up',
         PASSWORD_CHANGE: 'password_change',
         MESSAGE_CHANGE: 'message_change'
+    },
+    DEAL_INVITE_TYPE: {
+        INVITE: 'invite',
+        FILL_IN: 'fillIn',
+        INDUSTRY_TYPE: 'industryType',
+        CUT_PIC: 'cutPic'
+    },
+    ADD_STAFF: {
+        MAIN_FORM: 'mainForm',
+        CUT_PIC: 'cutPic'
     }
 };
 
