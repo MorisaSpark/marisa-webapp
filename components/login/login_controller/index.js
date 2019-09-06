@@ -4,12 +4,12 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getTeamByName, getMyTeamMember} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
-import {RequestStatus} from 'mattermost-redux/constants';
+import {getConfig, getLicense} from 'panguaxe-redux/selectors/entities/general';
+import {getTeamByName, getMyTeamMember} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
+import {RequestStatus} from 'panguaxe-redux/constants';
 
-import {sendSMS} from 'mattermost-redux/actions/users';
+import {sendSMS} from 'panguaxe-redux/actions/users';
 import {addUserToTeamFromInvite} from 'actions/team_actions';
 
 import {login} from 'actions/views/login';

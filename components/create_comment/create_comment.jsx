@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage, intlShape} from 'react-intl';
 
-import {sortFileInfos} from 'mattermost-redux/utils/file_utils';
+import {sortFileInfos} from 'panguaxe-redux/utils/file_utils';
 
 import * as GlobalActions from 'actions/global_actions.jsx';
 

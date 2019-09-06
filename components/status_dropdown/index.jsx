@@ -3,11 +3,11 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setStatus} from 'mattermost-redux/actions/users';
-import {Client4} from 'mattermost-redux/client';
-import {getCurrentUser, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
-import {Preferences} from 'mattermost-redux/constants';
-import {get} from 'mattermost-redux/selectors/entities/preferences';
+import {setStatus} from 'panguaxe-redux/actions/users';
+import {Client4} from 'panguaxe-redux/client';
+import {getCurrentUser, getStatusForUserId} from 'panguaxe-redux/selectors/entities/users';
+import {Preferences} from 'panguaxe-redux/constants';
+import {get} from 'panguaxe-redux/selectors/entities/preferences';
 
 import {openModal} from 'actions/views/modals';
 

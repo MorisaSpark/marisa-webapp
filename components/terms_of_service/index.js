@@ -4,8 +4,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getTermsOfService, updateMyTermsOfServiceStatus} from 'mattermost-redux/actions/users';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getTermsOfService, updateMyTermsOfServiceStatus} from 'panguaxe-redux/actions/users';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import TermsOfService from './terms_of_service';
 

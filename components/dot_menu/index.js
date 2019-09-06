@@ -3,9 +3,9 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
 
-import {getLicense, getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getLicense, getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import {openModal} from 'actions/views/modals';
 import {

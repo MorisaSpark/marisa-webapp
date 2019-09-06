@@ -6,9 +6,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {FormattedMessage} from 'react-intl';
 
-import {isCombinedUserActivityPost} from 'mattermost-redux/utils/post_list';
-import {debounce} from 'mattermost-redux/actions/helpers';
-import EventEmitter from 'mattermost-redux/utils/event_emitter';
+import {isCombinedUserActivityPost} from 'panguaxe-redux/utils/post_list';
+import {debounce} from 'panguaxe-redux/actions/helpers';
+import EventEmitter from 'panguaxe-redux/utils/event_emitter';
 
 import Constants, {PostTypes, EventTypes, PostRequestTypes} from 'utils/constants.jsx';
 import DelayedAction from 'utils/delayed_action.jsx';

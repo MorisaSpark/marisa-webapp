@@ -3,9 +3,9 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getAudits} from 'mattermost-redux/actions/admin';
-import * as Selectors from 'mattermost-redux/selectors/entities/admin';
-import {getLicense} from 'mattermost-redux/selectors/entities/general';
+import {getAudits} from 'panguaxe-redux/actions/admin';
+import * as Selectors from 'panguaxe-redux/selectors/entities/admin';
+import {getLicense} from 'panguaxe-redux/selectors/entities/general';
 
 import Audits from './audits.jsx';
 

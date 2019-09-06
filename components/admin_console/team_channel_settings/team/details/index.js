@@ -3,17 +3,17 @@
 
 import {bindActionCreators} from 'redux';
 
-import {getTeam} from 'mattermost-redux/selectors/entities/teams';
+import {getTeam} from 'panguaxe-redux/selectors/entities/teams';
 
-import {getTeam as fetchTeam, membersMinusGroupMembers, patchTeam} from 'mattermost-redux/actions/teams';
+import {getTeam as fetchTeam, membersMinusGroupMembers, patchTeam} from 'panguaxe-redux/actions/teams';
 
-import {getAllGroups, getGroupsAssociatedToTeam} from 'mattermost-redux/selectors/entities/groups';
+import {getAllGroups, getGroupsAssociatedToTeam} from 'panguaxe-redux/selectors/entities/groups';
 
 import {
     getGroupsAssociatedToTeam as fetchAssociatedGroups,
     linkGroupSyncable,
     unlinkGroupSyncable,
-} from 'mattermost-redux/actions/groups';
+} from 'panguaxe-redux/actions/groups';
 
 import {connect} from 'react-redux';
 

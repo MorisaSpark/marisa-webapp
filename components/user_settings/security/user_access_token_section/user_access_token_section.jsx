@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
-import * as UserUtils from 'mattermost-redux/utils/user_utils';
+import * as UserUtils from 'panguaxe-redux/utils/user_utils';
 
 import {trackEvent} from 'actions/diagnostics_actions.jsx';
 import Constants from 'utils/constants.jsx';

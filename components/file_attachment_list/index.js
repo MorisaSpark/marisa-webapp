@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {makeGetFilesForPost} from 'mattermost-redux/selectors/entities/files';
+import {makeGetFilesForPost} from 'panguaxe-redux/selectors/entities/files';
 
 import {getCurrentLocale} from 'selectors/i18n';
 import {isEmbedVisible} from 'selectors/posts';

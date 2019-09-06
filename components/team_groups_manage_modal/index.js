@@ -3,7 +3,7 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getGroupsAssociatedToTeam, unlinkGroupSyncable} from 'mattermost-redux/actions/groups';
+import {getGroupsAssociatedToTeam, unlinkGroupSyncable} from 'panguaxe-redux/actions/groups';
 
 import {closeModal, openModal} from 'actions/views/modals';
 

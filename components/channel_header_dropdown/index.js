@@ -7,8 +7,8 @@ import {
     getUser,
     getCurrentUser,
     getUserStatuses,
-} from 'mattermost-redux/selectors/entities/users';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+} from 'panguaxe-redux/selectors/entities/users';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
 import {
     getCurrentChannel,
     isCurrentChannelDefault,
@@ -17,7 +17,7 @@ import {
     isCurrentChannelArchived,
     isCurrentChannelReadOnly,
     getRedirectChannelNameForTeam,
-} from 'mattermost-redux/selectors/entities/channels';
+} from 'panguaxe-redux/selectors/entities/channels';
 
 import {getPenultimateViewedChannelName} from 'selectors/local_storage';
 

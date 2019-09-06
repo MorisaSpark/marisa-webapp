@@ -6,17 +6,17 @@ import {
     markChannelAsRead,
     markChannelAsUnread,
     markChannelAsViewed,
-} from 'mattermost-redux/actions/channels';
-import * as PostActions from 'mattermost-redux/actions/posts';
-import {WebsocketEvents} from 'mattermost-redux/constants';
-import * as PostSelectors from 'mattermost-redux/selectors/entities/posts';
-import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+} from 'panguaxe-redux/actions/channels';
+import * as PostActions from 'panguaxe-redux/actions/posts';
+import {WebsocketEvents} from 'panguaxe-redux/constants';
+import * as PostSelectors from 'panguaxe-redux/selectors/entities/posts';
+import {getCurrentChannelId} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
 import {
     isFromWebhook,
     isSystemMessage,
     shouldIgnorePost,
-} from 'mattermost-redux/utils/post_utils';
+} from 'panguaxe-redux/utils/post_utils';
 
 import {sendDesktopNotification} from 'actions/notification_actions.jsx';
 

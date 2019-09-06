@@ -4,10 +4,10 @@
 import {connect} from 'react-redux';
 import {createSelector} from 'reselect';
 
-import {Posts} from 'mattermost-redux/constants';
-import {getAllPosts, getPostIdsInChannel} from 'mattermost-redux/selectors/entities/posts';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {makePreparePostIdsForPostList} from 'mattermost-redux/utils/post_list';
+import {Posts} from 'panguaxe-redux/constants';
+import {getAllPosts, getPostIdsInChannel} from 'panguaxe-redux/selectors/entities/posts';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {makePreparePostIdsForPostList} from 'panguaxe-redux/utils/post_list';
 
 import NewMessagesBelow from './new_messages_below';
 

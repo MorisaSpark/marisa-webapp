@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedDate, FormattedMessage} from 'react-intl';
-import {General} from 'mattermost-redux/constants';
+import {General} from 'panguaxe-redux/constants';
 
 import FormattedMarkdownMessage from 'components/formatted_markdown_message.jsx';
 

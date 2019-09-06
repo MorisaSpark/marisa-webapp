@@ -3,13 +3,13 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
-import {haveISystemPermission} from 'mattermost-redux/selectors/entities/roles';
-import {Permissions} from 'mattermost-redux/constants';
-import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getDisplayableErrors} from 'mattermost-redux/selectors/errors';
-import {dismissError} from 'mattermost-redux/actions/errors';
-import {getStandardAnalytics} from 'mattermost-redux/actions/admin';
+import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
+import {haveISystemPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {Permissions} from 'panguaxe-redux/constants';
+import {getConfig, getLicense} from 'panguaxe-redux/selectors/entities/general';
+import {getDisplayableErrors} from 'panguaxe-redux/selectors/errors';
+import {dismissError} from 'panguaxe-redux/actions/errors';
+import {getStandardAnalytics} from 'panguaxe-redux/actions/admin';
 
 import {dismissNotice} from 'actions/views/notice';
 

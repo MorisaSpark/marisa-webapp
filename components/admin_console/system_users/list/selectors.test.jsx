@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import * as users from 'mattermost-redux/selectors/entities/users';
+import * as users from 'panguaxe-redux/selectors/entities/users';
 
 import {getUsers} from 'components/admin_console/system_users/list/selectors.jsx';
 
-jest.mock('mattermost-redux/selectors/entities/users');
+jest.mock('panguaxe-redux/selectors/entities/users');
 
 describe('components/admin_console/system_users/list/selectors', () => {
     const state = {};

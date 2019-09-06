@@ -3,8 +3,8 @@
 
 import {connect} from 'react-redux';
 
-import {haveITeamPermission} from 'mattermost-redux/selectors/entities/roles';
-import {getMyTeams} from 'mattermost-redux/selectors/entities/teams';
+import {haveITeamPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {getMyTeams} from 'panguaxe-redux/selectors/entities/teams';
 
 import AnyTeamPermissionGate from './any_team_permission_gate.jsx';
 

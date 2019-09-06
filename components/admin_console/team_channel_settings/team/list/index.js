@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createSelector} from 'reselect';
 
-import {getTeams as fetchTeams} from 'mattermost-redux/actions/teams';
-import {getTeams} from 'mattermost-redux/selectors/entities/teams';
+import {getTeams as fetchTeams} from 'panguaxe-redux/actions/teams';
+import {getTeams} from 'panguaxe-redux/selectors/entities/teams';
 
 import {t} from 'utils/i18n';
 

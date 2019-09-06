@@ -3,18 +3,18 @@
 
 import {batchActions} from 'redux-batched-actions';
 
-import {leaveChannel as leaveChannelRedux, joinChannel, unfavoriteChannel} from 'mattermost-redux/actions/channels';
-import * as PostActions from 'mattermost-redux/actions/posts';
-import {TeamTypes} from 'mattermost-redux/action_types';
-import {autocompleteUsers} from 'mattermost-redux/actions/users';
-import {selectTeam} from 'mattermost-redux/actions/teams';
-import {Posts} from 'mattermost-redux/constants';
-import {getChannel, getChannelsNameMapInCurrentTeam, getCurrentChannel, getRedirectChannelNameForTeam, getMyChannels, getMyChannelMemberships} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentRelativeTeamUrl, getCurrentTeam, getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUserId, getUserByUsername} from 'mattermost-redux/selectors/entities/users';
-import {getMyPreferences} from 'mattermost-redux/selectors/entities/preferences';
-import {getChannelByName, isFavoriteChannel} from 'mattermost-redux/utils/channel_utils';
-import EventEmitter from 'mattermost-redux/utils/event_emitter';
+import {leaveChannel as leaveChannelRedux, joinChannel, unfavoriteChannel} from 'panguaxe-redux/actions/channels';
+import * as PostActions from 'panguaxe-redux/actions/posts';
+import {TeamTypes} from 'panguaxe-redux/action_types';
+import {autocompleteUsers} from 'panguaxe-redux/actions/users';
+import {selectTeam} from 'panguaxe-redux/actions/teams';
+import {Posts} from 'panguaxe-redux/constants';
+import {getChannel, getChannelsNameMapInCurrentTeam, getCurrentChannel, getRedirectChannelNameForTeam, getMyChannels, getMyChannelMemberships} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentRelativeTeamUrl, getCurrentTeam, getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUserId, getUserByUsername} from 'panguaxe-redux/selectors/entities/users';
+import {getMyPreferences} from 'panguaxe-redux/selectors/entities/preferences';
+import {getChannelByName, isFavoriteChannel} from 'panguaxe-redux/utils/channel_utils';
+import EventEmitter from 'panguaxe-redux/utils/event_emitter';
 
 import {openDirectChannelToUserId} from 'actions/channel_actions.jsx';
 import {getLastViewedChannelName} from 'selectors/local_storage';

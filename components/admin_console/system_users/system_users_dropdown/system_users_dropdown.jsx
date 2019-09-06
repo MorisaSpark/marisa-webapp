@@ -4,8 +4,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import * as UserUtils from 'mattermost-redux/utils/user_utils';
-import {Permissions} from 'mattermost-redux/constants';
+import * as UserUtils from 'panguaxe-redux/utils/user_utils';
+import {Permissions} from 'panguaxe-redux/constants';
 
 import {adminResetMfa} from 'actions/admin_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message.jsx';

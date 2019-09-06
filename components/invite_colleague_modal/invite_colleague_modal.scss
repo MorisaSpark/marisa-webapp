@@ -1,0 +1,110 @@
+@import 'utils/variables';
+
+.invite-colleague {
+    top: 15%;
+    .modal-content {
+        width: 570px;
+        height: 288px;
+        .el-form {
+            width: 100%;
+            height: 100%;
+            .modal-header {
+                background: #F5F6F8;
+                border: none;
+                font-size: 16px;
+                color: #666666;
+                div {
+                    font-size: 16px;
+                    color: #666666;
+                    text-align: center;
+                    margin-left: 230px;
+                }
+            }
+        }
+        .modal-body {
+            position: relative;
+            padding: 3px 147px;
+            input {
+                font-weight: 400;
+                border: 0;
+                outline: none;
+                border-bottom: 1px solid #D9D9D9;
+                border-radius: unset;
+                width: 100%;
+                padding-left: 0px;
+            }
+            .tips {
+                position: absolute;
+                width: 316px;
+                background: #FFEFF0;
+                border-radius: 4px;
+                font-size: 12px;
+                color: #F56C6C;
+                height: 26px;
+                text-align: center;
+                line-height: 26px;
+                i {
+                    color: #F5222D;
+                    margin-right: 6px;
+                }
+            }
+            .form-title {
+                font-size: 12px;
+                color: #999999;
+                margin-top: 4px;
+                span:nth-child(1) {
+                    width: 145px;
+                    display: inline-block;
+                }
+            }
+            .form-inputs {
+                margin-top: 30px;
+                .form-input {
+                    .el-input:nth-child(1) {
+                        display: inline-block;
+                        width: 130px;
+                        margin-right: 15px;
+                    }
+                    .el-input:nth-child(2) {
+                        display: inline-block;
+                        width: 129px;
+                    }
+                }
+            }
+            .add-more {
+                margin-top: 20px;
+                font-size: 14px;
+                color: #3296FA;
+                display: inline-block;
+                i {
+                    margin-right: 5px;
+                }
+            }
+        }
+        .modal-footer {
+            border: none;
+            text-align: center;
+            margin-top: 15px;
+            .btn-danger {
+                background: #3296FA;
+                border-radius: 2px;
+                font-size: 16px;
+                color: #FFFFFF;
+                border: none;
+                width: 240px;
+                height: 40px;
+            }
+        }
+        .el-form-item {
+            margin-bottom: 0px;
+            .el-form-item__label {
+                font-size: 12px;
+                color: #999999;
+                font-weight: 400;
+            }
+        }
+    }
+}
+.displayNone{
+    display: none;
+}

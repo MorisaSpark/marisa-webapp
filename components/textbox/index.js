@@ -4,7 +4,7 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {getCurrentUserId, makeGetProfilesInChannel, makeGetProfilesNotInChannel} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentUserId, makeGetProfilesInChannel, makeGetProfilesNotInChannel} from 'panguaxe-redux/selectors/entities/users';
 
 import {autocompleteUsersInChannel, scrollPostList} from 'actions/views/channel';
 

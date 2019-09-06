@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {joinChannel, getChannelByNameAndTeamName, markGroupChannelOpen} from 'mattermost-redux/actions/channels';
-import {getUser, getUserByUsername, getUserByEmail} from 'mattermost-redux/actions/users';
-import {getTeamByName} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUserId, getUserByUsername as selectUserByUsername, getUser as selectUser, getUserByEmail as selectUserByEmail} from 'mattermost-redux/selectors/entities/users';
-import {getChannelByName, getOtherChannels, getChannel, getChannelsNameMapInTeam, getRedirectChannelNameForTeam} from 'mattermost-redux/selectors/entities/channels';
+import {joinChannel, getChannelByNameAndTeamName, markGroupChannelOpen} from 'panguaxe-redux/actions/channels';
+import {getUser, getUserByUsername, getUserByEmail} from 'panguaxe-redux/actions/users';
+import {getTeamByName} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUserId, getUserByUsername as selectUserByUsername, getUser as selectUser, getUserByEmail as selectUserByEmail} from 'panguaxe-redux/selectors/entities/users';
+import {getChannelByName, getOtherChannels, getChannel, getChannelsNameMapInTeam, getRedirectChannelNameForTeam} from 'panguaxe-redux/selectors/entities/channels';
 
 import {Constants} from 'utils/constants.jsx';
 import {openDirectChannelToUserId} from 'actions/channel_actions';

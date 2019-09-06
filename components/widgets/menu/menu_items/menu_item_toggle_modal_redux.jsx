@@ -24,6 +24,7 @@ MenuItemToggleModalReduxImpl.propTypes = {
     dialogType: PropTypes.func.isRequired,
     dialogProps: PropTypes.object,
     text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    modalName:PropTypes.string,
 };
 
 const MenuItemToggleModalRedux = menuItem(MenuItemToggleModalReduxImpl);

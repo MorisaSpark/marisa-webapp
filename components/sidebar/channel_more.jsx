@@ -4,7 +4,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {PropTypes} from 'prop-types';
-import {Permissions} from 'mattermost-redux/constants';
+import {Permissions} from 'panguaxe-redux/constants';
 
 import TeamPermissionGate from 'components/permissions_gates/team_permission_gate';
 

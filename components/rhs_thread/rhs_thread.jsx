@@ -6,7 +6,7 @@ import {FormattedMessage} from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
-import {Posts} from 'mattermost-redux/constants';
+import {Posts} from 'panguaxe-redux/constants';
 
 import Constants from 'utils/constants.jsx';
 import DelayedAction from 'utils/delayed_action.jsx';

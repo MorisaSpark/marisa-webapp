@@ -3,9 +3,9 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getPost} from 'mattermost-redux/selectors/entities/posts';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {getChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getPost} from 'panguaxe-redux/selectors/entities/posts';
 
 import {scrollPostList} from 'actions/views/channel';
 import {setRhsExpanded, showPinnedPosts} from 'actions/views/rhs';

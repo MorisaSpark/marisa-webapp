@@ -1,14 +1,14 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {getProfilesByIds} from 'mattermost-redux/actions/users';
-import {getChannel, getCurrentChannel, getMyChannelMember} from 'mattermost-redux/selectors/entities/channels';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getTeammateNameDisplaySetting} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentUserId, getCurrentUser, getStatusForUserId, getUser} from 'mattermost-redux/selectors/entities/users';
-import {isChannelMuted} from 'mattermost-redux/utils/channel_utils';
-import {isSystemMessage} from 'mattermost-redux/utils/post_utils';
-import {displayUsername} from 'mattermost-redux/utils/user_utils';
+import {getProfilesByIds} from 'panguaxe-redux/actions/users';
+import {getChannel, getCurrentChannel, getMyChannelMember} from 'panguaxe-redux/selectors/entities/channels';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getTeammateNameDisplaySetting} from 'panguaxe-redux/selectors/entities/preferences';
+import {getCurrentUserId, getCurrentUser, getStatusForUserId, getUser} from 'panguaxe-redux/selectors/entities/users';
+import {isChannelMuted} from 'panguaxe-redux/utils/channel_utils';
+import {isSystemMessage} from 'panguaxe-redux/utils/post_utils';
+import {displayUsername} from 'panguaxe-redux/utils/user_utils';
 
 import Constants, {NotificationLevels, UserStatuses} from 'utils/constants.jsx';
 import {isMacApp, isMobileApp, isWindowsApp} from 'utils/user_agent.jsx';

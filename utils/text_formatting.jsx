@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import XRegExp from 'xregexp';
-import {getEmojiImageUrl} from 'mattermost-redux/utils/emoji_utils';
+import {getEmojiImageUrl} from 'panguaxe-redux/utils/emoji_utils';
 import emojiRegex from 'emoji-regex';
 
 import {formatWithRenderer} from 'utils/markdown';

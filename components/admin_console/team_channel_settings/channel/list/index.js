@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createSelector} from 'reselect';
 
-import {getAllChannelsWithCount as getData} from 'mattermost-redux/actions/channels';
-import {getAllChannels} from 'mattermost-redux/selectors/entities/channels';
+import {getAllChannelsWithCount as getData} from 'panguaxe-redux/actions/channels';
+import {getAllChannels} from 'panguaxe-redux/selectors/entities/channels';
 
 import {t} from 'utils/i18n';
 

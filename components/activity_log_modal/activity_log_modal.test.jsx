@@ -6,7 +6,7 @@ import {shallow} from 'enzyme';
 import $ from 'jquery';
 require('perfect-scrollbar/jquery')($);
 
-import {General} from 'mattermost-redux/constants';
+import {General} from 'panguaxe-redux/constants';
 
 import ActivityLogModal from 'components/activity_log_modal/activity_log_modal.jsx';
 import LoadingScreen from 'components/loading_screen.jsx';

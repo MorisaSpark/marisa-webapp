@@ -7,7 +7,7 @@ import AsyncSelect from 'react-select/lib/AsyncCreatable';
 import {components} from 'react-select';
 import {intlShape} from 'react-intl';
 
-import {isPhone} from 'mattermost-redux/utils/helpers';
+import {isPhone} from 'panguaxe-redux/utils/helpers';
 
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import MailIcon from 'components/svg/mail_icon';

@@ -4,14 +4,14 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {savePreferences} from 'mattermost-redux/actions/preferences';
-import {getSupportedTimezones} from 'mattermost-redux/actions/general';
-import {autoUpdateTimezone} from 'mattermost-redux/actions/timezone';
-import {getConfig, getSupportedTimezones as getTimezones} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {get} from 'mattermost-redux/selectors/entities/preferences';
-import {getUserTimezone} from 'mattermost-redux/selectors/entities/timezone';
-import {getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
+import {savePreferences} from 'panguaxe-redux/actions/preferences';
+import {getSupportedTimezones} from 'panguaxe-redux/actions/general';
+import {autoUpdateTimezone} from 'panguaxe-redux/actions/timezone';
+import {getConfig, getSupportedTimezones as getTimezones} from 'panguaxe-redux/selectors/entities/general';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {get} from 'panguaxe-redux/selectors/entities/preferences';
+import {getUserTimezone} from 'panguaxe-redux/selectors/entities/timezone';
+import {getUserCurrentTimezone} from 'panguaxe-redux/utils/timezone_utils';
 
 import {Preferences} from 'utils/constants.jsx';
 

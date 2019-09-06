@@ -10,9 +10,9 @@ import {
     setDefaultProfileImage,
     uploadProfileImage,
     sendSMS,
-} from 'mattermost-redux/actions/users';
-import {clearErrors, logError} from 'mattermost-redux/actions/errors';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+} from 'panguaxe-redux/actions/users';
+import {clearErrors, logError} from 'panguaxe-redux/actions/errors';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import UserSettingsGeneralTab from './user_settings_general.jsx';
 

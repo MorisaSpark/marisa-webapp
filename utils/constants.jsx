@@ -4,9 +4,9 @@
 /* eslint-disable no-magic-numbers */
 import keyMirror from 'key-mirror';
 
-import Permissions from 'mattermost-redux/constants/permissions';
+import Permissions from 'panguaxe-redux/constants/permissions';
 
-import * as PostListUtils from 'mattermost-redux/utils/post_list';
+import * as PostListUtils from 'panguaxe-redux/utils/post_list';
 
 import audioIcon from 'images/icons/audio.svg';
 import codeIcon from 'images/icons/code.svg';
@@ -186,6 +186,10 @@ export const ModalIdentifiers = {
     ABOUT: 'about',
     TEAM_SETTINGS: 'team_settings',
     ADD_STAFF: 'add_staff',
+    CHANGE_PHONE: 'change_phone',
+    INVITE_COLLEAGUE: 'invite_colleague',
+    CHANGE_PASSWORD: 'change_password',
+    ADD_DEPARTMENT: 'add_department',
     CHANNEL_INFO: 'channel_info',
     DELETE_CHANNEL: 'delete_channel',
     CHANNEL_NOTIFICATIONS: 'channel_notifications',
@@ -1339,7 +1343,8 @@ export const Constants = {
     },
     ADD_STAFF: {
         MAIN_FORM: 'mainForm',
-        CUT_PIC: 'cutPic'
+        CUT_PIC: 'cutPic',
+        ADD_STAFF_BATCH: 'addStaffBatch'
     }
 };
 

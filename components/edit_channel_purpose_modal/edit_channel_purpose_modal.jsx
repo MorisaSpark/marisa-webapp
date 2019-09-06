@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import {RequestStatus} from 'mattermost-redux/constants';
+import {RequestStatus} from 'panguaxe-redux/constants';
 
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';

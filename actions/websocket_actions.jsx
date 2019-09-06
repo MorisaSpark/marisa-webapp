@@ -13,15 +13,15 @@ import {
     AdminTypes,
     IntegrationTypes,
     PreferenceTypes,
-} from 'mattermost-redux/action_types';
-import {WebsocketEvents, General} from 'mattermost-redux/constants';
+} from 'panguaxe-redux/action_types';
+import {WebsocketEvents, General} from 'panguaxe-redux/constants';
 import {
     getChannelAndMyMember,
     getChannelStats,
     viewChannel,
     markChannelAsRead,
-} from 'mattermost-redux/actions/channels';
-import {setServerVersion} from 'mattermost-redux/actions/general';
+} from 'panguaxe-redux/actions/channels';
+import {setServerVersion} from 'panguaxe-redux/actions/general';
 import {
     getCustomEmojiForReaction,
     getPosts,
@@ -29,22 +29,22 @@ import {
     postDeleted,
     receivedNewPost,
     receivedPost,
-} from 'mattermost-redux/actions/posts';
-import {clearErrors, logError} from 'mattermost-redux/actions/errors';
+} from 'panguaxe-redux/actions/posts';
+import {clearErrors, logError} from 'panguaxe-redux/actions/errors';
 
-import * as TeamActions from 'mattermost-redux/actions/teams';
+import * as TeamActions from 'panguaxe-redux/actions/teams';
 import {
     checkForModifiedUsers,
     getMe,
     getMissingProfilesByIds,
     getStatusesByIds,
-} from 'mattermost-redux/actions/users';
-import {Client4} from 'mattermost-redux/client';
-import {getCurrentUser, getCurrentUserId, getStatusForUserId, getUser} from 'mattermost-redux/selectors/entities/users';
-import {getMyTeams, getCurrentRelativeTeamUrl, getCurrentTeamId, getCurrentTeamUrl} from 'mattermost-redux/selectors/entities/teams';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getChannel, getCurrentChannel, getCurrentChannelId, getRedirectChannelNameForTeam} from 'mattermost-redux/selectors/entities/channels';
-import {getPost, getMostRecentPostIdInChannel} from 'mattermost-redux/selectors/entities/posts';
+} from 'panguaxe-redux/actions/users';
+import {Client4} from 'panguaxe-redux/client';
+import {getCurrentUser, getCurrentUserId, getStatusForUserId, getUser} from 'panguaxe-redux/selectors/entities/users';
+import {getMyTeams, getCurrentRelativeTeamUrl, getCurrentTeamId, getCurrentTeamUrl} from 'panguaxe-redux/selectors/entities/teams';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getChannel, getCurrentChannel, getCurrentChannelId, getRedirectChannelNameForTeam} from 'panguaxe-redux/selectors/entities/channels';
+import {getPost, getMostRecentPostIdInChannel} from 'panguaxe-redux/selectors/entities/posts';
 
 import {getSelectedChannelId} from 'selectors/rhs';
 

@@ -3,14 +3,14 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {isCurrentUserSystemAdmin} from 'mattermost-redux/selectors/entities/users';
-import {getBool} from 'mattermost-redux/selectors/entities/preferences';
-import {getAllChannelStats} from 'mattermost-redux/selectors/entities/channels';
-import {makeGetMessageInHistoryItem} from 'mattermost-redux/selectors/entities/posts';
-import {resetCreatePostRequest, resetHistoryIndex} from 'mattermost-redux/actions/posts';
-import {getChannelTimezones} from 'mattermost-redux/actions/channels';
-import {Preferences, Posts} from 'mattermost-redux/constants';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {isCurrentUserSystemAdmin} from 'panguaxe-redux/selectors/entities/users';
+import {getBool} from 'panguaxe-redux/selectors/entities/preferences';
+import {getAllChannelStats} from 'panguaxe-redux/selectors/entities/channels';
+import {makeGetMessageInHistoryItem} from 'panguaxe-redux/selectors/entities/posts';
+import {resetCreatePostRequest, resetHistoryIndex} from 'panguaxe-redux/actions/posts';
+import {getChannelTimezones} from 'panguaxe-redux/actions/channels';
+import {Preferences, Posts} from 'panguaxe-redux/constants';
 
 import {connectionErrorCount} from 'selectors/views/system';
 

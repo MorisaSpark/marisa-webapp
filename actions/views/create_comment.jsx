@@ -2,23 +2,23 @@
 // See LICENSE.txt for license information.
 
 import {createSelector} from 'reselect';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
 import {
     makeGetMessageInHistoryItem,
     makeGetCommentCountForPost,
     getPost,
     getPostIdsInChannel,
-} from 'mattermost-redux/selectors/entities/posts';
-import {getCustomEmojisByName} from 'mattermost-redux/selectors/entities/emojis';
+} from 'panguaxe-redux/selectors/entities/posts';
+import {getCustomEmojisByName} from 'panguaxe-redux/selectors/entities/emojis';
 import {
     removeReaction,
     addMessageIntoHistory,
     moveHistoryIndexBack,
     moveHistoryIndexForward,
-} from 'mattermost-redux/actions/posts';
-import {Posts} from 'mattermost-redux/constants';
-import {isPostPendingOrFailed} from 'mattermost-redux/utils/post_utils';
+} from 'panguaxe-redux/actions/posts';
+import {Posts} from 'panguaxe-redux/constants';
+import {isPostPendingOrFailed} from 'panguaxe-redux/utils/post_utils';
 
 import * as PostActions from 'actions/post_actions.jsx';
 import {executeCommand} from 'actions/command';

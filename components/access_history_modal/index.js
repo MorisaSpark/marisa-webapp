@@ -3,8 +3,8 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getUserAudits} from 'mattermost-redux/actions/users';
-import {getCurrentUserId, getUserAudits as getCurrentUserAudits} from 'mattermost-redux/selectors/entities/users';
+import {getUserAudits} from 'panguaxe-redux/actions/users';
+import {getCurrentUserId, getUserAudits as getCurrentUserAudits} from 'panguaxe-redux/selectors/entities/users';
 
 import AccessHistoryModal from './access_history_modal.jsx';
 

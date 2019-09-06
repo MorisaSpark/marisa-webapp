@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import {DynamicSizeList} from 'react-window';
-import {isDateLine, isStartOfNewMessages} from 'mattermost-redux/utils/post_list';
+import {isDateLine, isStartOfNewMessages} from 'panguaxe-redux/utils/post_list';
 
-import EventEmitter from 'mattermost-redux/utils/event_emitter';
+import EventEmitter from 'panguaxe-redux/utils/event_emitter';
 
 import Constants, {PostListRowListIds, EventTypes, PostRequestTypes} from 'utils/constants.jsx';
 import DelayedAction from 'utils/delayed_action.jsx';

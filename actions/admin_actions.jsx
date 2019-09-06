@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import * as AdminActions from 'mattermost-redux/actions/admin';
-import * as UserActions from 'mattermost-redux/actions/users';
-import * as TeamActions from 'mattermost-redux/actions/teams';
-import {Client4} from 'mattermost-redux/client';
-import {bindClientFunc} from 'mattermost-redux/actions/helpers';
+import * as AdminActions from 'panguaxe-redux/actions/admin';
+import * as UserActions from 'panguaxe-redux/actions/users';
+import * as TeamActions from 'panguaxe-redux/actions/teams';
+import {Client4} from 'panguaxe-redux/client';
+import {bindClientFunc} from 'panguaxe-redux/actions/helpers';
 
 import {emitUserLoggedOutEvent} from 'actions/global_actions.jsx';
 import {getOnNavigationConfirmed} from 'selectors/views/admin';

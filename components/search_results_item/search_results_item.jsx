@@ -4,8 +4,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
-import {Posts} from 'mattermost-redux/constants/index';
-import * as ReduxPostUtils from 'mattermost-redux/utils/post_utils';
+import {Posts} from 'panguaxe-redux/constants/index';
+import * as ReduxPostUtils from 'panguaxe-redux/utils/post_utils';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import PostMessageContainer from 'components/post_view/post_message_view';

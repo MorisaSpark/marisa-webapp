@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Posts} from 'mattermost-redux/constants';
+import {Posts} from 'panguaxe-redux/constants';
 
 import * as PostUtils from 'utils/post_utils';
 import * as Utils from 'utils/utils';

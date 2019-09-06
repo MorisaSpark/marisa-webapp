@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './upload_part.scss';
 import ReactDOM from 'react-dom'
 import Cropper from 'react-cropper';
-import {sortFileInfos, getFileThumbnailUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
+import {sortFileInfos, getFileThumbnailUrl, getFileUrl} from 'panguaxe-redux/utils/file_utils';
 import LogoImage from 'images/ithpower/login/logo_words.png';
 
 export default class UploadPart extends Component {

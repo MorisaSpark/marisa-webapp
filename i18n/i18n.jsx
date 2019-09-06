@@ -48,7 +48,7 @@ import ruLocaleData from 'react-intl/locale-data/ru';
 import trLocaleData from 'react-intl/locale-data/tr';
 import ukLocaleData from 'react-intl/locale-data/uk';
 import zhLocaleData from 'react-intl/locale-data/zh';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import store from 'stores/redux_store.jsx';
 

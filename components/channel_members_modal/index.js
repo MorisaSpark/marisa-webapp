@@ -3,7 +3,7 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {canManageChannelMembers} from 'mattermost-redux/selectors/entities/channels';
+import {canManageChannelMembers} from 'panguaxe-redux/selectors/entities/channels';
 
 import {openModal} from 'actions/views/modals';
 

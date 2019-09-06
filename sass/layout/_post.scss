@@ -1495,7 +1495,6 @@
 
         &:after {
             content: '...';
-            font-family: 'Open Sans', sans-serif;
             position: relative;
             top: -1px;
             width: 100%;
@@ -1507,7 +1506,6 @@
         color: inherit;
         display: inline-block;
         float: right;
-        font-family: 'Open Sans', sans-serif;
         font-size: 20px;
         font-weight: 600;
         height: 20px;
@@ -1949,7 +1947,6 @@
 
 .post__pinned-badge {
     border-radius: 2px;
-    font-family: inherit;
     font-size: 10px;
     font-weight: 600;
     padding: 1px 4px;

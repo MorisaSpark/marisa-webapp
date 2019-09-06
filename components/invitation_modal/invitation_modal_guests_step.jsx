@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {isEmail} from 'mattermost-redux/utils/helpers';
+import {isEmail} from 'panguaxe-redux/utils/helpers';
 
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import InviteIcon from 'components/svg/invite_icon';

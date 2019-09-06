@@ -4,8 +4,8 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {createSelector} from 'reselect';
-import {patchChannel} from 'mattermost-redux/actions/channels';
-import {getTeam} from 'mattermost-redux/selectors/entities/teams';
+import {patchChannel} from 'panguaxe-redux/actions/channels';
+import {getTeam} from 'panguaxe-redux/selectors/entities/teams';
 
 import {getSiteURL} from 'utils/url.jsx';
 

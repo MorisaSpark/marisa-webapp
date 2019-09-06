@@ -3,9 +3,9 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {deleteCommand, regenCommandToken} from 'mattermost-redux/actions/integrations';
-import {haveITeamPermission} from 'mattermost-redux/selectors/entities/roles';
-import {Permissions} from 'mattermost-redux/constants';
+import {deleteCommand, regenCommandToken} from 'panguaxe-redux/actions/integrations';
+import {haveITeamPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {Permissions} from 'panguaxe-redux/constants';
 
 import InstalledCommands from './installed_commands.jsx';
 

@@ -5,16 +5,16 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 
-import {getTeams} from 'mattermost-redux/actions/teams';
-import {getTeamsWithInviteByTelPhone, updateInviteReply} from 'mattermost-redux/actions/invites';
-import {getCodeListByPCode, getAllPCodeList, getIndustriesByNameLike, getAllTCodeList} from 'mattermost-redux/actions/industries';
-import {saveFillInTheMessage} from 'mattermost-redux/actions/enterprises';
-import {loadRolesIfNeeded} from 'mattermost-redux/actions/roles';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {Permissions} from 'mattermost-redux/constants';
-import {haveISystemPermission} from 'mattermost-redux/selectors/entities/roles';
-import {getSortedListableTeams, getTeamMemberships} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
+import {getTeams} from 'panguaxe-redux/actions/teams';
+import {getTeamsWithInviteByTelPhone, updateInviteReply} from 'panguaxe-redux/actions/invites';
+import {getCodeListByPCode, getAllPCodeList, getIndustriesByNameLike, getAllTCodeList} from 'panguaxe-redux/actions/industries';
+import {saveFillInTheMessage} from 'panguaxe-redux/actions/enterprises';
+import {loadRolesIfNeeded} from 'panguaxe-redux/actions/roles';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {Permissions} from 'panguaxe-redux/constants';
+import {haveISystemPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {getSortedListableTeams, getTeamMemberships} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
 import {setGlobalItem} from 'actions/storage';
 
 import {addUserToTeam} from 'actions/team_actions';

@@ -2,9 +2,9 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
-import {makeGetPostsAroundPost, makeGetPostsInChannel} from 'mattermost-redux/selectors/entities/posts';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {makeGetPostsAroundPost, makeGetPostsInChannel} from 'panguaxe-redux/selectors/entities/posts';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
 
 import {makeCombineUserActivityFromPosts} from 'selectors/posts';
 

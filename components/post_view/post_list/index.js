@@ -4,9 +4,9 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
-import {getRecentPostsChunkInChannel, makeGetPostsChunkAroundPost, getUnreadPostsChunk, getPost} from 'mattermost-redux/selectors/entities/posts';
-import {memoizeResult} from 'mattermost-redux/utils/helpers';
-import {makePreparePostIdsForPostList} from 'mattermost-redux/utils/post_list';
+import {getRecentPostsChunkInChannel, makeGetPostsChunkAroundPost, getUnreadPostsChunk, getPost} from 'panguaxe-redux/selectors/entities/posts';
+import {memoizeResult} from 'panguaxe-redux/utils/helpers';
+import {makePreparePostIdsForPostList} from 'panguaxe-redux/utils/post_list';
 
 import {getLatestPostId} from 'utils/post_utils.jsx';
 import {

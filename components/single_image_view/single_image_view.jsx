@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {getFilePreviewUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
+import {getFilePreviewUrl, getFileUrl} from 'panguaxe-redux/utils/file_utils';
 
 import SizeAwareImage from 'components/size_aware_image';
 import {FileTypes} from 'utils/constants.jsx';

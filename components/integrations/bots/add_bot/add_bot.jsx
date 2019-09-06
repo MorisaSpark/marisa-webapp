@@ -7,8 +7,8 @@ import {Link} from 'react-router-dom';
 import {FormattedMessage} from 'react-intl';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import * as UserUtils from 'mattermost-redux/utils/user_utils';
-import {General} from 'mattermost-redux/constants';
+import * as UserUtils from 'panguaxe-redux/utils/user_utils';
+import {General} from 'panguaxe-redux/constants';
 
 import BotDefaultIcon from 'images/bot_default_icon.png';
 

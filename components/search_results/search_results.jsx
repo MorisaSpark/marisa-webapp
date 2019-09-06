@@ -7,7 +7,7 @@ import Scrollbars from 'react-custom-scrollbars';
 
 import {FormattedMessage} from 'react-intl';
 
-import {debounce} from 'mattermost-redux/actions/helpers';
+import {debounce} from 'panguaxe-redux/actions/helpers';
 
 import * as Utils from 'utils/utils.jsx';
 

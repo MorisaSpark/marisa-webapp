@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {Client4} from 'mattermost-redux/client';
+import {Client4} from 'panguaxe-redux/client';
 
 import {autocompleteUsers} from 'actions/user_actions.jsx';
 import * as Utils from 'utils/utils.jsx';

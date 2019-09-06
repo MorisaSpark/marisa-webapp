@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import FastClick from 'fastclick';
 import {Route, Switch, Redirect} from 'react-router-dom';
-import {setUrl} from 'mattermost-redux/actions/general';
-import {setSystemEmojis} from 'mattermost-redux/actions/emojis';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {setUrl} from 'panguaxe-redux/actions/general';
+import {setSystemEmojis} from 'panguaxe-redux/actions/emojis';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import * as UserAgent from 'utils/user_agent.jsx';
 import {EmojiIndicesByAlias} from 'utils/emoji.jsx';

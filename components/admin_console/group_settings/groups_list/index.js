@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createSelector} from 'reselect';
 
-import {linkLdapGroup, unlinkLdapGroup, getLdapGroups as fetchLdapGroups} from 'mattermost-redux/actions/admin';
-import {getLdapGroups, getLdapGroupsCount} from 'mattermost-redux/selectors/entities/admin';
+import {linkLdapGroup, unlinkLdapGroup, getLdapGroups as fetchLdapGroups} from 'panguaxe-redux/actions/admin';
+import {getLdapGroups, getLdapGroupsCount} from 'panguaxe-redux/selectors/entities/admin';
 
 import GroupsList from './groups_list.jsx';
 

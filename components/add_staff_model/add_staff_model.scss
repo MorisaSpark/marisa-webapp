@@ -18,7 +18,7 @@
             height: 51px;
             text-align: center;
             line-height: 51px;
-            font-family: PingFangSC-Regular;
+
             font-size: 16px;
             color: #666666;
         }
@@ -65,7 +65,7 @@
                     .sex-item {
                         margin-top: 15px;
                         opacity: 0.99;
-                        font-family: PingFangSC-Regular;
+
                         font-size: 12px;
                         color: #999999;
                         margin-left: 14px;
@@ -92,7 +92,7 @@
                     position: relative;
                     float: right;
                     .upload-logo {
-                        font-family: PingFangSC-Regular;
+
                         position: absolute;
                         font-size: 12px;
                         color: #666666;
@@ -115,6 +115,7 @@
             hr {
                 width: 498px;
                 background: #F5F6FA;
+                margin: 16px 0 14px;
             }
             .form-part-1 {
                 padding: 0 80px;
@@ -126,7 +127,7 @@
                         width: 201px;
                     }
                     .now-manager {
-                        margin-left: 11px;
+                        margin-left: 7px;
                         span:nth-child(1) {
                             font-size: 12px;
                             color: #999999;
@@ -134,6 +135,7 @@
                         span:nth-child(2) {
                             font-size: 14px;
                             color: #333333;
+                            font-weight: 400;
                         }
                     }
                 }
@@ -150,10 +152,65 @@
                         font-weight: 300;
                     }
                 }
+                .dutyName .el-input {
+                    width: 286px;
+                }
+                .departmentChooseId {
+                    position: relative;
+                    .el-input {
+                        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+                            font-size: 14px;
+                            color: #333333;
+                            font-weight: 400;
+                        }
+                        input:-moz-placeholder, textarea:-moz-placeholder {
+                            font-size: 14px;
+                            color: #333333;
+                            font-weight: 400;
+                        }
+                        input::-moz-placeholder, textarea::-moz-placeholder {
+                            font-size: 14px;
+                            color: #333333;
+                            font-weight: 400;
+                        }
+                        input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+                            font-size: 14px;
+                            color: #333333;
+                            font-weight: 400;
+                        }
+                    }
+                    .el-icon-arrow-down{
+                        position: absolute;
+                        top: 30%;
+                        right: 32%;
+                    }
+                    .departmentsList {
+                        width: 201px;
+                        background: #FFFFFF;
+                        border: 1px solid #EBEBEB;
+                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+                        border-radius: 4px;
+                        z-index: 5;
+                        overflow: auto;
+                        position: absolute;
+                        max-height: 130px;
+                        .one-department {
+                            font-size: 12px;
+                            color: #333333;
+                            padding: 10px;
+                            height: 38px;
+                            line-height: 19px;
+                        }
+                        .one-department:hover {
+                            background: #F5F6FA;
+                        }
+                    }
+                }
             }
             .form-part-3 {
                 padding: 0 80px;
                 text-align: center;
+                margin-top: 29px;
                 button:nth-child(1) {
                     display: inline-block;
                     line-height: 1;
@@ -196,7 +253,7 @@
                 font-weight: 100;
                 .el-form-item__label {
                     opacity: 0.99;
-                    font-family: PingFangSC-Regular;
+
                     font-size: 12px;
                     color: #999999;
                     width: 50px;
@@ -235,5 +292,32 @@
             }
         }
     }
+    .add-staff-batch {
+        width: 626px;
+        height: 268px;
+        top: 20%;
+        .el-dialog__header {
+            text-align: center;
+            height: 51px;
+            padding: 0;
+            line-height: 51px;
+            .el-dialog__title {
+                font-size: 14px;
+                color: #666666;
+            }
+        }
+        .el-dialog__body {
+            .el-steps {
+                display: inline-block;
+            }
+            .add-batch-right {
+                display: inline-block;
+            }
+        }
+
+    }
+}
+.disNone{
+    display: none;
 }
 

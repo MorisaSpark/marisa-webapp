@@ -4,8 +4,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Permissions from 'mattermost-redux/constants/permissions';
-import {Client4} from 'mattermost-redux/client';
+import Permissions from 'panguaxe-redux/constants/permissions';
+import {Client4} from 'panguaxe-redux/client';
 
 import DeleteEmoji from 'components/emoji/delete_emoji_modal.jsx';
 import AnyTeamPermissionGate from 'components/permissions_gates/any_team_permission_gate';

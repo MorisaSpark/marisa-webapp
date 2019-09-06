@@ -2,8 +2,8 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getCurrentChannelId} from 'panguaxe-redux/selectors/entities/channels';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import YoutubeVideo from './youtube_video';
 

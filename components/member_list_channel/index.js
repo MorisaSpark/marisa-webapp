@@ -4,12 +4,12 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createSelector} from 'reselect';
-import {searchProfilesInCurrentChannel, getProfilesInCurrentChannel} from 'mattermost-redux/selectors/entities/users';
-import {getMembersInCurrentChannel, getCurrentChannelStats, getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getMembersInCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
-import {getChannelStats} from 'mattermost-redux/actions/channels';
-import {searchProfiles} from 'mattermost-redux/actions/users';
-import {sortByUsername} from 'mattermost-redux/utils/user_utils';
+import {searchProfilesInCurrentChannel, getProfilesInCurrentChannel} from 'panguaxe-redux/selectors/entities/users';
+import {getMembersInCurrentChannel, getCurrentChannelStats, getCurrentChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getMembersInCurrentTeam} from 'panguaxe-redux/selectors/entities/teams';
+import {getChannelStats} from 'panguaxe-redux/actions/channels';
+import {searchProfiles} from 'panguaxe-redux/actions/users';
+import {sortByUsername} from 'panguaxe-redux/utils/user_utils';
 
 import {
     loadProfilesAndTeamMembersAndChannelMembers,

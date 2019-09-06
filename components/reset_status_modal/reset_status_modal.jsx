@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Preferences} from 'mattermost-redux/constants';
+import {Preferences} from 'panguaxe-redux/constants';
 
 import ConfirmModal from 'components/confirm_modal.jsx';
 import {toTitleCase} from 'utils/utils.jsx';

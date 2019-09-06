@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {createSelector} from 'reselect';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
 
 import {makeGetGlobalItem} from 'selectors/storage';
 import {PostTypes} from 'utils/constants.jsx';

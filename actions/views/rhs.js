@@ -3,20 +3,20 @@
 
 import {batchActions} from 'redux-batched-actions';
 
-import {SearchTypes} from 'mattermost-redux/action_types';
+import {SearchTypes} from 'panguaxe-redux/action_types';
 import {
     getFlaggedPosts,
     getPinnedPosts,
     searchPostsWithParams,
-} from 'mattermost-redux/actions/search';
-import * as PostActions from 'mattermost-redux/actions/posts';
-import {getCurrentUserId, getCurrentUserMentionKeys} from 'mattermost-redux/selectors/entities/users';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels';
-import {getPost} from 'mattermost-redux/selectors/entities/posts';
-import {getUserTimezone} from 'mattermost-redux/selectors/entities/timezone';
-import {getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
+} from 'panguaxe-redux/actions/search';
+import * as PostActions from 'panguaxe-redux/actions/posts';
+import {getCurrentUserId, getCurrentUserMentionKeys} from 'panguaxe-redux/selectors/entities/users';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getCurrentChannelId} from 'panguaxe-redux/selectors/entities/channels';
+import {getPost} from 'panguaxe-redux/selectors/entities/posts';
+import {getUserTimezone} from 'panguaxe-redux/selectors/entities/timezone';
+import {getUserCurrentTimezone} from 'panguaxe-redux/utils/timezone_utils';
 
 import {trackEvent} from 'actions/diagnostics_actions.jsx';
 import {getSearchTerms, getRhsState} from 'selectors/rhs';

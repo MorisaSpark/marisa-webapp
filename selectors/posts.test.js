@@ -1,8 +1,8 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {Posts} from 'mattermost-redux/constants';
-import * as PostListUtils from 'mattermost-redux/utils/post_list';
+import {Posts} from 'panguaxe-redux/constants';
+import * as PostListUtils from 'panguaxe-redux/utils/post_list';
 
 import {makeCombineUserActivityFromPosts} from './posts';
 

@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
 
-import {Client4} from 'mattermost-redux/client';
+import {Client4} from 'panguaxe-redux/client';
 
 export default class GroupUsersRow extends React.PureComponent {
     static propTypes = {

@@ -6,7 +6,7 @@ import React from 'react';
 import {OverlayTrigger, Popover, Tooltip} from 'react-bootstrap';
 import {FormattedMessage, intlShape, injectIntl} from 'react-intl';
 
-import EventEmitter from 'mattermost-redux/utils/event_emitter';
+import EventEmitter from 'panguaxe-redux/utils/event_emitter';
 
 import LocalDateTime from 'components/local_date_time';
 import UserSettingsModal from 'components/user_settings/modal';

@@ -4,13 +4,13 @@
 import {
     getProfilesAndStatusesForPosts,
     receivedNewPost,
-} from 'mattermost-redux/actions/posts';
-import {ChannelTypes, UserTypes} from 'mattermost-redux/action_types';
+} from 'panguaxe-redux/actions/posts';
+import {ChannelTypes, UserTypes} from 'panguaxe-redux/action_types';
 import {
     getMissingProfilesByIds,
     getStatusesByIds,
-} from 'mattermost-redux/actions/users';
-import {General, WebsocketEvents} from 'mattermost-redux/constants';
+} from 'panguaxe-redux/actions/users';
+import {General, WebsocketEvents} from 'panguaxe-redux/constants';
 
 import {handleNewPost} from 'actions/post_actions';
 import {closeRightHandSide} from 'actions/views/rhs';
@@ -33,12 +33,12 @@ import {
     reconnect,
 } from './websocket_actions';
 
-jest.mock('mattermost-redux/actions/posts', () => ({
-    ...jest.requireActual('mattermost-redux/actions/posts'),
+jest.mock('panguaxe-redux/actions/posts', () => ({
+    ...jest.requireActual('panguaxe-redux/actions/posts'),
     getProfilesAndStatusesForPosts: jest.fn(),
 }));
 
-jest.mock('mattermost-redux/actions/users', () => ({
+jest.mock('panguaxe-redux/actions/users', () => ({
     getMissingProfilesByIds: jest.fn(() => ({type: 'GET_MISSING_PROFILES_BY_IDS'})),
     getStatusesByIds: jest.fn(() => ({type: 'GET_STATUSES_BY_IDS'})),
 }));

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 import {FormattedMessage} from 'react-intl';
-import Permissions from 'mattermost-redux/constants/permissions';
+import Permissions from 'panguaxe-redux/constants/permissions';
 import classNames from 'classnames';
 
 import {filterAndSortTeamsByDisplayName} from 'utils/team_utils.jsx';

@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import {checkDialogElementForError, checkIfErrorsMatchElements} from 'mattermost-redux/utils/integration_utils';
+import {checkDialogElementForError, checkIfErrorsMatchElements} from 'panguaxe-redux/utils/integration_utils';
 
 import SpinnerButton from 'components/spinner_button';
 

@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage, intlShape} from 'react-intl';
 
-import {Posts} from 'mattermost-redux/constants';
-import {sortFileInfos} from 'mattermost-redux/utils/file_utils';
+import {Posts} from 'panguaxe-redux/constants';
+import {sortFileInfos} from 'panguaxe-redux/utils/file_utils';
 
 import * as GlobalActions from 'actions/global_actions.jsx';
 import Constants, {StoragePrefixes, ModalIdentifiers} from 'utils/constants.jsx';

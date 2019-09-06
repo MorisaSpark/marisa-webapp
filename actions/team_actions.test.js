@@ -3,14 +3,14 @@
 
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import * as TeamActions from 'mattermost-redux/actions/teams';
-import * as channelActions from 'mattermost-redux/actions/channels';
-import * as userActions from 'mattermost-redux/actions/users';
+import * as TeamActions from 'panguaxe-redux/actions/teams';
+import * as channelActions from 'panguaxe-redux/actions/channels';
+import * as userActions from 'panguaxe-redux/actions/users';
 
 import * as Actions from 'actions/team_actions.jsx';
 import {browserHistory} from 'utils/browser_history';
 
-jest.mock('mattermost-redux/actions/teams', () => ({
+jest.mock('panguaxe-redux/actions/teams', () => ({
     addUsersToTeam: jest.fn(() => {
         return {
             type: 'ADD_USER',
@@ -41,7 +41,7 @@ jest.mock('mattermost-redux/actions/teams', () => ({
     }),
 }));
 
-jest.mock('mattermost-redux/actions/channels', () => ({
+jest.mock('panguaxe-redux/actions/channels', () => ({
     viewChannel: jest.fn(() => {
         return {
             type: 'VIEW_CHANNEL',
@@ -54,7 +54,7 @@ jest.mock('mattermost-redux/actions/channels', () => ({
     }),
 }));
 
-jest.mock('mattermost-redux/actions/users', () => ({
+jest.mock('panguaxe-redux/actions/users', () => ({
     getUser: jest.fn(() => {
         return {
             type: 'GET_USER',

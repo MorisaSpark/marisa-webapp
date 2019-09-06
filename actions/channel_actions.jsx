@@ -3,13 +3,13 @@
 
 import {batchActions} from 'redux-batched-actions';
 
-import {PreferenceTypes} from 'mattermost-redux/action_types';
-import * as ChannelActions from 'mattermost-redux/actions/channels';
-import {savePreferences} from 'mattermost-redux/actions/preferences';
-import {getMyChannelMemberships} from 'mattermost-redux/selectors/entities/common';
-import {getChannelByName, getUnreadChannelIds, getChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentTeamUrl, getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {PreferenceTypes} from 'panguaxe-redux/action_types';
+import * as ChannelActions from 'panguaxe-redux/actions/channels';
+import {savePreferences} from 'panguaxe-redux/actions/preferences';
+import {getMyChannelMemberships} from 'panguaxe-redux/selectors/entities/common';
+import {getChannelByName, getUnreadChannelIds, getChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentTeamUrl, getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
 
 import {trackEvent} from 'actions/diagnostics_actions.jsx';
 import {loadNewDMIfNeeded, loadNewGMIfNeeded, loadProfilesForSidebar} from 'actions/user_actions.jsx';

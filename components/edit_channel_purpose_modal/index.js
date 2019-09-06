@@ -3,8 +3,8 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {createSelector} from 'reselect';
-import {getBool} from 'mattermost-redux/selectors/entities/preferences';
-import {patchChannel} from 'mattermost-redux/actions/channels';
+import {getBool} from 'panguaxe-redux/selectors/entities/preferences';
+import {patchChannel} from 'panguaxe-redux/actions/channels';
 
 import Constants from 'utils/constants.jsx';
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage, intlShape} from 'react-intl';
 
-import {Groups} from 'mattermost-redux/constants';
+import {Groups} from 'panguaxe-redux/constants';
 
 import AddGroupsToChannelModal from 'components/add_groups_to_channel_modal';
 

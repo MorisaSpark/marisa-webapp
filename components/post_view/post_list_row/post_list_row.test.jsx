@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-import * as PostListUtils from 'mattermost-redux/utils/post_list';
+import * as PostListUtils from 'panguaxe-redux/utils/post_list';
 
 import CombinedUserActivityPost from 'components/post_view/combined_user_activity_post';
 import Post from 'components/post_view/post';

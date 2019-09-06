@@ -8,8 +8,8 @@ import * as Actions from 'actions/views/root';
 
 const mockStore = configureStore([thunk]);
 
-jest.mock('mattermost-redux/actions/general', () => {
-    const original = require.requireActual('mattermost-redux/actions/general');
+jest.mock('panguaxe-redux/actions/general', () => {
+    const original = require.requireActual('panguaxe-redux/actions/general');
     return {
         ...original,
         getClientConfig: () => ({type: 'MOCK_GET_CLIENT_CONFIG'}),
@@ -17,8 +17,8 @@ jest.mock('mattermost-redux/actions/general', () => {
     };
 });
 
-jest.mock('mattermost-redux/actions/users', () => {
-    const original = require.requireActual('mattermost-redux/actions/users');
+jest.mock('panguaxe-redux/actions/users', () => {
+    const original = require.requireActual('panguaxe-redux/actions/users');
     return {
         ...original,
         loadMe: () => ({type: 'MOCK_LOAD_ME'}),

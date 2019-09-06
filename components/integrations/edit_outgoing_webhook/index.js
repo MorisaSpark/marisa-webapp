@@ -3,8 +3,8 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getOutgoingHook, updateOutgoingHook} from 'mattermost-redux/actions/integrations';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getOutgoingHook, updateOutgoingHook} from 'panguaxe-redux/actions/integrations';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import EditOutgoingWebhook from './edit_outgoing_webhook.jsx';
 

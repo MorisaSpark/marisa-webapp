@@ -4,7 +4,7 @@
 .popover {
     @include border-radius($border-rad * 2);
     color: lighten($black, 25%);
-    font-family: inherit;
+
     padding: 0;
 
     &.bottom,

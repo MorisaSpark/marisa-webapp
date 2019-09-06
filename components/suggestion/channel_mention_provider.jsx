@@ -3,11 +3,11 @@
 
 import React from 'react';
 
-import {getMyChannels, getChannel, getMyChannelMemberships} from 'mattermost-redux/selectors/entities/channels';
+import {getMyChannels, getChannel, getMyChannelMemberships} from 'panguaxe-redux/selectors/entities/channels';
 
-import {sortChannelsByTypeAndDisplayName} from 'mattermost-redux/utils/channel_utils';
+import {sortChannelsByTypeAndDisplayName} from 'panguaxe-redux/utils/channel_utils';
 
-import {ChannelTypes} from 'mattermost-redux/action_types';
+import {ChannelTypes} from 'panguaxe-redux/action_types';
 
 import {autocompleteChannels} from 'actions/channel_actions.jsx';
 import store from 'stores/redux_store.jsx';

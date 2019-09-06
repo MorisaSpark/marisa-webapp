@@ -3,7 +3,7 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import {Posts} from 'mattermost-redux/constants';
+import {Posts} from 'panguaxe-redux/constants';
 
 import Constants from 'utils/constants.jsx';
 import PostInfo from 'components/post_view/post_info/post_info.jsx';

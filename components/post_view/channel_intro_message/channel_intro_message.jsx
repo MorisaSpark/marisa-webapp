@@ -5,7 +5,7 @@ import React from 'react';
 import {FormattedDate, FormattedMessage} from 'react-intl';
 import PropTypes from 'prop-types';
 
-import {Permissions} from 'mattermost-redux/constants';
+import {Permissions} from 'panguaxe-redux/constants';
 
 import {Constants, ModalIdentifiers} from 'utils/constants';
 import ChannelInviteModal from 'components/channel_invite_modal';

@@ -5,11 +5,11 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createSelector} from 'reselect';
 
-import {Posts} from 'mattermost-redux/constants';
-import {getPost, makeIsPostCommentMention, makeGetReactionsForPost} from 'mattermost-redux/selectors/entities/posts';
-import {get} from 'mattermost-redux/selectors/entities/preferences';
-import {makeGetDisplayName, getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {isPostEphemeral, isSystemMessage} from 'mattermost-redux/utils/post_utils';
+import {Posts} from 'panguaxe-redux/constants';
+import {getPost, makeIsPostCommentMention, makeGetReactionsForPost} from 'panguaxe-redux/selectors/entities/posts';
+import {get} from 'panguaxe-redux/selectors/entities/preferences';
+import {makeGetDisplayName, getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {isPostEphemeral, isSystemMessage} from 'panguaxe-redux/utils/post_utils';
 
 import {selectPost, selectPostCard} from 'actions/views/rhs';
 import {Preferences} from 'utils/constants.jsx';

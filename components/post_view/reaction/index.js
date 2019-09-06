@@ -4,16 +4,16 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {removeReaction} from 'mattermost-redux/actions/posts';
-import {getMissingProfilesByIds} from 'mattermost-redux/actions/users';
-import {getCurrentUserId, makeGetProfilesForReactions, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getCustomEmojisByName} from 'mattermost-redux/selectors/entities/emojis';
-import {getEmojiImageUrl} from 'mattermost-redux/utils/emoji_utils';
-import {haveIChannelPermission} from 'mattermost-redux/selectors/entities/roles';
-import Permissions from 'mattermost-redux/constants/permissions';
-import Constants from 'mattermost-redux/constants/general';
-import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
+import {removeReaction} from 'panguaxe-redux/actions/posts';
+import {getMissingProfilesByIds} from 'panguaxe-redux/actions/users';
+import {getCurrentUserId, makeGetProfilesForReactions, getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
+import {getChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getCustomEmojisByName} from 'panguaxe-redux/selectors/entities/emojis';
+import {getEmojiImageUrl} from 'panguaxe-redux/utils/emoji_utils';
+import {haveIChannelPermission} from 'panguaxe-redux/selectors/entities/roles';
+import Permissions from 'panguaxe-redux/constants/permissions';
+import Constants from 'panguaxe-redux/constants/general';
+import {getConfig, getLicense} from 'panguaxe-redux/selectors/entities/general';
 
 import {addReaction} from 'actions/post_actions.jsx';
 

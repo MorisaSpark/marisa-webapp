@@ -4,8 +4,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
+import {getConfig, getLicense} from 'panguaxe-redux/selectors/entities/general';
+import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
 
 import {deactivateMfa} from 'actions/views/mfa';
 import Constants from 'utils/constants';

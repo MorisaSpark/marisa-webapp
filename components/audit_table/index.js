@@ -4,9 +4,9 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getMissingProfilesByIds} from 'mattermost-redux/actions/users';
-import {getUser, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
-import {getChannelByName} from 'mattermost-redux/selectors/entities/channels';
+import {getMissingProfilesByIds} from 'panguaxe-redux/actions/users';
+import {getUser, getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
+import {getChannelByName} from 'panguaxe-redux/selectors/entities/channels';
 
 import AuditTable from './audit_table.jsx';
 

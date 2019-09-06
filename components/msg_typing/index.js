@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {makeGetUsersTypingByChannelAndPost} from 'mattermost-redux/selectors/entities/typing';
+import {makeGetUsersTypingByChannelAndPost} from 'panguaxe-redux/selectors/entities/typing';
 
 import MsgTyping from './msg_typing.jsx';
 

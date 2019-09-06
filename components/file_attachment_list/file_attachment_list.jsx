@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {sortFileInfos} from 'mattermost-redux/utils/file_utils';
+import {sortFileInfos} from 'panguaxe-redux/utils/file_utils';
 
 import {FileTypes} from 'utils/constants.jsx';
 import {getFileType} from 'utils/utils';

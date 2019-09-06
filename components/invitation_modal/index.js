@@ -4,12 +4,12 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
-import {getMyChannels} from 'mattermost-redux/selectors/entities/channels';
-import {haveIChannelPermission, haveITeamPermission} from 'mattermost-redux/selectors/entities/roles';
-import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getProfiles, searchProfiles as reduxSearchProfiles} from 'mattermost-redux/actions/users';
-import {Permissions} from 'mattermost-redux/constants';
+import {getCurrentTeam} from 'panguaxe-redux/selectors/entities/teams';
+import {getMyChannels} from 'panguaxe-redux/selectors/entities/channels';
+import {haveIChannelPermission, haveITeamPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {getConfig, getLicense} from 'panguaxe-redux/selectors/entities/general';
+import {getProfiles, searchProfiles as reduxSearchProfiles} from 'panguaxe-redux/actions/users';
+import {Permissions} from 'panguaxe-redux/constants';
 
 import {closeModal} from 'actions/views/modals';
 import {isModalOpen} from 'selectors/views/modals';

@@ -3,13 +3,13 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
 
-import {getCurrentChannel, getCurrentChannelStats} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentUserId, isCurrentUserSystemAdmin, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
-import {getChannelTimezones} from 'mattermost-redux/actions/channels';
-import {get, getInt, getBool} from 'mattermost-redux/selectors/entities/preferences';
+import {getCurrentChannel, getCurrentChannelStats} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentUserId, isCurrentUserSystemAdmin, getStatusForUserId} from 'panguaxe-redux/selectors/entities/users';
+import {getChannelTimezones} from 'panguaxe-redux/actions/channels';
+import {get, getInt, getBool} from 'panguaxe-redux/selectors/entities/preferences';
 import {
     getCurrentUsersLatestPost,
     getLatestReplyablePostId,
@@ -17,14 +17,14 @@ import {
     getPost,
     makeGetCommentCountForPost,
     makeGetMessageInHistoryItem,
-} from 'mattermost-redux/selectors/entities/posts';
+} from 'panguaxe-redux/selectors/entities/posts';
 import {
     addMessageIntoHistory,
     moveHistoryIndexBack,
     moveHistoryIndexForward,
     removeReaction,
-} from 'mattermost-redux/actions/posts';
-import {Posts, Preferences as PreferencesRedux} from 'mattermost-redux/constants';
+} from 'panguaxe-redux/actions/posts';
+import {Posts, Preferences as PreferencesRedux} from 'panguaxe-redux/constants';
 
 import {connectionErrorCount} from 'selectors/views/system';
 

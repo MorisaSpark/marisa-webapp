@@ -3,19 +3,19 @@
 
 import {bindActionCreators} from 'redux';
 
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getAllGroups, getGroupsAssociatedToChannel} from 'mattermost-redux/selectors/entities/groups';
-import {convertChannelToPrivate, getChannel as fetchChannel, membersMinusGroupMembers, patchChannel} from 'mattermost-redux/actions/channels';
+import {getChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getAllGroups, getGroupsAssociatedToChannel} from 'panguaxe-redux/selectors/entities/groups';
+import {convertChannelToPrivate, getChannel as fetchChannel, membersMinusGroupMembers, patchChannel} from 'panguaxe-redux/actions/channels';
 
 import {
     getGroupsAssociatedToChannel as fetchAssociatedGroups,
     linkGroupSyncable,
     unlinkGroupSyncable,
-} from 'mattermost-redux/actions/groups';
+} from 'panguaxe-redux/actions/groups';
 
 import {connect} from 'react-redux';
 
-import {getTeam} from 'mattermost-redux/selectors/entities/teams';
+import {getTeam} from 'panguaxe-redux/selectors/entities/teams';
 
 import {setNavigationBlocked} from 'actions/admin_actions';
 

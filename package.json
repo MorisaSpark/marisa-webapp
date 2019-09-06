@@ -1,5 +1,5 @@
 {
-  "name": "mattermost-webapp",
+  "name": "panguaxe-webapp",
   "browser": {
     "./client/web_client.jsx": "./client/browser_web_client.jsx"
   },
@@ -35,7 +35,7 @@
     "localforage-observable": "2.0.0",
     "mark.js": "8.11.1",
     "marked": "github:mattermost/marked#3c10e2109527cd14a76e1f8edd9d317d8b8988b0",
-    "mattermost-redux": "file:/Users/ben/Documents/workplace/GoLandProjects/mattermostdir/mattermost-redux",
+    "panguaxe-redux": "file:/Users/ben/Documents/workplace/GoLandProjects/mattermostdir/panguaxe-redux",
     "moment-timezone": "0.5.26",
     "pdfjs-dist": "2.0.489",
     "perfect-scrollbar": "0.8.1",

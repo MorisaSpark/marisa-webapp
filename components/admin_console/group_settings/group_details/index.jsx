@@ -4,8 +4,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {linkGroupSyncable, unlinkGroupSyncable, getGroup as fetchGroup, getGroupMembers as fetchMembers, getGroupSyncables as fetchGroupSyncables} from 'mattermost-redux/actions/groups';
-import {getGroup, getGroupTeams, getGroupChannels, getGroupMembers, getGroupMemberCount} from 'mattermost-redux/selectors/entities/groups';
+import {linkGroupSyncable, unlinkGroupSyncable, getGroup as fetchGroup, getGroupMembers as fetchMembers, getGroupSyncables as fetchGroupSyncables} from 'panguaxe-redux/actions/groups';
+import {getGroup, getGroupTeams, getGroupChannels, getGroupMembers, getGroupMemberCount} from 'panguaxe-redux/selectors/entities/groups';
 
 import GroupDetails from './group_details.jsx';
 

@@ -5,7 +5,7 @@ import $ from 'jquery';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Redirect} from 'react-router';
-import {viewChannel} from 'mattermost-redux/actions/channels';
+import {viewChannel} from 'panguaxe-redux/actions/channels';
 
 import * as GlobalActions from 'actions/global_actions.jsx';
 import * as WebSocketActions from 'actions/websocket_actions.jsx';

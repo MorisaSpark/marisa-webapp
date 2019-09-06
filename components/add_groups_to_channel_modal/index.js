@@ -3,9 +3,9 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getGroupsNotAssociatedToChannel, linkGroupSyncable, getAllGroupsAssociatedToChannel} from 'mattermost-redux/actions/groups';
-import {getGroupsNotAssociatedToChannel as selectGroupsNotAssociatedToChannel} from 'mattermost-redux/selectors/entities/groups';
-import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
+import {getGroupsNotAssociatedToChannel, linkGroupSyncable, getAllGroupsAssociatedToChannel} from 'panguaxe-redux/actions/groups';
+import {getGroupsNotAssociatedToChannel as selectGroupsNotAssociatedToChannel} from 'panguaxe-redux/selectors/entities/groups';
+import {getCurrentChannel} from 'panguaxe-redux/selectors/entities/channels';
 
 import {setModalSearchTerm} from 'actions/views/search';
 

@@ -2,11 +2,11 @@
 // See LICENSE.txt for license information.
 
 import {createSelector} from 'reselect';
-import {getPost} from 'mattermost-redux/selectors/entities/posts';
-import {getBool as getBoolPreference} from 'mattermost-redux/selectors/entities/preferences';
-import {memoizeResult} from 'mattermost-redux/utils/helpers';
-import {isUserActivityPost} from 'mattermost-redux/utils/post_utils';
-import * as PostListUtils from 'mattermost-redux/utils/post_list';
+import {getPost} from 'panguaxe-redux/selectors/entities/posts';
+import {getBool as getBoolPreference} from 'panguaxe-redux/selectors/entities/preferences';
+import {memoizeResult} from 'panguaxe-redux/utils/helpers';
+import {isUserActivityPost} from 'panguaxe-redux/utils/post_utils';
+import * as PostListUtils from 'panguaxe-redux/utils/post_list';
 
 import {getGlobalItem} from 'selectors/storage';
 import {Preferences, StoragePrefixes} from 'utils/constants';

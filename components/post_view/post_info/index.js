@@ -3,11 +3,11 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {removePost} from 'mattermost-redux/actions/posts';
-import {isCurrentChannelReadOnly} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
-import {get} from 'mattermost-redux/selectors/entities/preferences';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {removePost} from 'panguaxe-redux/actions/posts';
+import {isCurrentChannelReadOnly} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
+import {get} from 'panguaxe-redux/selectors/entities/preferences';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import {Preferences} from 'utils/constants.jsx';
 import {getSelectedPostCard} from 'selectors/rhs.jsx';

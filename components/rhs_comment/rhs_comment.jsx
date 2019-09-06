@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage, intlShape} from 'react-intl';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
-import {Posts} from 'mattermost-redux/constants/index';
+import {Posts} from 'panguaxe-redux/constants/index';
 import {
     isPostEphemeral,
     isPostPendingOrFailed,
-} from 'mattermost-redux/utils/post_utils';
+} from 'panguaxe-redux/utils/post_utils';
 
 import Constants, {Locations, A11yCustomEventTypes} from 'utils/constants.jsx';
 import * as PostUtils from 'utils/post_utils.jsx';

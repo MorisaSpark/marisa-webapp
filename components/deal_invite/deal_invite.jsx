@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {Permissions} from 'mattermost-redux/constants';
+import {Permissions} from 'panguaxe-redux/constants';
 
 import {emitUserLoggedOutEvent} from 'actions/global_actions.jsx';
 
@@ -14,7 +14,7 @@ import Constants from 'utils/constants.jsx';
 
 import logoImage from 'images/logo.png';
 import FileUpload from 'components/file_upload';
-import {sortFileInfos, getFileThumbnailUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
+import {sortFileInfos, getFileThumbnailUrl, getFileUrl} from 'panguaxe-redux/utils/file_utils';
 import AnnouncementBar from 'components/announcement_bar';
 import LoadingScreen from 'components/loading_screen.jsx';
 import SystemPermissionGate from 'components/permissions_gates/system_permission_gate';
@@ -23,7 +23,7 @@ import LogoutIcon from 'components/icon/logout_icon';
 import 'cropperjs/dist/cropper.css';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import {defineMessages, intlShape, FormattedMessage} from 'react-intl';
-import {} from 'mattermost-redux/utils/file_utils';
+import {} from 'panguaxe-redux/utils/file_utils';
 import './deal_invite.scss'
 import {Button, Form, Input, Menu, Upload} from 'element-react';
 import 'element-theme-default';
@@ -176,7 +176,7 @@ export default class DealInvite extends React.Component {
     componentWillMount() {
         this.props.actions.getTeamsWithInviteByTelPhone()
             .then((res) => {
-                if (res.data.Flag === true) {
+                if (res.data.Flag) {
                     if (res.data.Data !== null) {
                         if (res.data.Data.Rows.length > 0) {
                             this.setState({
@@ -221,7 +221,7 @@ export default class DealInvite extends React.Component {
 
 
                 let data = res.result;
-                if (data.Flag === true) {
+                if (data.Flag) {
                     industryType.searchList = data.Data.Rows;
 
 
@@ -274,7 +274,7 @@ export default class DealInvite extends React.Component {
 
 
                 let data = res.result;
-                if (data.Flag === true) {
+                if (data.Flag) {
                     let industryType = this.state.industryType;
                     industryType.pCodeList = data.Data.Rows;
                     for (let i in industryType.pCodeList) {
@@ -294,7 +294,7 @@ export default class DealInvite extends React.Component {
             .then((res) => {
 
                 let data = res.result;
-                if (data.Flag === true) {
+                if (data.Flag) {
                     let industryType = this.state.industryType;
                     industryType.tCodeList = data.Data.Rows;
                     this.setState({
@@ -357,7 +357,7 @@ export default class DealInvite extends React.Component {
         this.props.actions.getCodeListByPCode(e)
             .then((res) => {
                 let data = res.result;
-                if (data.Flag === true) {
+                if (data.Flag) {
                     industryType.codeList = [];
                     // 将数据形成 [{two:x, three:[x, x]}, {}, {}]
                     let resultList = data.Data.Rows;
@@ -402,7 +402,7 @@ export default class DealInvite extends React.Component {
         this.props.actions.updateInviteReply(isJoin, enterpriseId)
             .then((res) => {
                 let data = res.result;
-                if (data.Flag === true) {
+                if (data.Flag) {
                     if (data.Data !== "") {
                         this.setState({
                             enterpriseTeamId: data.Data["teamId"],

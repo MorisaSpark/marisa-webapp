@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import Permissions from 'mattermost-redux/constants/permissions';
+import Permissions from 'panguaxe-redux/constants/permissions';
 
 import {browserHistory} from 'utils/browser_history';
 

@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import debounce from 'lodash/debounce';
-import {getEmojiImageUrl} from 'mattermost-redux/utils/emoji_utils';
+import {getEmojiImageUrl} from 'panguaxe-redux/utils/emoji_utils';
 import {intlShape} from 'react-intl';
 
 import imgTrans from 'images/img_trans.gif';

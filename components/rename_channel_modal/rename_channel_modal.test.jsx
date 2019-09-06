@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {RequestStatus} from 'mattermost-redux/constants';
+import {RequestStatus} from 'panguaxe-redux/constants';
 
 import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 import RenameChannelModal from 'components/rename_channel_modal/rename_channel_modal.jsx';

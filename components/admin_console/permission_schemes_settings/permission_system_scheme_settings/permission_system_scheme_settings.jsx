@@ -5,8 +5,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
 
-import Permissions from 'mattermost-redux/constants/permissions';
-import GeneralConstants from 'mattermost-redux/constants/general';
+import Permissions from 'panguaxe-redux/constants/permissions';
+import GeneralConstants from 'panguaxe-redux/constants/general';
 
 import ConfirmModal from 'components/confirm_modal.jsx';
 

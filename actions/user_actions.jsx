@@ -1,21 +1,21 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {getChannelAndMyMember, getChannelMembersByIds} from 'mattermost-redux/actions/channels';
-import {savePreferences as savePreferencesRedux} from 'mattermost-redux/actions/preferences';
-import {getTeamMembersByIds} from 'mattermost-redux/actions/teams';
-import * as UserActions from 'mattermost-redux/actions/users';
-import {Preferences as PreferencesRedux} from 'mattermost-redux/constants';
+import {getChannelAndMyMember, getChannelMembersByIds} from 'panguaxe-redux/actions/channels';
+import {savePreferences as savePreferencesRedux} from 'panguaxe-redux/actions/preferences';
+import {getTeamMembersByIds} from 'panguaxe-redux/actions/teams';
+import * as UserActions from 'panguaxe-redux/actions/users';
+import {Preferences as PreferencesRedux} from 'panguaxe-redux/constants';
 import {
     getChannel,
     getCurrentChannelId,
     getMyChannels,
     getMyChannelMember,
     getChannelMembersInChannels,
-} from 'mattermost-redux/selectors/entities/channels';
-import {getBool} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentTeamId, getTeamMember} from 'mattermost-redux/selectors/entities/teams';
-import * as Selectors from 'mattermost-redux/selectors/entities/users';
+} from 'panguaxe-redux/selectors/entities/channels';
+import {getBool} from 'panguaxe-redux/selectors/entities/preferences';
+import {getCurrentTeamId, getTeamMember} from 'panguaxe-redux/selectors/entities/teams';
+import * as Selectors from 'panguaxe-redux/selectors/entities/users';
 
 import {loadStatusesForProfilesList, loadStatusesForProfilesMap} from 'actions/status_actions.jsx';
 import store from 'stores/redux_store.jsx';

@@ -3,8 +3,8 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
+import {getChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentTeam} from 'panguaxe-redux/selectors/entities/teams';
 
 import {deleteAndRemovePost} from 'actions/post_actions.jsx';
 

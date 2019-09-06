@@ -3,11 +3,11 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'mattermost-redux/actions/integrations';
-import {getOAuthApps} from 'mattermost-redux/selectors/entities/integrations';
-import {haveISystemPermission} from 'mattermost-redux/selectors/entities/roles';
-import {Permissions} from 'mattermost-redux/constants';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import * as Actions from 'panguaxe-redux/actions/integrations';
+import {getOAuthApps} from 'panguaxe-redux/selectors/entities/integrations';
+import {haveISystemPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {Permissions} from 'panguaxe-redux/constants';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import {loadOAuthAppsAndProfiles} from 'actions/integration_actions';
 

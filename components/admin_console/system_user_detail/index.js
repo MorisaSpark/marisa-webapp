@@ -4,8 +4,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getUser, getProfiles} from 'mattermost-redux/selectors/entities/users';
-import {updateUserActive} from 'mattermost-redux/actions/users';
+import {getUser, getProfiles} from 'panguaxe-redux/selectors/entities/users';
+import {updateUserActive} from 'panguaxe-redux/actions/users';
 
 import {setNavigationBlocked, deferNavigation, cancelNavigation, confirmNavigation} from 'actions/admin_actions.jsx';
 import {getNavigationBlocked, showNavigationPrompt} from 'selectors/views/admin';

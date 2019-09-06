@@ -4,8 +4,8 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import {joinChannel} from 'mattermost-redux/actions/channels';
-import {getUserByEmail} from 'mattermost-redux/actions/users';
+import {joinChannel} from 'panguaxe-redux/actions/channels';
+import {getUserByEmail} from 'panguaxe-redux/actions/users';
 
 import {emitChannelClickEvent} from 'actions/global_actions.jsx';
 import {
@@ -20,11 +20,11 @@ jest.mock('actions/global_actions.jsx', () => ({
     emitChannelClickEvent: jest.fn(),
 }));
 
-jest.mock('mattermost-redux/actions/channels', () => ({
+jest.mock('panguaxe-redux/actions/channels', () => ({
     joinChannel: jest.fn(() => ({type: '', data: {channel: {id: 'channel_id3', name: 'achannel3', team_id: 'team_id1', type: 'O'}}})),
 }));
 
-jest.mock('mattermost-redux/actions/users', () => ({
+jest.mock('panguaxe-redux/actions/users', () => ({
     getUserByEmail: jest.fn(() => ({type: '', data: {id: 'user_id3', email: 'user3@bladekick.com', username: 'user3'}})),
 }));
 

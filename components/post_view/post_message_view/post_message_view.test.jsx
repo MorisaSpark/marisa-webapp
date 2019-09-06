@@ -4,7 +4,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {Posts} from 'mattermost-redux/constants';
+import {Posts} from 'panguaxe-redux/constants';
 
 import PostMessageView from 'components/post_view/post_message_view/post_message_view.jsx';
 

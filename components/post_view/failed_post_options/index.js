@@ -3,7 +3,7 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {removePost} from 'mattermost-redux/actions/posts';
+import {removePost} from 'panguaxe-redux/actions/posts';
 
 import {createPost} from 'actions/post_actions.jsx';
 

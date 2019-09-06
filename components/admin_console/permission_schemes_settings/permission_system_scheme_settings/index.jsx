@@ -4,10 +4,10 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {loadRolesIfNeeded, editRole} from 'mattermost-redux/actions/roles';
+import {loadRolesIfNeeded, editRole} from 'panguaxe-redux/actions/roles';
 
-import {getRoles} from 'mattermost-redux/selectors/entities/roles';
-import {getLicense, getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getRoles} from 'panguaxe-redux/selectors/entities/roles';
+import {getLicense, getConfig} from 'panguaxe-redux/selectors/entities/general';
 
 import {setNavigationBlocked} from 'actions/admin_actions.jsx';
 

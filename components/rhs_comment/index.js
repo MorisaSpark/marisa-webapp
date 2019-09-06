@@ -2,14 +2,14 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {Posts} from 'mattermost-redux/constants';
-import {isChannelReadOnlyById} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
-import {makeGetReactionsForPost, getPost} from 'mattermost-redux/selectors/entities/posts';
-import {makeGetDisplayName} from 'mattermost-redux/selectors/entities/users';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {get} from 'mattermost-redux/selectors/entities/preferences';
-import {isSystemMessage} from 'mattermost-redux/utils/post_utils';
+import {Posts} from 'panguaxe-redux/constants';
+import {isChannelReadOnlyById} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
+import {makeGetReactionsForPost, getPost} from 'panguaxe-redux/selectors/entities/posts';
+import {makeGetDisplayName} from 'panguaxe-redux/selectors/entities/users';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {get} from 'panguaxe-redux/selectors/entities/preferences';
+import {isSystemMessage} from 'panguaxe-redux/utils/post_utils';
 
 import {Preferences} from 'utils/constants.jsx';
 import {isEmbedVisible} from 'selectors/posts';

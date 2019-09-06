@@ -5,7 +5,7 @@ import $ from 'jquery';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
-import {Client4} from 'mattermost-redux/client';
+import {Client4} from 'panguaxe-redux/client';
 
 import {uploadBrandImage} from 'actions/admin_actions.jsx';
 import {UploadStatuses} from 'utils/constants.jsx';

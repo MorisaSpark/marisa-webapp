@@ -3,7 +3,7 @@
 
 import {connect} from 'react-redux';
 
-import {makeGenerateCombinedPost} from 'mattermost-redux/utils/post_list';
+import {makeGenerateCombinedPost} from 'panguaxe-redux/utils/post_list';
 
 import Post from 'components/post_view/post';
 

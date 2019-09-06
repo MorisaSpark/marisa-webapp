@@ -3,9 +3,9 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Posts} from 'mattermost-redux/constants';
+import {Posts} from 'panguaxe-redux/constants';
 import {intlShape} from 'react-intl';
-import {isMeMessage as checkIsMeMessage} from 'mattermost-redux/utils/post_utils';
+import {isMeMessage as checkIsMeMessage} from 'panguaxe-redux/utils/post_utils';
 
 import * as PostUtils from 'utils/post_utils.jsx';
 import {A11yCustomEventTypes} from 'utils/constants.jsx';

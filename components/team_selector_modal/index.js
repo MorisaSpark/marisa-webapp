@@ -3,8 +3,8 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getTeams as loadTeams, searchTeams} from 'mattermost-redux/actions/teams';
-import {getTeams} from 'mattermost-redux/selectors/entities/teams';
+import {getTeams as loadTeams, searchTeams} from 'panguaxe-redux/actions/teams';
+import {getTeams} from 'panguaxe-redux/selectors/entities/teams';
 
 import {setModalSearchTerm} from 'actions/views/search';
 

@@ -4,11 +4,11 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getMyTeams, getJoinableTeamIds, getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
-import {haveITeamPermission, haveISystemPermission} from 'mattermost-redux/selectors/entities/roles';
-import {Permissions} from 'mattermost-redux/constants';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getMyTeams, getJoinableTeamIds, getCurrentTeam} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
+import {haveITeamPermission, haveISystemPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {Permissions} from 'panguaxe-redux/constants';
 
 import {RHSStates} from 'utils/constants.jsx';
 

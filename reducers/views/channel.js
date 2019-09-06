@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {combineReducers} from 'redux';
-import {ChannelTypes, PostTypes, UserTypes} from 'mattermost-redux/action_types';
+import {ChannelTypes, PostTypes, UserTypes} from 'panguaxe-redux/action_types';
 
 import {ActionTypes, Constants, NotificationLevels} from 'utils/constants.jsx';
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import Permissions from 'mattermost-redux/constants/permissions';
+import Permissions from 'panguaxe-redux/constants/permissions';
 
 import Constants from 'utils/constants.jsx';
 import Reaction from 'components/post_view/reaction';

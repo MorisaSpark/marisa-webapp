@@ -4,10 +4,10 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {createSelector} from 'reselect';
-import {getInt} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getInt} from 'panguaxe-redux/selectors/entities/preferences';
+import {getCurrentChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
 import {withRouter} from 'react-router-dom';
 
 import {getDirectTeammate} from 'utils/utils.jsx';

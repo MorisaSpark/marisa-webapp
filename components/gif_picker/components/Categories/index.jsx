@@ -5,9 +5,9 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {requestCategoriesList, requestCategoriesListIfNeeded, saveSearchBarText, saveSearchScrollPosition, searchTextUpdate} from 'mattermost-redux/actions/gifs';
-import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
-import {changeOpacity, makeStyleFromTheme} from 'mattermost-redux/utils/theme_utils';
+import {requestCategoriesList, requestCategoriesListIfNeeded, saveSearchBarText, saveSearchScrollPosition, searchTextUpdate} from 'panguaxe-redux/actions/gifs';
+import {getTheme} from 'panguaxe-redux/selectors/entities/preferences';
+import {changeOpacity, makeStyleFromTheme} from 'panguaxe-redux/utils/theme_utils';
 
 import {trackEvent} from 'actions/diagnostics_actions.jsx';
 import * as PostUtils from 'utils/post_utils.jsx';

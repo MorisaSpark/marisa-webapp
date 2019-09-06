@@ -3,7 +3,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Permissions} from 'mattermost-redux/constants';
+import {Permissions} from 'panguaxe-redux/constants';
 import {intlShape} from 'react-intl';
 
 import * as GlobalActions from 'actions/global_actions.jsx';
@@ -25,6 +25,10 @@ import TeamSettingsModal from 'components/team_settings_modal';
 import AboutBuildModal from 'components/about_build_modal';
 import AddGroupsToTeamModal from 'components/add_groups_to_team_modal';
 import AddStaffModel from 'components/add_staff_model';
+import ChangePhoneModel from 'components/change_phone_modal';
+import InviteColleagueModal from 'components/invite_colleague_modal';
+import ChangePasswordModal from 'components/change_password_modal';
+import AddDepartmentModal from 'components/add_department_modal';
 
 import Menu from 'components/widgets/menu/menu.jsx';
 import MenuGroup from 'components/widgets/menu/menu_group.jsx';
@@ -200,6 +204,8 @@ export default class MainMenu extends React.PureComponent {
                             icon={this.props.mobile && <i className='fa fa-user-plus'/>}
                         />
                     </TeamPermissionGate>
+                </MenuGroup>
+                <MenuGroup>
                     <TeamPermissionGate
                         teamId={this.props.teamId}
                         permissions={[Permissions.ADD_USER_TO_TEAM, Permissions.INVITE_GUEST]}
@@ -212,6 +218,38 @@ export default class MainMenu extends React.PureComponent {
                             icon={this.props.mobile && <i className='fa fa-user-plus'/>}
                         />
                     </TeamPermissionGate>
+                    <MenuItemToggleModalRedux
+                        id='changePhone'
+                        show={!teamIsGroupConstrained && !this.props.experimentalPrimaryTeam}
+                        modalId={ModalIdentifiers.CHANGE_PHONE}
+                        dialogType={ChangePhoneModel}
+                        text={localizeMessage('navbar_dropdown.changePhone', 'Change Phone')}
+                        icon={this.props.mobile && <LeaveTeamIcon/>}
+                    />
+                    <MenuItemToggleModalRedux
+                        id='inviteColleague'
+                        show={!teamIsGroupConstrained && !this.props.experimentalPrimaryTeam}
+                        modalId={ModalIdentifiers.INVITE_COLLEAGUE}
+                        dialogType={InviteColleagueModal}
+                        text={localizeMessage('navbar_dropdown.inviteColleague', 'Invite Colleague')}
+                        icon={this.props.mobile && <LeaveTeamIcon/>}
+                    />
+                    <MenuItemToggleModalRedux
+                        id='changePassword'
+                        show={!teamIsGroupConstrained && !this.props.experimentalPrimaryTeam}
+                        modalId={ModalIdentifiers.CHANGE_PASSWORD}
+                        dialogType={ChangePasswordModal}
+                        text={localizeMessage('navbar_dropdown.changePassword', 'Change Password')}
+                        icon={this.props.mobile && <LeaveTeamIcon/>}
+                    />
+                    <MenuItemToggleModalRedux
+                        id='addDepartment'
+                        show={!teamIsGroupConstrained && !this.props.experimentalPrimaryTeam}
+                        modalId={ModalIdentifiers.ADD_DEPARTMENT}
+                        dialogType={AddDepartmentModal}
+                        text={localizeMessage('navbar_dropdown.addDepartment', 'Add Department')}
+                        icon={this.props.mobile && <LeaveTeamIcon/>}
+                    />
                 </MenuGroup>
                 <MenuGroup>
                     <TeamPermissionGate

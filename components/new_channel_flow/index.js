@@ -4,8 +4,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {createChannel} from 'mattermost-redux/actions/channels';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {createChannel} from 'panguaxe-redux/actions/channels';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
 
 import {switchToChannel} from 'actions/views/channel';
 

@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {createSelector} from 'reselect';
 
-import {getRoles} from 'mattermost-redux/selectors/entities/roles';
+import {getRoles} from 'panguaxe-redux/selectors/entities/roles';
 
 import CustomPluginSettings from './custom_plugin_settings.jsx';
 

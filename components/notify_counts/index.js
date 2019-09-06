@@ -3,7 +3,7 @@
 
 import {connect} from 'react-redux';
 
-import {getUnreadsInCurrentTeam} from 'mattermost-redux/selectors/entities/channels';
+import {getUnreadsInCurrentTeam} from 'panguaxe-redux/selectors/entities/channels';
 
 import NotifyCounts from './notify_counts.jsx';
 

@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 import {FormattedMessage} from 'react-intl';
 import {Overlay, Tooltip} from 'react-bootstrap';
 
-import {isEmail} from 'mattermost-redux/utils/helpers';
+import {isEmail} from 'panguaxe-redux/utils/helpers';
 
 import {adminResetMfa, adminResetEmail} from 'actions/admin_actions.jsx';
 import {Constants} from 'utils/constants.jsx';

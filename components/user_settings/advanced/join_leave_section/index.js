@@ -4,10 +4,10 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {savePreferences} from 'mattermost-redux/actions/preferences';
-import {Preferences} from 'mattermost-redux/constants';
-import {get as getPreference} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {savePreferences} from 'panguaxe-redux/actions/preferences';
+import {Preferences} from 'panguaxe-redux/constants';
+import {get as getPreference} from 'panguaxe-redux/selectors/entities/preferences';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
 
 import JoinLeaveSection from './join_leave_section.jsx';
 

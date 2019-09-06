@@ -8,9 +8,9 @@ import {
     favoriteChannel,
     unfavoriteChannel,
     updateChannelNotifyProps,
-} from 'mattermost-redux/actions/channels';
-import {getCustomEmojisInText} from 'mattermost-redux/actions/emojis';
-import {General} from 'mattermost-redux/constants';
+} from 'panguaxe-redux/actions/channels';
+import {getCustomEmojisInText} from 'panguaxe-redux/actions/emojis';
+import {General} from 'panguaxe-redux/constants';
 import {
     getCurrentChannel,
     getMyCurrentChannelMembership,
@@ -18,13 +18,13 @@ import {
     isCurrentChannelMuted,
     isCurrentChannelReadOnly,
     getCurrentChannelStats,
-} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
 import {
     getCurrentUser,
     getUser,
-} from 'mattermost-redux/selectors/entities/users';
-import {getUserIdFromChannelName} from 'mattermost-redux/utils/channel_utils';
+} from 'panguaxe-redux/selectors/entities/users';
+import {getUserIdFromChannelName} from 'panguaxe-redux/utils/channel_utils';
 
 import {goToLastViewedChannel} from 'actions/views/channel';
 import {openModal, closeModal} from 'actions/views/modals';

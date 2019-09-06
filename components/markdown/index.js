@@ -4,12 +4,12 @@
 import {connect} from 'react-redux';
 import {createSelector} from 'reselect';
 
-import {Preferences} from 'mattermost-redux/constants';
-import {getChannelsNameMapInCurrentTeam} from 'mattermost-redux/selectors/entities/channels';
-import {getAutolinkedUrlSchemes, getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getBool} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUserMentionKeys} from 'mattermost-redux/selectors/entities/users';
+import {Preferences} from 'panguaxe-redux/constants';
+import {getChannelsNameMapInCurrentTeam} from 'panguaxe-redux/selectors/entities/channels';
+import {getAutolinkedUrlSchemes, getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getBool} from 'panguaxe-redux/selectors/entities/preferences';
+import {getCurrentTeam} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUserMentionKeys} from 'panguaxe-redux/selectors/entities/users';
 
 import {getSiteURL} from 'utils/url.jsx';
 

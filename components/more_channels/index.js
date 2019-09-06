@@ -5,11 +5,11 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createSelector} from 'reselect';
 
-import {getChannels, joinChannel} from 'mattermost-redux/actions/channels';
-import {getOtherChannels} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {RequestStatus} from 'mattermost-redux/constants';
+import {getChannels, joinChannel} from 'panguaxe-redux/actions/channels';
+import {getOtherChannels} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentTeam} from 'panguaxe-redux/selectors/entities/teams';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {RequestStatus} from 'panguaxe-redux/constants';
 
 import {searchMoreChannels} from 'actions/channel_actions.jsx';
 

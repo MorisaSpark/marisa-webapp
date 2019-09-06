@@ -4,14 +4,14 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import {Preferences} from 'mattermost-redux/constants';
+import {Preferences} from 'panguaxe-redux/constants';
 
 import * as UserActions from 'actions/user_actions';
 
 const mockStore = configureStore([thunk]);
 
-jest.mock('mattermost-redux/actions/users', () => {
-    const original = require.requireActual('mattermost-redux/actions/users');
+jest.mock('panguaxe-redux/actions/users', () => {
+    const original = require.requireActual('panguaxe-redux/actions/users');
     return {
         ...original,
         getProfilesInTeam: (...args) => ({type: 'MOCK_GET_PROFILES_IN_TEAM', args}),
@@ -20,24 +20,24 @@ jest.mock('mattermost-redux/actions/users', () => {
     };
 });
 
-jest.mock('mattermost-redux/actions/teams', () => {
-    const original = require.requireActual('mattermost-redux/actions/teams');
+jest.mock('panguaxe-redux/actions/teams', () => {
+    const original = require.requireActual('panguaxe-redux/actions/teams');
     return {
         ...original,
         getTeamMembersByIds: (...args) => ({type: 'MOCK_GET_TEAM_MEMBERS_BY_IDS', args}),
     };
 });
 
-jest.mock('mattermost-redux/actions/channels', () => {
-    const original = require.requireActual('mattermost-redux/actions/channels');
+jest.mock('panguaxe-redux/actions/channels', () => {
+    const original = require.requireActual('panguaxe-redux/actions/channels');
     return {
         ...original,
         getChannelMembersByIds: (...args) => ({type: 'MOCK_GET_CHANNEL_MEMBERS_BY_IDS', args}),
     };
 });
 
-jest.mock('mattermost-redux/actions/preferences', () => {
-    const original = require.requireActual('mattermost-redux/actions/preferences');
+jest.mock('panguaxe-redux/actions/preferences', () => {
+    const original = require.requireActual('panguaxe-redux/actions/preferences');
     return {
         ...original,
         deletePreferences: (...args) => ({type: 'MOCK_DELETE_PREFERENCES', args}),

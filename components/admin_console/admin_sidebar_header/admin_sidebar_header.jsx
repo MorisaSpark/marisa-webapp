@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
-import {Client4} from 'mattermost-redux/client';
+import {Client4} from 'panguaxe-redux/client';
 
 import MenuIcon from 'components/svg/menu_icon';
 

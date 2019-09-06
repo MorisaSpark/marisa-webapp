@@ -4,7 +4,7 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {checkIfTeamExists, createTeam} from 'mattermost-redux/actions/teams';
+import {checkIfTeamExists, createTeam} from 'panguaxe-redux/actions/teams';
 
 import TeamUrl from './team_url';
 

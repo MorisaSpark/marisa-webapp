@@ -4,19 +4,19 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getTeams, getTeamStats} from 'mattermost-redux/actions/teams';
+import {getTeams, getTeamStats} from 'panguaxe-redux/actions/teams';
 import {
     getUser,
     getUserAccessToken,
     getProfiles,
     searchProfiles,
     revokeSessionsForAllUsers,
-} from 'mattermost-redux/actions/users';
-import {logError} from 'mattermost-redux/actions/errors';
-import {getTeamsList} from 'mattermost-redux/selectors/entities/teams';
-import {getUsers} from 'mattermost-redux/selectors/entities/users';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {Stats} from 'mattermost-redux/constants';
+} from 'panguaxe-redux/actions/users';
+import {logError} from 'panguaxe-redux/actions/errors';
+import {getTeamsList} from 'panguaxe-redux/selectors/entities/teams';
+import {getUsers} from 'panguaxe-redux/selectors/entities/users';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {Stats} from 'panguaxe-redux/constants';
 
 import {loadProfilesAndTeamMembers, loadProfilesWithoutTeam} from 'actions/user_actions.jsx';
 

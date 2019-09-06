@@ -3,8 +3,8 @@
 
 import React from 'react';
 
-import {Client4} from 'mattermost-redux/client';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {Client4} from 'panguaxe-redux/client';
+import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
 
 import store from 'stores/redux_store.jsx';
 

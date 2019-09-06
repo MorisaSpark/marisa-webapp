@@ -3,11 +3,11 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addChannelMember} from 'mattermost-redux/actions/channels';
-import {removePost} from 'mattermost-redux/actions/posts';
-import {getPost} from 'mattermost-redux/selectors/entities/posts';
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
+import {addChannelMember} from 'panguaxe-redux/actions/channels';
+import {removePost} from 'panguaxe-redux/actions/posts';
+import {getPost} from 'panguaxe-redux/selectors/entities/posts';
+import {getChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
 
 import PostAddChannelMember from './post_add_channel_member.jsx';
 

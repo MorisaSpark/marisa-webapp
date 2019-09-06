@@ -2,9 +2,9 @@
 // See LICENSE.txt for license information.
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {getInt} from 'mattermost-redux/selectors/entities/preferences';
-import {savePreferences} from 'mattermost-redux/actions/preferences';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {getInt} from 'panguaxe-redux/selectors/entities/preferences';
+import {savePreferences} from 'panguaxe-redux/actions/preferences';
 
 import {Preferences} from 'utils/constants.jsx';
 

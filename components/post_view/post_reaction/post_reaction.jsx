@@ -6,7 +6,7 @@ import React from 'react';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
 
-import Permissions from 'mattermost-redux/constants/permissions';
+import Permissions from 'panguaxe-redux/constants/permissions';
 
 import {Locations} from 'utils/constants.jsx';
 import {localizeMessage} from 'utils/utils.jsx';

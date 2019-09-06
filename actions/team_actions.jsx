@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {TeamTypes} from 'mattermost-redux/action_types';
-import {viewChannel, getChannelStats} from 'mattermost-redux/actions/channels';
-import * as TeamActions from 'mattermost-redux/actions/teams';
-import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels';
-import {getUser} from 'mattermost-redux/actions/users';
+import {TeamTypes} from 'panguaxe-redux/action_types';
+import {viewChannel, getChannelStats} from 'panguaxe-redux/actions/channels';
+import * as TeamActions from 'panguaxe-redux/actions/teams';
+import {getCurrentChannelId} from 'panguaxe-redux/selectors/entities/channels';
+import {getUser} from 'panguaxe-redux/actions/users';
 
 import {browserHistory} from 'utils/browser_history';
 

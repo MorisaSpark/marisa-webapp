@@ -2,8 +2,8 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
 
 import {getPasswordConfig} from 'utils/utils.jsx';
 

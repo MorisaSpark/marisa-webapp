@@ -3,7 +3,7 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {sendPasswordResetEmail, sendSMS, createUser, checkPhoneIsSignUp} from 'mattermost-redux/actions/users';
+import {sendPasswordResetEmail, sendSMS, createUser, checkPhoneIsSignUp} from 'panguaxe-redux/actions/users';
 import {login} from 'actions/views/login';
 import PasswordResetSendLink from './password_reset_send_link';
 

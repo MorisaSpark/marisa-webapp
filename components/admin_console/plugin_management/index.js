@@ -11,7 +11,7 @@ import {
     installPluginFromUrl,
     enablePlugin,
     disablePlugin,
-} from 'mattermost-redux/actions/admin';
+} from 'panguaxe-redux/actions/admin';
 
 import PluginManagement from './plugin_management.jsx';
 

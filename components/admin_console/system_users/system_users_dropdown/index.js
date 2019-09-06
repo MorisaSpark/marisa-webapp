@@ -4,12 +4,12 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {updateUserActive, revokeAllSessionsForUser, promoteGuestToUser, demoteUserToGuest} from 'mattermost-redux/actions/users';
-import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
-import {getBotAccounts} from 'mattermost-redux/selectors/entities/bots';
-import {loadBots} from 'mattermost-redux/actions/bots';
+import {updateUserActive, revokeAllSessionsForUser, promoteGuestToUser, demoteUserToGuest} from 'panguaxe-redux/actions/users';
+import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
+import {getBotAccounts} from 'panguaxe-redux/selectors/entities/bots';
+import {loadBots} from 'panguaxe-redux/actions/bots';
 
-import * as Selectors from 'mattermost-redux/selectors/entities/admin';
+import * as Selectors from 'panguaxe-redux/selectors/entities/admin';
 
 import SystemUsersDropdown from './system_users_dropdown.jsx';
 

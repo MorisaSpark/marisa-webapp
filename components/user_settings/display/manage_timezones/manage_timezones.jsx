@@ -3,7 +3,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {getTimezoneRegion} from 'mattermost-redux/utils/timezone_utils';
+import {getTimezoneRegion} from 'panguaxe-redux/utils/timezone_utils';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 
 import SettingItemMax from 'components/setting_item_max.jsx';

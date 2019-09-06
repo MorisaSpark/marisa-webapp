@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {submitInteractiveDialog} from 'mattermost-redux/actions/integrations';
+import {submitInteractiveDialog} from 'panguaxe-redux/actions/integrations';
 
 import InteractiveDialog from './interactive_dialog';
 

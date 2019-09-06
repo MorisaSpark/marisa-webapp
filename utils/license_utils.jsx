@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {getLicense} from 'mattermost-redux/selectors/entities/general';
+import {getLicense} from 'panguaxe-redux/selectors/entities/general';
 
 import store from 'stores/redux_store.jsx';
 

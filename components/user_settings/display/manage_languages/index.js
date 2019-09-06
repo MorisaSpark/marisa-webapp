@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {updateMe} from 'mattermost-redux/actions/users';
+import {updateMe} from 'panguaxe-redux/actions/users';
 
 import ManageLanguages from './manage_languages';
 

@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {getFileThumbnailUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
+import {getFileThumbnailUrl, getFileUrl} from 'panguaxe-redux/utils/file_utils';
 
 import Constants, {FileTypes} from 'utils/constants.jsx';
 import {

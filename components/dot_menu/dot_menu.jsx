@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
-import Permissions from 'mattermost-redux/constants/permissions';
+import Permissions from 'panguaxe-redux/constants/permissions';
 
 import {showGetPostLinkModal} from 'actions/global_actions.jsx';
 import {Locations, ModalIdentifiers, UNSET_POST_EDIT_TIME_LIMIT} from 'utils/constants.jsx';

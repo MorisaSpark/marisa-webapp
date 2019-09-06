@@ -3,11 +3,11 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getMe, updateUserPassword, sendSMSMe} from 'mattermost-redux/actions/users';
-import {getAuthorizedOAuthApps, deauthorizeOAuthApp} from 'mattermost-redux/actions/integrations';
-import * as UserUtils from 'mattermost-redux/utils/user_utils';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getBool} from 'mattermost-redux/selectors/entities/preferences';
+import {getMe, updateUserPassword, sendSMSMe} from 'panguaxe-redux/actions/users';
+import {getAuthorizedOAuthApps, deauthorizeOAuthApp} from 'panguaxe-redux/actions/integrations';
+import * as UserUtils from 'panguaxe-redux/utils/user_utils';
+import {getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {getBool} from 'panguaxe-redux/selectors/entities/preferences';
 
 import {getPasswordConfig} from 'utils/utils.jsx';
 import {Preferences} from 'utils/constants';

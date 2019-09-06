@@ -3,7 +3,7 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {updateUserRoles} from 'mattermost-redux/actions/users';
+import {updateUserRoles} from 'panguaxe-redux/actions/users';
 
 import ManageRolesModal from './manage_roles_modal.jsx';
 

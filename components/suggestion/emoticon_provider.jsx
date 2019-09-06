@@ -3,8 +3,8 @@
 
 import React from 'react';
 
-import {autocompleteCustomEmojis} from 'mattermost-redux/actions/emojis';
-import {getEmojiImageUrl} from 'mattermost-redux/utils/emoji_utils';
+import {autocompleteCustomEmojis} from 'panguaxe-redux/actions/emojis';
+import {getEmojiImageUrl} from 'panguaxe-redux/utils/emoji_utils';
 
 import {getEmojiMap, getRecentEmojis} from 'selectors/emojis';
 

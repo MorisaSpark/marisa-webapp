@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-import {sortChannelsByTypeAndDisplayName} from 'mattermost-redux/utils/channel_utils';
+import {sortChannelsByTypeAndDisplayName} from 'panguaxe-redux/utils/channel_utils';
 
 import {autocompleteChannelsForSearch} from 'actions/channel_actions.jsx';
 import Constants from 'utils/constants.jsx';

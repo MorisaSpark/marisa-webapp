@@ -1,9 +1,9 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {haveIChannelPermission} from 'mattermost-redux/selectors/entities/roles';
-import {getRedirectChannelNameForTeam as getRedirectChannelNameForTeamRedux} from 'mattermost-redux/selectors/entities/channels';
-import Permissions from 'mattermost-redux/constants/permissions';
+import {haveIChannelPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {getRedirectChannelNameForTeam as getRedirectChannelNameForTeamRedux} from 'panguaxe-redux/selectors/entities/channels';
+import Permissions from 'panguaxe-redux/constants/permissions';
 
 import store from 'stores/redux_store.jsx';
 import Constants from 'utils/constants.jsx';

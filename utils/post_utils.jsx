@@ -1,14 +1,14 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {Client4} from 'mattermost-redux/client';
-import {getLicense, getConfig} from 'mattermost-redux/selectors/entities/general';
-import {haveIChannelPermission} from 'mattermost-redux/selectors/entities/roles';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
-import {Permissions} from 'mattermost-redux/constants';
-import * as PostListUtils from 'mattermost-redux/utils/post_list';
-import {canEditPost as canEditPostRedux} from 'mattermost-redux/utils/post_utils';
+import {Client4} from 'panguaxe-redux/client';
+import {getLicense, getConfig} from 'panguaxe-redux/selectors/entities/general';
+import {haveIChannelPermission} from 'panguaxe-redux/selectors/entities/roles';
+import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
+import {getChannel} from 'panguaxe-redux/selectors/entities/channels';
+import {Permissions} from 'panguaxe-redux/constants';
+import * as PostListUtils from 'panguaxe-redux/utils/post_list';
+import {canEditPost as canEditPostRedux} from 'panguaxe-redux/utils/post_utils';
 
 import {getEmojiMap} from 'selectors/emojis';
 

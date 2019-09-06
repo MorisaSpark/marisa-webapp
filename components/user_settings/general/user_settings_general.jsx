@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {defineMessages, FormattedDate, FormattedMessage, injectIntl, intlShape} from 'react-intl';
 
-import {isEmail} from 'mattermost-redux/utils/helpers';
+import {isEmail} from 'panguaxe-redux/utils/helpers';
 
 import {trackEvent} from 'actions/diagnostics_actions.jsx';
 import {AcceptedProfileImageTypes, Constants} from 'utils/constants.jsx';
