@@ -6,54 +6,24 @@ import {Modal} from 'react-bootstrap';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import PropTypes from 'prop-types';
 
-import Constants from 'utils/constants.jsx';
-import {isKeyPressed} from 'utils/utils';
-
+import {isValidPassword} from 'panguaxe-redux/utils/helpers';
+import * as Utils from 'utils/utils.jsx';
 import eye from 'images/ithpower/login/eye.png';
 import eyeOpen from 'images/ithpower/login/eye_open.png';
 import './change_password_modal.scss'
-import {Button, Form, Input, Menu, Upload, Radio, Checkbox, MessageBox, Dialog} from 'element-react';
+import {Button, Form, Input} from 'element-react';
 
 class ChangePasswordModal extends React.PureComponent {
     static propTypes = {
 
-        /**
-         * Current user id.
-         */
         currentUserId: PropTypes.string.isRequired,
-
-        /**
-         * Current team id.
-         */
         currentTeamId: PropTypes.string.isRequired,
-
-        /**
-         * hide action
-         */
-
+        modalId: PropTypes.string.isRequired,
         onHide: PropTypes.func.isRequired,
-
-        /**
-         * show or hide modal
-         */
-
         show: PropTypes.bool.isRequired,
-
         intl: intlShape.isRequired,
-
         actions: PropTypes.shape({
-
-            /**
-             * An action to remove user from team
-             */
-
-            leaveTeam: PropTypes.func.isRequired,
-
-            /**
-             * An action to toggle the right menu
-             */
-
-            toggleSideBarRightMenu: PropTypes.func.isRequired,
+            changePassword: PropTypes.func.isRequired,
         }),
     };
 
@@ -65,57 +35,61 @@ class ChangePasswordModal extends React.PureComponent {
                 oldPassword: "",
             },
             isEyeOpen: false,
-
+            isShowErrorMes: false,
+            errorMes: " 您输入的原密码错误，请重新输入。",
         }
     }
 
-    count = () => {
-        let deadTime = this.state.internal;
-        let isCountDown = true;
-        let timer1 = setInterval(() => {
-            console.log(deadTime);
-            console.log(isCountDown);
-            deadTime--;
-            if (deadTime <= 0) {
-                isCountDown = false;
-                window.clearInterval(timer1)
-            }
-            this.setState({deadTime: deadTime, isCountDown: isCountDown})
-        }, 1000);
-    };
 
-    componentDidMount() {
-        if (this.props.show) {
-            document.addEventListener('keypress', this.handleKeyPress);
-        }
+    onChange(key, value) {
+        console.log(this.state.form);
+        this.setState({
+            form: Object.assign({}, this.state.form, {[key]: value})
+        });
     }
 
-    componentWillUnmount() {
-        document.removeEventListener('keypress', this.handleKeyPress);
-    }
-
-    handleKeyPress = (e) => {
-        if (isKeyPressed(e, Constants.KeyCodes.ENTER)) {
-            this.handleSubmit(e);
-        }
+    handleCancel = () => {
+        this.props.onHide();
     };
 
     handleSubmit = () => {
+        let newPassword = this.state.form.newPassword;
+        let oldPassword = this.state.form.oldPassword;
+        if (newPassword === "" || oldPassword === "") {
+            let errorMes = "输入值为空";
+            this.setState({
+                isShowErrorMes: true,
+                errorMes: errorMes,
+            });
+            console.log(errorMes);
+            return;
+        }
+        if (!Utils.isValidPasswordNew(newPassword) || !Utils.isValidPasswordNew(oldPassword)) {
+            let errorMes = "输入密码不合理";
+            this.setState({
+                isShowErrorMes: true,
+                errorMes: errorMes,
+            });
+            console.log(errorMes);
+            return;
+        }
         this.props.actions.changePassword(this.state.form)
             .then((res) => {
-                if (res.data.Flag != undefined && res.data.Flag) {
+                if (res.result !== undefined && res.result.Flag) {
+                    console.log("修改密码成功");
                     this.props.onHide();
-                }else{
-
+                } else {
+                    console.log(res.result.Error);
+                    console.log('输入的原密码错误，请重新输入');
                 }
             })
     };
 
-    onChange(key, value) {
+    onClickToggleEye = () => {
         this.setState({
-            form: Object.assign(this.state.form, {[key]: value})
-        });
-    }
+            isEyeOpen: !this.state.isEyeOpen
+        })
+    };
 
     render() {
         return (
@@ -123,39 +97,40 @@ class ChangePasswordModal extends React.PureComponent {
                 dialogClassName='change-password'
                 show={this.props.show}
                 onHide={this.props.onHide}
-                id='changePhoneModal'
+                id='changePasswordModal'
                 role='dialog'
-                aria-labelledby='changePhoneModalLabel'
+                aria-labelledby='changePasswordModalLabel'
+                className='change-password'
             >
-                <Form ref="form" model={this.state.form} rules={this.state.rules} labelWidth="50"
+                <Form ref="form" model={this.state.form} rules={this.state.rules} labelWidth="64"
                       className="demo-ruleForm">
                     <Modal.Header closeButton={false}>
                         <Modal.Title
                             componentClass='div'
-                            id='changePhoneModalLabel'
+                            id='changePasswordModalLabel'
                         >
                             修改密码
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className={"tips"}>
+                        <div className={this.state.isShowErrorMes ? "tips" : "disNone"}>
                             <i className="el-icon-circle-close"/>
-                            您输入的原密码错误，请重新输入。
+                            {this.state.errorMes}
                         </div>
                         <div className={"form-inputs"}>
                             <Form.Item label="原密码" prop="oldPassword" className={"oldPassword"}>
                                 <Input placeholder="请输入原密码" value={this.state.form.oldPassword}
-                                       onChange={this.onChange.bind(this, 'oldPassword')}/>
+                                       type={"password"} onChange={this.onChange.bind(this, 'oldPassword')}/>
                             </Form.Item>
                             <Form.Item label="新密码" prop="newPassword" className={"newPassword"}>
                                 <Input placeholder="请输入新密码" value={this.state.form.newPassword}
+                                       type={this.state.isEyeOpen ? "text" : "password"}
                                        onChange={this.onChange.bind(this, 'newPassword')}/>
-                                <div className={"img-div"}>
+                                <div className={"img-div"} onClick={this.onClickToggleEye}>
                                     <img src={this.state.isEyeOpen ? eyeOpen : eye}
                                          alt={this.state.isEyeOpen ? "開" : "関"}/>
                                 </div>
                             </Form.Item>
-                            <hr/>
                             <div className={"usage-tip"}>
                                 密码必须至少8个字符，而且同时包含字母和数字
                             </div>
@@ -166,7 +141,7 @@ class ChangePasswordModal extends React.PureComponent {
                             type='button'
                             className='btn btn-danger'
                             onClick={this.handleSubmit}
-                            id='changePhoneYes'
+                            id='changePasswordYes'
                         >
                             确认
                         </button>
@@ -174,6 +149,7 @@ class ChangePasswordModal extends React.PureComponent {
                 </Form>
             </Modal>
         );
+
     }
 }
 

@@ -9,10 +9,10 @@
         text-align: center;
         margin-top: 95px;
     }
-    .account-alert{
+    .account-alert {
         display: none;
     }
-    .account-alert-show{
+    .account-alert-show {
         width: 240px;
         padding: 0 10px;
         margin: 0 auto;
@@ -22,6 +22,21 @@
         float: right;
         width: 429px;
         text-align: center;
+        margin-top: 4px;
+        .login_forgot {
+            margin-top: 157px;
+        }
+        .phoneLogoWords {
+            margin-bottom: 47px;
+        }
+
+        .site_name {
+            margin-top: 27px;
+            .phoneLogoWords {
+                margin-top: 5px;
+                margin-bottom: 54px;
+            }
+        }
         .login_box {
             width: 356px;
             height: 244px;
@@ -30,24 +45,40 @@
             box-shadow: 0 0 6px 0 rgba(207, 207, 207, 0.50);
             border-radius: 6px;
             margin: 0 auto;
+            position: relative;
+            .signup__email-container {
+                .account-alert-show {
+                    position: absolute;
+                    top: 3%;
+                    right: 16%;
+                    background: #FFEFF0;
+                    border-radius: 4px;
+                    width: 240px;
+                    font-size: 12px;
+                    color: #F56C6C;
+                    i {
+                        color: #F56C6C
+                    }
+                }
+            }
             input::-moz-placeholder {
-                color: rgba(0,0,0,0.20);
+                color: rgba(0, 0, 0, 0.20);
                 font-size: 14px;
             }
             input:-moz-placeholder {
-                color: rgba(0,0,0,0.20);
+                color: rgba(0, 0, 0, 0.20);
                 font-size: 14px;
             }
             input::-webkit-input-placeholder {
-                color: rgba(0,0,0,0.20);
+                color: rgba(0, 0, 0, 0.20);
                 font-size: 14px;
             }
                     input:-moz-placeholder {
-                color: rgba(0,0,0,0.20);
+                color: rgba(0, 0, 0, 0.20);
                 font-size: 14px;
             }
                     input:-ms-input-placeholder {
-                color: rgba(0,0,0,0.20);
+                color: rgba(0, 0, 0, 0.20);
                 font-size: 14px;
             }
             .form-group {
@@ -59,7 +90,7 @@
                 margin: 0 auto;
                 width: 240px;
             }
-            .input-username, .input-password, .input-password-close{
+            .input-username, .input-password, .input-password-close {
                 width: 240px;
                 margin: 0 auto;
                 border: 0;
@@ -67,13 +98,13 @@
                 border: none;
                 outline: none;
                 box-shadow: none;
-                padding:6px 18px;
+                padding: 6px 18px;
             }
             .input-username {
                 margin-top: 12px;
                 background: url("../../../images/ithpower/login/phone.png") left no-repeat;
             }
-            .input-password{
+            .input-password {
                 border: 0;
                 background: #fff;
                 border: none;
@@ -123,7 +154,7 @@
                         font-size: 12px;
                         font-weight: 400;
                     }
-                    span:hover{
+                    span:hover {
                         color: #3296FA;
                     }
                 }
@@ -133,29 +164,23 @@
                         color: #999999;
                         text-decoration: none;
                     }
-                    a:nth-child(1){
+                    a:nth-child(1) {
                         margin-right: 2px;
                     }
-                    a:nth-child(2){
+                    a:nth-child(2) {
                         margin-left: 2px;
                     }
-                    a:hover{
+                    a:hover {
                         color: #3296FA;
                     }
                 }
             }
         }
-        .login_forgot {
-            margin-top: 166px;
-        }
-        .phoneLogoWords {
-            margin-bottom: 47px;
-        }
     }
-    .heaven-eye{
+    .heaven-eye {
         display: inline-block;
         height: 100%;
-        cursor:pointer;
+        cursor: pointer;
     }
 
 }

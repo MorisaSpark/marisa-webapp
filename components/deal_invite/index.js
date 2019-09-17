@@ -5,9 +5,14 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 
-import {getTeams} from 'panguaxe-redux/actions/teams';
+import {getTeam, getTeams, getTeamsByUserId} from 'panguaxe-redux/actions/teams';
 import {getTeamsWithInviteByTelPhone, updateInviteReply} from 'panguaxe-redux/actions/invites';
-import {getCodeListByPCode, getAllPCodeList, getIndustriesByNameLike, getAllTCodeList} from 'panguaxe-redux/actions/industries';
+import {
+    getAllPCodeList,
+    getAllTCodeList,
+    getCodeListByPCode,
+    getIndustriesByNameLike
+} from 'panguaxe-redux/actions/industries';
 import {saveFillInTheMessage} from 'panguaxe-redux/actions/enterprises';
 import {loadRolesIfNeeded} from 'panguaxe-redux/actions/roles';
 import {getConfig} from 'panguaxe-redux/selectors/entities/general';
@@ -16,7 +21,7 @@ import {haveISystemPermission} from 'panguaxe-redux/selectors/entities/roles';
 import {getSortedListableTeams, getTeamMemberships} from 'panguaxe-redux/selectors/entities/teams';
 import {getCurrentUser} from 'panguaxe-redux/selectors/entities/users';
 import {setGlobalItem} from 'actions/storage';
-import {uploadFile, handleFileUploadEnd} from 'actions/file_actions.jsx';
+import {uploadFile} from 'actions/file_actions.jsx';
 
 import {addUserToTeam} from 'actions/team_actions';
 import {isGuest} from 'utils/utils';
@@ -48,6 +53,7 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators({
             getTeams,
+            getTeam,
             loadRolesIfNeeded,
             addUserToTeam,
             getTeamsWithInviteByTelPhone,
@@ -59,6 +65,7 @@ function mapDispatchToProps(dispatch) {
             saveFillInTheMessage,
             setDraft: setGlobalItem,
             uploadFile,
+            getTeamsByUserId,
         }, dispatch),
     };
 }

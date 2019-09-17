@@ -4,7 +4,7 @@
     top: 15%;
     .modal-content {
         width: 570px;
-        height: 288px;
+        min-height: 340px;
         .el-form {
             width: 100%;
             height: 100%;
@@ -17,7 +17,8 @@
                     font-size: 16px;
                     color: #666666;
                     text-align: center;
-                    margin-left: 230px;
+                    margin-left: 222px;
+                    font-weight: 600;
                 }
             }
         }
@@ -35,7 +36,7 @@
             }
             .tips {
                 position: absolute;
-                width: 316px;
+                width: 274px;
                 background: #FFEFF0;
                 border-radius: 4px;
                 font-size: 12px;
@@ -51,23 +52,27 @@
             .form-title {
                 font-size: 12px;
                 color: #999999;
-                margin-top: 4px;
+                margin-top: 34px;
                 span:nth-child(1) {
                     width: 145px;
                     display: inline-block;
                 }
             }
             .form-inputs {
-                margin-top: 30px;
                 .form-input {
-                    .el-input:nth-child(1) {
+                    margin-top: 8px;
+                    input:nth-child(1) {
                         display: inline-block;
                         width: 130px;
                         margin-right: 15px;
+                        font-size: 14px;
+                        color: #333333;
                     }
-                    .el-input:nth-child(2) {
+                    input:nth-child(2) {
                         display: inline-block;
                         width: 129px;
+                        font-size: 14px;
+                        color: #333333;
                     }
                 }
             }
@@ -76,6 +81,7 @@
                 font-size: 14px;
                 color: #3296FA;
                 display: inline-block;
+                cursor: pointer;
                 i {
                     margin-right: 5px;
                 }
@@ -105,6 +111,7 @@
         }
     }
 }
-.displayNone{
+
+.displayNone {
     display: none;
 }

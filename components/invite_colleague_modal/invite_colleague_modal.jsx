@@ -3,125 +3,124 @@
 
 import React from 'react';
 import {Modal} from 'react-bootstrap';
-import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
+import {injectIntl, intlShape} from 'react-intl';
 import PropTypes from 'prop-types';
 
-import Constants from 'utils/constants.jsx';
-import {isKeyPressed, isPhone} from 'utils/utils';
-
 import './invite_colleague_modal.scss'
-import {Button, Form, Input, Menu, Upload, Radio, Checkbox, MessageBox, Dialog} from 'element-react';
+import {Button, Form, Input} from 'element-react';
+import * as Utils from "../../utils/utils";
+import {t} from "../../utils/i18n";
 
 class InviteColleagueModal extends React.PureComponent {
     static propTypes = {
-
-        /**
-         * Current user id.
-         */
         currentUserId: PropTypes.string.isRequired,
-
-        /**
-         * Current team id.
-         */
         currentTeamId: PropTypes.string.isRequired,
-
-        /**
-         * hide action
-         */
-
+        modalId: PropTypes.string.isRequired,
         onHide: PropTypes.func.isRequired,
-
-        /**
-         * show or hide modal
-         */
-
         show: PropTypes.bool.isRequired,
-
         intl: intlShape.isRequired,
-
-        actions: PropTypes.shape({
-
-            /**
-             * An action to remove user from team
-             */
-
-            leaveTeam: PropTypes.func.isRequired,
-
-            /**
-             * An action to toggle the right menu
-             */
-
-            toggleSideBarRightMenu: PropTypes.func.isRequired,
-        }),
+        actions: PropTypes.shape({}),
     };
 
     constructor(props) {
         super(props);
         this.state = {
+            form: {
+                newPassword: "",
+                oldPassword: "",
+            },
+            isEyeOpen: false,
+            isShowErrorMes: false,
+            errorMes: " 您输入的原密码错误，请重新输入。",
             colleagueList: [
                 {
-                    phone: "",
-                    username: ""
+                    phone: '',
+                    username: "",
                 },
                 {
-                    phone: "",
-                    username: ""
+                    phone: '',
+                    username: "",
                 },
                 {
-                    phone: "",
-                    username: ""
+                    phone: '',
+                    username: "",
                 },
-            ],
-            isShowErrorMessage: false,
-            errorMessage: "",
+            ]
         }
     }
 
-    count = () => {
-        let deadTime = this.state.internal;
-        let isCountDown = true;
-        let timer1 = setInterval(() => {
-            console.log(deadTime);
-            console.log(isCountDown);
-            deadTime--;
-            if (deadTime <= 0) {
-                isCountDown = false;
-                window.clearInterval(timer1)
-            }
-            this.setState({deadTime: deadTime, isCountDown: isCountDown})
-        }, 1000);
-    };
 
-    componentDidMount() {
-        if (this.props.show) {
-            document.addEventListener('keypress', this.handleKeyPress);
-        }
+    onChange(key, value) {
+        console.log(this.state.form);
+        this.setState({
+            form: Object.assign({}, this.state.form, {[key]: value})
+        });
     }
 
-    componentWillUnmount() {
-        document.removeEventListener('keypress', this.handleKeyPress);
-    }
-
-    handleKeyPress = (e) => {
-        if (isKeyPressed(e, Constants.KeyCodes.ENTER)) {
-            this.handleSubmit(e);
-        }
+    handleCancel = () => {
+        this.props.onHide();
     };
 
     handleSubmit = () => {
-
         let colleagueList = this.state.colleagueList;
+        let tempList = [];
         for (let i in colleagueList) {
-            if (!(colleagueList[i]["phone"] === "" && colleagueList[i]["username"] === "") || isPhone(colleagueList[i]["phone"])) {
+            if ((colleagueList[i]["phone"] !== "" && colleagueList[i]["username"] === "") || (colleagueList[i]["phone"] === "" && colleagueList[i]["username"] !== "")) {
+                let errorMessage = "表单数据需同时存在，请完善表单/删去无效数据";
                 this.setState({
                     isShowErrorMessage: true,
-                    errorMessage: "缺少内容、手机号有误",
+                    errorMessage: errorMessage,
                 });
+                console.log(errorMessage);
                 return
+            }
+            if (colleagueList[i]["phone"] !== "" && colleagueList[i]["username"] !== "") {
+                tempList.push(colleagueList[i])
             }
         }
 
-        this.props.actions.inviteColleague(colleagueList)
+        for (let i in tempList) {
+            if (!Utils.isPhone(tempList[i]["phone"])) {
+                let errorMessage = "手机号号码不正确";
+                this.setState({
+                    isShowErrorMessage: true,
+                    errorMessage: errorMessage,
+                });
+                console.log(errorMessage);
+                return
+            }
+            let byteLength = Utils.getStringByteLength(tempList[i]["username"]);
+            if (byteLength < 4 || byteLength > 32) {
+                let errorMessage = "长度限制为4-32字节";
+                this.setState({
+                    isShowErrorMessage: true,
+                    errorMessage: errorMessage,
+                });
+                console.log(errorMessage);
+                return
+            }
+        }
+        if (tempList.length === 0) {
+            let errorMessage = "不存在手机号与姓名都合理的表单行";
+            this.setState({
+                isShowErrorMessage: true,
+                errorMessage: errorMessage,
+            });
+            console.log(errorMessage);
+            return
+        }
+        let data = {
+            teamId: this.props.currentTeamId,
+            userId: this.props.currentUserId,
+            colleagueList: tempList
+        };
+        console.log(data);
+        this.setState({
+            isShowErrorMessage: false,
+            errorMessage: "",
+        });
+
+        this.props.actions.inviteColleagues(data)
             .then((res) => {
                 if (res.result !== undefined && res.result.Flag) {
                     this.props.onHide();
@@ -134,18 +133,21 @@ class InviteColleagueModal extends React.PureComponent {
             })
     };
 
-    onChange(key, value) {
-        this.setState({
-            form: Object.assign(this.state.form, {[key]: value})
-        });
-    }
-
     onClickAddLine = () => {
-        let colleagueList = this.state.colleagueList;
+        let colleagueList = JSON.parse(JSON.stringify(this.state.colleagueList));
         colleagueList.push({phone: "", username: ""});
         this.setState({
             colleagueList
         })
+    };
+
+    onChangeFormInput = (index, key, e) => {
+        let colleagueList = JSON.parse(JSON.stringify(this.state.colleagueList));
+        colleagueList[index][key] = e.target.value;
+        this.setState({
+            colleagueList
+        });
+        console.log(this.state.colleagueList);
     };
 
     render() {
@@ -154,16 +156,16 @@ class InviteColleagueModal extends React.PureComponent {
                 dialogClassName='invite-colleague'
                 show={this.props.show}
                 onHide={this.props.onHide}
-                id='changePhoneModal'
+                id='invite-colleague'
                 role='dialog'
-                aria-labelledby='changePhoneModalLabel'
+                aria-labelledby='inviteColleagueModalLabel'
             >
                 <Form ref="form" model={this.state.form} rules={this.state.rules} labelWidth="64"
                       className="demo-ruleForm">
                     <Modal.Header closeButton={false}>
                         <Modal.Title
                             componentClass='div'
-                            id='changePhoneModalLabel'
+                            id='inviteColleagueModalLabel'
                         >
                             邀请同事加入
                         </Modal.Title>
@@ -182,8 +184,11 @@ class InviteColleagueModal extends React.PureComponent {
                                 this.state.colleagueList.map((colleague, index) => {
                                     return (
                                         <div className={"form-input"} key={index}>
-                                            <Input placeholder="请输入手机号" value={colleague.username}/>
-                                            <Input placeholder="请输入姓名" value={colleague.phone}/>
+                                            <input placeholder="请输入手机号" value={colleague["phone"]}
+                                                   onChange={this.onChangeFormInput.bind(this, index, 'phone')}/>
+                                            <input placeholder="请输入姓名"
+                                                   value={colleague["username"]}
+                                                   onChange={this.onChangeFormInput.bind(this, index, 'username')}/>
                                         </div>
                                     )
                                 })
@@ -199,7 +204,7 @@ class InviteColleagueModal extends React.PureComponent {
                             type='button'
                             className='btn btn-danger'
                             onClick={this.handleSubmit}
-                            id='changePhoneYes'
+                            id='inviteColleagueYes'
                         >
                             发送邀请
                         </button>

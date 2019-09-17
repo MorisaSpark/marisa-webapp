@@ -253,7 +253,7 @@ export default class PasswordResetSendLink extends React.PureComponent {
 
         // Record a successful login to local storage. If an unintentional logout occurs, e.g.
         // via session expiration, this bit won't get reset and we can notify the user as such.
-        LocalStorageStore.setWasLoggedIn(true);
+        LocalStorageStore.setWasLoggedIn(false);
         if (redirectTo && redirectTo.match(/^\/([^/]|$)/)) {
             browserHistory.push(redirectTo);
         } else if (team) {
@@ -268,7 +268,7 @@ export default class PasswordResetSendLink extends React.PureComponent {
     count = () => {
         let deadTime = this.state.internal;
         let isCountDown = true;
-        let timer1 =  setInterval(() => {
+        let timer1 = setInterval(() => {
             console.log(deadTime);
             console.log(isCountDown);
             deadTime--;
@@ -321,8 +321,27 @@ export default class PasswordResetSendLink extends React.PureComponent {
     }
 
     handleOnBlur = () => {
+        let phone = this.emailInput.current.value.trim();
+
+        if (phone === "") {
+            let errMes = '手机号必填';
+            this.setState({
+                isShowMessage: true,
+                serverError: errMes,
+                error: errMes,
+            });
+            return
+        }
+        if (Utils.isPhone(phone)) {
+            let errMes = '手机号格式不正确';
+            this.setState({
+                isShowMessage: true,
+                serverError: errMes,
+                error: errMes,
+            });
+            return
+        }
         if (this.state.isSignUpPage) {
-            let phone = this.emailInput.current.value.trim();
             this.props.actions.checkPhoneIsSignUp(phone)
                 .then((res) => {
                     console.log(res);
@@ -417,10 +436,10 @@ export default class PasswordResetSendLink extends React.PureComponent {
                                         <button
                                             id='verificationCodeButton'
                                             type='button'
-                                            className={'btn btn-primary btn-send-sms '+ (this.state.isCountDown?"css-ban-click":"")}
+                                            className={'btn btn-primary btn-send-sms ' + (this.state.isCountDown ? "css-ban-click" : "")}
                                             onClick={this.submitSendSMS}
                                         >
-                                            {this.state.isCountDown?(this.state.deadTime + " 秒"):("获取验证码")}
+                                            {this.state.isCountDown ? (this.state.deadTime + " 秒") : ("获取验证码")}
                                         </button>
                                     </div>
                                     <hr/>

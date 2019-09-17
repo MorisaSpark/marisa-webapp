@@ -1344,7 +1344,9 @@ export const Constants = {
     ADD_STAFF: {
         MAIN_FORM: 'mainForm',
         CUT_PIC: 'cutPic',
-        ADD_STAFF_BATCH: 'addStaffBatch'
+        ADD_STAFF_BATCH: 'addStaffBatch',
+        EXCHANGE_MANAGER: 'exchangeManager',
+        DEFAULT_MANAGER: '未设定'
     }
 };
 

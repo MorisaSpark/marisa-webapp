@@ -165,7 +165,7 @@ class LoginController extends React.Component {
         }
     }
 
-    toggleEyeURL = (e) =>{
+    toggleEyeURL = (e) => {
         this.setState({
             isEyeOpen: !this.state.isEyeOpen,
         })
@@ -254,7 +254,7 @@ class LoginController extends React.Component {
             }
 
             this.setState({
-                isShowMessage:true,
+                isShowMessage: true,
                 serverError: (
                     <FormattedMessage
                         id={msgId}
@@ -269,7 +269,7 @@ class LoginController extends React.Component {
 
         if (!password) {
             this.setState({
-                isShowMessage:true,
+                isShowMessage: true,
                 serverError: (
                     <FormattedMessage
                         id='login.noPassword'
@@ -283,7 +283,7 @@ class LoginController extends React.Component {
         let verificationCode = this.state.signException;
         if (!verificationCode && this.state.signExceptionFlag === true) {
             this.setState({
-                isShowMessage:true,
+                isShowMessage: true,
                 serverError: (
                     <FormattedMessage
                         id='login.verificationCodeError'
@@ -308,7 +308,7 @@ class LoginController extends React.Component {
                     this.setState({
                         showMfa: false,
                         loading: false,
-                        isShowMessage:true,
+                        isShowMessage: true,
                         serverError: (
                             <FormattedMessage
                                 id='login.userNotFound'
@@ -320,7 +320,7 @@ class LoginController extends React.Component {
                     this.setState({
                         showMfa: false,
                         loading: false,
-                        isShowMessage:true,
+                        isShowMessage: true,
                         serverError: (
                             <FormattedMessage
                                 id='login.invalidPassword'
@@ -335,7 +335,7 @@ class LoginController extends React.Component {
                         showMfa: false,
                         loading: false,
                         signExceptionFlag: true,
-                        isShowMessage:true,
+                        isShowMessage: true,
                         serverError: (
                             <FormattedMessage
                                 id='login.signExceptionForCode'
@@ -344,7 +344,7 @@ class LoginController extends React.Component {
                         ),
                     });
                 } else {
-                    this.setState({showMfa: false, isShowMessage:true, serverError: error.message, loading: false});
+                    this.setState({showMfa: false, isShowMessage: true, serverError: error.message, loading: false});
                 }
 
                 return;
@@ -370,37 +370,39 @@ class LoginController extends React.Component {
     }
 
     finishSignin = (team) => {
-        const experimentalPrimaryTeam = this.props.experimentalPrimaryTeam;
-        const query = new URLSearchParams(this.props.location.search);
-        const redirectTo = query.get('redirect_to');
+        // 所有都将通过 处理邀请、团队创建的页面
+        browserHistory.push('/deal_invite');
 
-        Utils.setCSRFFromCookie();
+        // const experimentalPrimaryTeam = this.props.experimentalPrimaryTeam;
+        // const query = new URLSearchParams(this.props.location.search);
+        // const redirectTo = query.get('redirect_to');
+        //
+        // Utils.setCSRFFromCookie();
+        // debugger;
 
-        // Record a successful login to local storage. If an unintentional logout occurs, e.g.
-        // via session expiration, this bit won't get reset and we can notify the user as such.
-        LocalStorageStore.setWasLoggedIn(this.state.rememberMe);
-        if (redirectTo && redirectTo.match(/^\/([^/]|$)/)) {
-            browserHistory.push(redirectTo);
-        } else if (team) {
-            browserHistory.push(`/${team.name}`);
-        } else if (experimentalPrimaryTeam) {
-            browserHistory.push(`/${experimentalPrimaryTeam}`);
-        } else {
-            GlobalActions.redirectUserToDefaultTeam();
-        }
+        // LocalStorageStore.setWasLoggedIn(this.state.rememberMe);
+        // if (redirectTo && redirectTo.match(/^\/([^/]|$)/)) {
+        //     browserHistory.push(redirectTo);
+        // } else if (team) {
+        //     browserHistory.push(`/${team.name}`);
+        // } else if (experimentalPrimaryTeam) {
+        //     browserHistory.push(`/${experimentalPrimaryTeam}`);
+        // } else {
+        // GlobalActions.redirectUserToDefaultTeam();
+        // }
     }
 
     handleLoginIdChange = (e) => {
         this.setState({
             loginId: e.target.value,
-            isLoginOK: (e.target.value!==""&&this.state.password!==""), // 信息都填入时按钮变蓝
+            isLoginOK: (e.target.value !== "" && this.state.password !== ""), // 信息都填入时按钮变蓝
         });
     }
 
     handlePasswordChange = (e) => {
         this.setState({
             password: e.target.value,
-            isLoginOK: (e.target.value!==""&&this.state.loginId!==""),
+            isLoginOK: (e.target.value !== "" && this.state.loginId !== ""),
         });
     }
 
@@ -488,7 +490,7 @@ class LoginController extends React.Component {
 
     handleRememberMe = () => {
         this.setState({
-            rememberMe:!this.state.rememberMe
+            rememberMe: !this.state.rememberMe
         })
     }
 
@@ -636,7 +638,8 @@ class LoginController extends React.Component {
                     className='login_box'
                 >
                     <div className='signup__email-container'>
-                        <Alert className={(this.state.isShowMessage?"account-alert-show":"account-alert")} closable={false} title={this.state.serverError}  type="error" showIcon={true} />
+                        <Alert className={(this.state.isShowMessage ? "account-alert-show" : "account-alert")}
+                               closable={false} title={this.state.serverError} type="error" showIcon={true}/>
 
                         <div className={'form-group' + errorClass}>
                             <input
@@ -656,7 +659,7 @@ class LoginController extends React.Component {
                         <div className={'form-group' + errorClass}>
                             <input
                                 id='loginPassword'
-                                type={this.state.isEyeOpen?"text":'password'}
+                                type={this.state.isEyeOpen ? "text" : 'password'}
                                 className={'form-control input-password'}
                                 ref='password'
                                 name='password'
@@ -666,16 +669,17 @@ class LoginController extends React.Component {
                                 spellCheck='false'
                             />
                             <div className="heaven-eye" onClick={this.toggleEyeURL}>
-                                <img src={this.state.isEyeOpen?eyeOpen:eye} alt="" />
+                                <img src={this.state.isEyeOpen ? eyeOpen : eye} alt=""/>
                             </div>
                             <hr/>
                         </div>
                         <div className='form-etc'>
                             <div className='auto-login'>
-                                <Checkbox checked={this.state.rememberMe}  onChange={this.handleRememberMe}>自动登录</Checkbox>
+                                <Checkbox checked={this.state.rememberMe}
+                                          onChange={this.handleRememberMe}>自动登录</Checkbox>
                             </div>
                             <div className='get-help'>
-                                <Link to={'/reset_password'} >忘记密码</Link>
+                                <Link to={'/reset_password'}>忘记密码</Link>
                                 |
                                 <Link to={'/sign_up'}>新用户注册</Link>
                             </div>
@@ -715,7 +719,7 @@ class LoginController extends React.Component {
                             <button
                                 id='loginButton'
                                 type='submit'
-                                className={'btn btn-primary btn-login'+(this.state.isLoginOK?"-ok":"")}
+                                className={'btn btn-primary btn-login' + (this.state.isLoginOK ? "-ok" : "")}
                             >
                                 <LoadingWrapper
                                     id='login_button_signing'
@@ -734,7 +738,7 @@ class LoginController extends React.Component {
             );
         }
 
-        if (1===0&&this.props.enableOpenServer && this.checkSignUpEnabled()) {
+        if (1 === 0 && this.props.enableOpenServer && this.checkSignUpEnabled()) {
             loginControls.push(
                 <div
                     className='form-group'

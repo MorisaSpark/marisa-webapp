@@ -7,6 +7,7 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import PropTypes from 'prop-types';
 
 import Constants from 'utils/constants.jsx';
+import GetVerifyCodeButton from '../get_verify_code_button';
 import {isKeyPressed} from 'utils/utils';
 
 import './change_phone_modal.scss'
@@ -109,6 +110,7 @@ class ChangePhoneModal extends React.PureComponent {
     }
 
     onChange(key, value) {
+        console.log(this.state.form);
         this.setState({
             form: Object.assign({}, this.state.form, {[key]: value})
         });
@@ -116,50 +118,31 @@ class ChangePhoneModal extends React.PureComponent {
 
     handleSubmit = () => {
         if (!Utils.isPhone(this.state.form.newPhone)) {
+            let errMes = "手机号不合理";
             this.setState({
                 isShowErrorMessage: true,
-                errorMessage: "手机号不合理",
+                errorMessage: errMes,
             });
+            console.log(errMes);
             return;
         }
-        let data = this.form;
-        this.props.actions.changePhone(data).then((res) => {
-            if (res.result.Flag) {
+        if(this.state.form.newPhone === this.state.user.email){
+
+            let errMes = "手机号为原手机号";
+            this.setState({
+                isShowErrorMessage: true,
+                errorMessage: errMes,
+            });
+            console.log(errMes);
+            return;
+
+        }
+        this.props.actions.changePhone(this.state.form).then((res) => {
+            if (res.data) {
+                console.log("修改手机号成功");
                 this.props.onHide();
             }
         })
-    };
-    submitSendSMS = () => {
-        if (this.state.isCountDown) {
-            return;
-        }
-        const phone = this.state.form.newPhone;
-        const typeM = Constants.VERIFICATION_CODE_TYPE.MESSAGE_CHANGE;
-        if (!Utils.isPhone(phone)) {
-            this.setState({
-                isShowErrorMessage: true,
-                errorMessage: "手机号不合理",
-            });
-            return;
-        } else {
-            this.setState({
-                isShowMessage: false,
-            })
-        }
-        this.props.actions.sendSMS(phone, typeM)
-            .then((data) => {
-                if (data["data"] === true) {
-                    console.log(data);
-                    let deadTime = this.state.internal;
-                    this.count();
-                    this.setState({
-                        deadTime: deadTime,
-                        isCountDown: true
-                    })
-                } else {
-
-                }
-            });
     };
 
     render() {
@@ -202,14 +185,8 @@ class ChangePhoneModal extends React.PureComponent {
                         <Form.Item label="验证码" prop="verifyCode" className={"verifyCode"}>
                             <Input placeholder="请输入验证码" value={this.state.form.verifyCode}
                                    onChange={this.onChange.bind(this, 'verifyCode')}/>
-                            <button
-                                id='verificationCodeButton'
-                                type='button'
-                                className={'btn btn-primary btn-send-sms ' + (this.state.isCountDown ? "css-ban-click" : "")}
-                                onClick={this.submitSendSMS}
-                            >
-                                {this.state.isCountDown ? (this.state.deadTime + " 秒") : ("获取验证码")}
-                            </button>
+                            <GetVerifyCodeButton newPhone={this.state.form.newPhone}
+                                                 typeM={Constants.VERIFICATION_CODE_TYPE.MESSAGE_CHANGE}/>
                         </Form.Item>
                     </Modal.Body>
                     <Modal.Footer>

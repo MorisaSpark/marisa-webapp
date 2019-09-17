@@ -1193,11 +1193,20 @@ export function isMobile() {
 // 验证输入手机号格式
 export function isPhone(phone) {
     return /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(phone);
-}isPhone
+}
 
 // 验证输入验证码格式
 export function isVerificationCode(verificationCode) {
     return /^\d{6}$/.test(verificationCode);
+}
+// 验证输入密码格式（8-20，含英文）
+export function isValidPasswordNew(password) {
+    let s = password.toLowerCase();
+    return (s.length>=8&&s.length<=20&&/[A-Za-z]+/.test(password));
+}
+// 获取字符串字节数
+export function getStringByteLength(str) {
+    return str.replace(/[^x00-xFF]/g,'**').length;
 }
 
 
@@ -1638,13 +1647,13 @@ export function isValidPassword(password, passwordConfig) {
         errorId += 'Number';
     }
 
-    if (passwordConfig.requireSymbol) {
-        if (!password.match(/[ !"\\#$%&'()*+,-./:;<=>?@[\]^_`|~]/)) {
-            valid = false;
-        }
-
-        errorId += 'Symbol';
-    }
+    // if (passwordConfig.requireSymbol) {
+    //     if (!password.match(/[ !"\\#$%&'()*+,-./:;<=>?@[\]^_`|~]/)) {
+    //         valid = false;
+    //     }
+    //
+    //     errorId += 'Symbol';
+    // }
 
     let error;
     if (!valid) {

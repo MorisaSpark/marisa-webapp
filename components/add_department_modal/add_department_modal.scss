@@ -1,11 +1,20 @@
 @import 'utils/variables';
 
-.change-phone {
+.add-department {
     .a11y__modal {
         top: 15%;
         .modal-content {
-            width: 570px;
-            height: 288px;
+            width: 626px;
+            max-height: 262px;
+            .el-form-item {
+                margin-bottom: 0px;
+                .el-form-item__label {
+                    font-size: 12px;
+                    color: #999999;
+                    font-weight: 400;
+                }
+            }
+
             .el-form {
                 width: 100%;
                 height: 100%;
@@ -15,88 +24,104 @@
                 border: none;
                 font-size: 16px;
                 color: #666666;
+                max-height: 50px;
+                box-sizing: border-box;
+                padding: 0px;
                 div {
-                    font-size: 16px;
-                    color: #666666;
                     text-align: center;
-                    margin-left: 230px;
+                    margin-left: 285px;
+                    font-size: 14px;
+                    color: #666666;
+                    height: 50px;
+                    font-weight: 600;
+                    line-height: 50px;
                 }
             }
             .modal-body {
-                padding: 20px 124px 0;
-                .tips {
-                    font-size: 14px;
-                    color: #666666;
-                }
-                .now-phone {
-                    margin: 5px 0 16px;
-                    span:nth-child(1) {
-                        font-size: 14px;
-                        color: #999999;
+                padding: 20px 124px 0 150px;
+                min-height: 212px;
+                overflow: visible;
+                .wholeName {
+                    .el-form-item__label {
+                        padding-top: 13px;
                     }
-                    span:nth-child(2) {
-                        margin-left: 5px;
-                        font-size: 14px;
-                        color: #333333;
+                    .el-form-item__content {
+                        width: 264px;
+                        .el-input {
+                            width: 264px;
+                            input {
+                                font-size: 12px;
+                                height: 30px;
+                            }
+                        }
                     }
                 }
+                .name-tips {
+                    font-size: 12px;
+                    color: #CCCCCC;
+                    width: 264px;
+                    margin-left: 65px;
+                }
+
                 input {
                     font-weight: 400;
                     border: 0;
                     outline: none;
                     border-bottom: 1px solid #D9D9D9;
                     border-radius: unset;
-                    width: 100%;
+                    width: 264px;
                     padding-left: 0px;
                 }
-            }
-            .verifyCode {
-                .el-input {
-                    width: 180px;
+                .el-select-dropdown {
+                    top: 34px !important;
+                    width: 264px;
                 }
-                .btn-send-sms {
-                    margin: 0;
-                    background: #F5F6F8;
-                    border: 0 solid #E3E3E4;
-                    border-radius: 2px;
-                    width: 72px;
-                    height: 21px;
-
-                    font-size: 12px;
-                    color: #333333;
-                    padding: 2px 6px;
-                    font-weight: 500;
-                    outline: none;
-                }
-                .el-form-item__content {
-                    border-bottom: 1px solid #D9D9D9;
-                    input{
-                        border: none;
+                .el-select {
+                    .el-input {
+                        input {
+                            width: 264px;
+                        }
                     }
                 }
-            }
-            .modal-footer {
-                border: none;
-                text-align: center;
-                margin-top: 15px;
-                .btn-danger {
-                    background: #3296FA;
-                    border-radius: 2px;
-                    font-size: 16px;
-                    color: #FFFFFF;
+                .footer {
                     border: none;
-                    width: 240px;
-                    height: 40px;
-                }
-            }
-            .el-form-item {
-                margin-bottom: 0px;
-                .el-form-item__label {
-                    font-size: 12px;
-                    color: #999999;
-                    font-weight: 400;
+                    text-align: center;
+                    margin-top: 18px;
+                    .btn-danger {
+                        background: #3296FA;
+                        border-radius: 2px;
+                        font-size: 16px;
+                        color: #FFFFFF;
+                        border: none;
+                        width: 240px;
+                        height: 40px;
+                    }
+                    button:nth-child(1) {
+                        background: #FFFFFF;
+                        border: 1px solid #C3C6CE;
+                        border-radius: 2px;
+                        width: 62px;
+                        height: 32px;
+                        font-size: 14px;
+                        color: #666666;
+                        text-indent: 2px;
+                        letter-spacing: 5px;
+                    }
+                    button:nth-child(2) {
+                        width: 62px;
+                        text-indent: 2px;
+                        letter-spacing: 5px;
+                        height: 32px;
+                        font-size: 14px;
+                        color: #FFFFFF;
+                        margin-left: 20px;
+                    }
                 }
             }
         }
     }
+}
+
+.disNone {
+    display: none;
 }

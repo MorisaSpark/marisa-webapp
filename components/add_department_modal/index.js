@@ -5,9 +5,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getCurrentUserId} from 'panguaxe-redux/selectors/entities/users';
 import {getCurrentTeamId} from 'panguaxe-redux/selectors/entities/teams';
-import {removeUserFromTeam as leaveTeam} from 'panguaxe-redux/actions/teams';
+import {addDepartment, getAllDepartmentByTeamId} from 'panguaxe-redux/actions/departments';
+import {getTeamById} from 'panguaxe-redux/actions/teams';
 
-import {toggleSideBarRightMenuAction} from 'actions/global_actions.jsx';
 import {ModalIdentifiers} from 'utils/constants';
 
 import {isModalOpen} from 'selectors/views/modals';
@@ -29,8 +29,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators({
-            leaveTeam,
-            toggleSideBarRightMenu: toggleSideBarRightMenuAction,
+            addDepartment,
+            getAllDepartmentByTeamId,
+            getTeamById,
         }, dispatch),
     };
 }

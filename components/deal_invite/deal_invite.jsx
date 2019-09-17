@@ -7,43 +7,27 @@ import {Link} from 'react-router-dom';
 
 import {Permissions} from 'panguaxe-redux/constants';
 
-import {emitUserLoggedOutEvent} from 'actions/global_actions.jsx';
-
 import * as UserAgent from 'utils/user_agent.jsx';
 import Constants from 'utils/constants.jsx';
 
-import logoImage from 'images/logo.png';
+import logoImage from 'images/ithpower/login/logo_words.png';
 import FileUpload from 'components/file_upload';
-import {sortFileInfos, getFileThumbnailUrl, getFileUrl} from 'panguaxe-redux/utils/file_utils';
-import AnnouncementBar from 'components/announcement_bar';
-import LoadingScreen from 'components/loading_screen.jsx';
-import SystemPermissionGate from 'components/permissions_gates/system_permission_gate';
-import SiteNameAndDescription from 'components/common/site_name_and_description';
-import LogoutIcon from 'components/icon/logout_icon';
-import 'cropperjs/dist/cropper.css';
-import FormattedMarkdownMessage from 'components/formatted_markdown_message';
-import {defineMessages, intlShape, FormattedMessage} from 'react-intl';
-import {} from 'panguaxe-redux/utils/file_utils';
+import {getFileThumbnailUrl, getFileUrl, sortFileInfos} from 'panguaxe-redux/utils/file_utils';
+import {intlShape} from 'react-intl';
 import './deal_invite.scss'
 import {Button, Form, Input, Menu, Upload} from 'element-react';
 import 'element-theme-default';
-import AttachmentIcon from 'components/svg/attachment_icon';
-import {t} from "../../utils/i18n";
-import {isIosChrome, isMobileApp} from "../../utils/user_agent";
 import {browserHistory} from "../../utils/browser_history";
 import {StoragePrefixes} from "../../utils/constants";
-import {generateId} from "../../utils/utils";
 import * as Utils from "../../utils/utils";
+import {generateId} from "../../utils/utils";
 import LocalStorageStore from "../../stores/local_storage_store";
 import * as GlobalActions from "../../actions/global_actions";
-
-import UploadPart from 'components/upload_part';
+import Cropper from 'react-cropper'
+import 'cropperjs/dist/cropper.css'
 
 const TEAMS_PER_PAGE = 200;
 const TEAM_MEMBERSHIP_DENIAL_ERROR_ID = 'api.team.add_members.user_denied';
-
-import Cropper from 'react-cropper'
-import 'cropperjs/dist/cropper.css'
 
 export default class DealInvite extends React.Component {
     static propTypes = {
@@ -65,7 +49,7 @@ export default class DealInvite extends React.Component {
             loadRolesIfNeeded: PropTypes.func.isRequired,
             addUserToTeam: PropTypes.func.isRequired,
             updateInviteReply: PropTypes.func.isRequired,
-            uploadFile: PropTypes.func.isRequired,
+            getTeamsByUserId: PropTypes.func.isRequired,
         }).isRequired,
         draft: PropTypes.shape({
             message: PropTypes.string.isRequired,
@@ -133,42 +117,7 @@ export default class DealInvite extends React.Component {
                 codeList: [],
             },
 
-            rules: {
-                username: [
-                    {required: true, message: "请输入", trigger: 'blur'},
-                    {
-                        validator: (rule, value, callback) => {
-                            if (value === '') {
-                                callback(new Error("请输入用户名"));
-                            } else if (value.length > 32 || value.length < 4) {
-                                callback(new Error("长度应介于4-32位"))
-                            } else {
-                                callback()
-                            }
-                        }
-                    }
-                ],
-                enterpriseFullName: [
-                    {required: true, message: "请输入", trigger: 'blur'},
-                    {
-                        validator: (rule, value, callback) => {
-                            if (value === '') {
-                                callback(new Error("请输入企业全称"));
-                            } else if (value.length > 32 || value.length < 4) {
-                                callback(new Error("长度应介于4-32位"))
-                            } else {
-                                callback()
-                            }
-                        }
-                    }
-                ],
-                enterpriseShortName: [
-                    {required: true, message: "请输入", trigger: 'blur'},
-                ],
-                industryType: [
-                    {required: true, message: "请输入", trigger: 'blur'}
-                ],
-            },
+            rules: {},
 
         };
     }
@@ -185,9 +134,17 @@ export default class DealInvite extends React.Component {
                             });
                         }
                     } else {
-                        this.setState({
-                            showPage: Constants.DEAL_INVITE_TYPE.FILL_IN,
-                        })
+                        this.props.actions.getTeamsByUserId({userId: this.props.currentUserId})
+                            .then((res) => {
+                                console.log(res);
+                                if (res.result !== undefined && res.result.length > 0) {
+                                    this.finishSignin();
+                                } else {
+                                    this.setState({
+                                        showPage: Constants.DEAL_INVITE_TYPE.FILL_IN,
+                                    })
+                                }
+                            });
                     }
                 }
             });
@@ -332,7 +289,7 @@ export default class DealInvite extends React.Component {
 
         // Record a successful login to local storage. If an unintentional logout occurs, e.g.
         // via session expiration, this bit won't get reset and we can notify the user as such.
-        LocalStorageStore.setWasLoggedIn(true);
+        LocalStorageStore.setWasLoggedIn(false);
         if (redirectTo && redirectTo.match(/^\/([^/]|$)/)) {
             browserHistory.push(redirectTo);
         } else if (team) {
@@ -416,7 +373,7 @@ export default class DealInvite extends React.Component {
                             enterpriseInvite: enterpriseInvite,
                             showPage: Constants.DEAL_INVITE_TYPE.FILL_IN
                         })
-                    } else if(enterpriseInvite.length === 0 && this.state.enterpriseTeamId !== ""){
+                    } else if (enterpriseInvite.length === 0 && this.state.enterpriseTeamId !== "") {
                         this.finishSignin()
                     } else {
                         this.setState({

@@ -3,54 +3,23 @@
 
 import React from 'react';
 import {Modal} from 'react-bootstrap';
-import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
+import {injectIntl, intlShape} from 'react-intl';
 import PropTypes from 'prop-types';
 
-import Constants from 'utils/constants.jsx';
-import {isKeyPressed} from 'utils/utils';
-
 import './add_department_modal.scss'
-import {Button, Form, Input, Menu, Upload, Radio, Checkbox, MessageBox, Dialog} from 'element-react';
+import {Button, Form, Input, Select} from 'element-react';
+import * as Utils from "../../utils/utils";
 
 class AddDepartmentModal extends React.PureComponent {
     static propTypes = {
 
-        /**
-         * Current user id.
-         */
         currentUserId: PropTypes.string.isRequired,
-
-        /**
-         * Current team id.
-         */
         currentTeamId: PropTypes.string.isRequired,
-
-        /**
-         * hide action
-         */
-
+        modalId: PropTypes.string.isRequired,
         onHide: PropTypes.func.isRequired,
-
-        /**
-         * show or hide modal
-         */
-
         show: PropTypes.bool.isRequired,
-
         intl: intlShape.isRequired,
-
         actions: PropTypes.shape({
-
-            /**
-             * An action to remove user from team
-             */
-
-            leaveTeam: PropTypes.func.isRequired,
-
-            /**
-             * An action to toggle the right menu
-             */
-
             toggleSideBarRightMenu: PropTypes.func.isRequired,
         }),
     };
@@ -63,115 +32,166 @@ class AddDepartmentModal extends React.PureComponent {
             internal: 10,
 
             form: {
-                newPhone: "",
-                verifyCode: "",
-            }
+                wholeName: "",
+                pId: 0,
+                teamId: "",
+            },
+            isShowErrorMes: false,
+            errorMes: "",
+            departmentList: [],
+            pName: "",
+            isShowDepartmentList: false,
+            teamName: "",
         }
     }
 
-    count = () => {
-        let deadTime = this.state.internal;
-        let isCountDown = true;
-        let timer1 = setInterval(() => {
-            console.log(deadTime);
-            console.log(isCountDown);
-            deadTime--;
-            if (deadTime <= 0) {
-                isCountDown = false;
-                window.clearInterval(timer1)
-            }
-            this.setState({deadTime: deadTime, isCountDown: isCountDown})
-        }, 1000);
-    };
-
-    componentDidMount() {
-        if (this.props.show) {
-            document.addEventListener('keypress', this.handleKeyPress);
-        }
+    componentWillMount() {
+        this.props.actions.getAllDepartmentByTeamId({teamName: this.props.currentTeamId})
+            .then((res) => {
+                let result = res.result;
+                if (result !== undefined) {
+                    if (result.Flag) {
+                        console.log("查询成功");
+                        this.setState({
+                            departmentList: result.Data.Rows.length === 0 ? [] : result.Data.Rows,
+                        })
+                    } else {
+                        console.log("查询失败");
+                        this.setState({
+                            isShowErrorMes: true,
+                            errorMes: result.Error,
+                        })
+                    }
+                }
+            });
+        this.props.actions.getTeamById({teamId: this.props.currentTeamId})
+            .then((res) => {
+                if (res.result !== undefined) {
+                    this.setState({
+                        teamName: res.result.display_name,
+                    })
+                }
+            })
     }
-
-    componentWillUnmount() {
-        document.removeEventListener('keypress', this.handleKeyPress);
-    }
-
-    handleKeyPress = (e) => {
-        if (isKeyPressed(e, Constants.KeyCodes.ENTER)) {
-            this.handleSubmit(e);
-        }
-    };
-
-    handleSubmit = () => {
-        this.props.onHide();
-        // this.props.actions.leaveTeam(this.props.currentTeamId, this.props.currentUserId);
-        // this.props.actions.toggleSideBarRightMenu();
-    };
 
     onChange(key, value) {
+        console.log(this.state.form);
         this.setState({
-            form: Object.assign(this.state.form, {[key]: value})
+            form: Object.assign({}, this.state.form, {[key]: value})
         });
     }
+
+    handleSubmit = () => {
+        let form = this.state.form;
+        console.log(this.state);
+        if (form.wholeName === "") {
+            let errorMes = "输入项为空";
+            this.setState({
+                isShowErrorMes: true,
+                errorMes,
+            });
+            console.log(errorMes);
+            return
+        }
+        let byteLength = Utils.getStringByteLength(form.wholeName);
+        if (byteLength < 4 || byteLength > 32) {
+            let errorMes = "输入长度不符合";
+            this.setState({
+                isShowErrorMes: true,
+                errorMes,
+            });
+            console.log(errorMes);
+            return
+        }
+        form.teamId = this.props.currentTeamId;
+        console.log(form);
+        this.props.actions.addDepartment(form)
+            .then((res) => {
+                if (res.result !== undefined) {
+                    if (res.result.Flag) {
+                        console.log("添加成功");
+                        this.props.onHide();
+                    } else {
+                        console.log(res.result.error);
+                    }
+                }
+            })
+    };
+    handleCancel = () => {
+        this.props.onHide();
+    };
+    handleChange = (e) => {
+        console.log(e);
+        let form = this.state.form;
+        form.pId = e;
+        this.setState({
+            form: form
+        });
+        console.log(this.state);
+    };
 
     render() {
         return (
             <Modal
                 dialogClassName='a11y__modal'
-                className='change-phone'
+                className='add-department'
                 show={this.props.show}
                 onHide={this.props.onHide}
-                id='changePhoneModal'
+                id='addDepartmentModal'
                 role='dialog'
-                aria-labelledby='changePhoneModalLabel'
+                aria-labelledby='addDepartmentModalLabel'
             >
                 <Form ref="form" model={this.state.form} rules={this.state.rules} labelWidth="64"
                       className="demo-ruleForm">
                     <Modal.Header closeButton={false}>
                         <Modal.Title
                             componentClass='div'
-                            id='changePhoneModalLabel'
+                            id='addDepartmentModalLabel'
                         >
-                            更换手机号
+                            添加部门
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className={"tips"}>
-                            手机号更换后，下次登录请使用新手机号登录。
-                        </div>
-                        <div className={"now-phone"}>
-                           <span>
-                               当前手机号
-                           </span>
-                           <span>
-                                150 0000 0000
-                           </span>
-                        </div>
-                        <Form.Item label="新手机号" prop="newPhone" className={"newPhone"}>
-                            <Input placeholder="请输入您的手机号" value={this.state.form.newPhone}
-                                   onChange={this.onChange.bind(this, 'newPhone')}/>
+                        <Form.Item label="名称" prop="wholeName" className={"wholeName"}>
+                            <Input placeholder="部门名称，“-”分隔上下级部门" value={this.state.form.wholeName}
+                                   onChange={this.onChange.bind(this, 'wholeName')}/>
                         </Form.Item>
-                        <Form.Item label="验证码" prop="verifyCode" className={"verifyCode"}>
-                            <Input placeholder="请输入验证码" value={this.state.form.verifyCode}
-                                   onChange={this.onChange.bind(this, 'verifyCode')}/>
+                        <div className={"name-tips"}>
+                            如“研发部-测试部”，将创建“研发部”及其下级部门“测试部”
+                        </div>
+                        <Form.Item label="上级部门" prop="pName" className={"pName"}>
+                            <Select onChange={this.handleChange} filterable={true} placeholder={this.state.teamName}>
+                                {
+                                    this.state.departmentList.map(department => {
+                                        return (
+                                            <Select.Option key={department.id} label={department.name}
+                                                           value={department.id}>
+                                                <span>{department.name}</span>
+                                            </Select.Option>
+                                        )
+                                    })
+                                }
+                            </Select>
+                        </Form.Item>
+                        <div className={"footer"}>
                             <button
-                                id='verificationCodeButton'
                                 type='button'
-                                className={'btn btn-primary btn-send-sms ' + (this.state.isCountDown ? "css-ban-click" : "")}
-                                onClick={this.submitSendSMS}
+                                className='btn btn-danger'
+                                onClick={this.handleCancel}
+                                id='addDepartmentNo'
                             >
-                                {this.state.isCountDown ? (this.state.deadTime + " 秒") : ("获取验证码")}
+                                取消
                             </button>
-                        </Form.Item>
+                            <button
+                                type='button'
+                                className='btn btn-danger'
+                                onClick={this.handleSubmit}
+                                id='addDepartmentYes'
+                            >
+                                确认
+                            </button>
+                        </div>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <button
-                            type='button'
-                            className='btn btn-danger'
-                            onClick={this.handleSubmit}
-                            id='changePhoneYes'
-                        >
-                            确认
-                        </button>
-                    </Modal.Footer>
                 </Form>
             </Modal>
         );
