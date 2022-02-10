@@ -110,7 +110,7 @@
     "jquery-deferred": "0.3.1",
     "mini-css-extract-plugin": "0.8.0",
     "mmjstool": "github:mattermost/mattermost-utilities#89543752e9c3b7fe4ad41d3af3821d3923198c20",
-    "node-sass": "4.12.0",
+    "node-sass": "7.0.0",
     "react-router-enzyme-context": "1.2.0",
     "redux-mock-store": "1.5.3",
     "redux-persist-node-storage": "2.0.0",
