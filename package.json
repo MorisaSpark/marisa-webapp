@@ -36,7 +36,7 @@
     "mark.js": "8.11.1",
     "marked": "github:mattermost/marked#3c10e2109527cd14a76e1f8edd9d317d8b8988b0",
     "panguaxe-redux": "file:/Users/ben/Documents/workplace/GoLandProjects/mattermostdir/panguaxe-redux",
-    "moment-timezone": "0.5.26",
+    "moment-timezone": "0.5.35",
     "pdfjs-dist": "2.0.489",
     "perfect-scrollbar": "0.8.1",
     "popmotion": "8.7.0",
